@@ -1,0 +1,2 @@
+# devcraft
+Default CraftCMS installation
