@@ -17,3 +17,7 @@
         <li>Typed link Field</li>
         <li>Cookiebot</li>
           <li>Sitemap XML / Sproutforms XML</li></ul>
+
+
+
+  <p><strong>* For database credentials ask Dennis or Niels for more info.</strong></p>
