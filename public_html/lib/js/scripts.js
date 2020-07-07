@@ -31,13 +31,3 @@ $(document).ready(function(){
         $("body").toggleClass("fixed");
 	})
 })();
-
-// Set the height of header as padding to master-wrapper 
-$(document).ready(function() {
-	var divHeight = $('header').height(); 
-	$('#master-wrapper').css('padding-top', divHeight+'px');
-});
-$( window ).resize(function() {
-	var divHeight = $('header').height(); 
-	$('#master-wrapper').css('padding-top', divHeight+'px');
-});
