@@ -48,7 +48,7 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
 		
-        {%if bedrijfsgegevens.altLogo|length > 0 %} {% set logo = bedrijfsgegevens.logo.one().getUrl %} {%endif%}
+        {%if bedrijfsgegevens.logo|length > 0 %} {% set logo = bedrijfsgegevens.logo.one().getUrl %} {%endif%}
         {%if bedrijfsgegevens.altLogo|length > 0 %} {% set altlogo = bedrijfsgegevens.altLogo.one().getUrl %} {%endif%}
         {% set adres = bedrijfsgegevens.adres %}
         {% set email = bedrijfsgegevens.mailAdres %}
