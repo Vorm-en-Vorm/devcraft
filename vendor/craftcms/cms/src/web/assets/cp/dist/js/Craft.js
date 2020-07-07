@@ -22,7 +22,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-/*!   - 2020-06-11 */
+/*!   - 2020-06-30 */
 (function ($) {
   /** global: Craft */
 
@@ -726,9 +726,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               } else if (_this3._apiHeaders && _this3._apiHeaders['X-Craft-License'] === '__REQUEST__' && _this3._apiHeaderWaitlist.length) {
                 // The request didn't send headers. Go ahead and resolve the next request on the
                 // header waitlist.
-                var _item = _this3._apiHeaderWaitlist.shift();
+                var item = _this3._apiHeaderWaitlist.shift();
 
-                _item[0](_this3._apiHeaders);
+                item[0](_this3._apiHeaders);
               }
             }
           })["catch"](reject);
@@ -784,10 +784,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           _this4._loadingApiHeaders = false;
           reject(e); // Was anything else waiting for them?
 
-          var item;
-
-          while (item = _this4._apiHeaderWaitlist.shift()) {
-            item[1](e);
+          while (_this4._apiHeaderWaitlist.length) {
+            _this4._apiHeaderWaitlist.shift()[1](e);
           }
         });
       });
@@ -795,10 +793,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     _resolveHeaderWaitlist: function _resolveHeaderWaitlist() {
       this._loadingApiHeaders = false; // Was anything else waiting for them?
 
-      var item;
-
-      while (item = this._apiHeaderWaitlist.shift()) {
-        item[0](this._apiHeaders);
+      while (this._apiHeaderWaitlist.length) {
+        this._apiHeaderWaitlist.shift()[0](this._apiHeaders);
       }
     },
 
@@ -810,8 +806,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       this._processedApiHeaders = false;
       this._loadingApiHeaders = false; // Reject anything in the header waitlist
 
-      while (item = this._apiHeaderWaitlist.shift()) {
-        item[1]();
+      while (this._apiHeaderWaitlist.length) {
+        this._apiHeaderWaitlist.shift()[1]();
       }
     },
 
@@ -4297,8 +4293,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       return this.elementSelect.$selectedItems;
     },
     getSelectedElementIds: function getSelectedElementIds() {
-      var $selectedElements = this.getSelectedElements(),
-          ids = [];
+      var $selectedElements;
+
+      try {
+        $selectedElements = this.getSelectedElements();
+      } catch (e) {}
+
+      var ids = [];
 
       if ($selectedElements) {
         for (var i = 0; i < $selectedElements.length; i++) {
@@ -13534,6 +13535,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     },
     afterUpdate: function afterUpdate(data) {
       Craft.cp.$primaryForm.data('initialSerializedValue', data);
+      Craft.initialDeltaValues = {};
       this.statusIcons().removeClass('hidden').addClass('checkmark-icon').attr('title', Craft.t('app', 'The draft has been saved.'));
       this.trigger('update');
       this.nextInQueue();
@@ -16446,7 +16448,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       this.$icon = $(icon);
       this.addListener(this.$icon, 'click', 'showHud');
     },
-    showHud: function showHud() {
+    showHud: function showHud(ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+
       if (!this.hud) {
         this.hud = new Garnish.HUD(this.$icon, this.$icon.html(), {
           hudClass: 'hud info-hud',

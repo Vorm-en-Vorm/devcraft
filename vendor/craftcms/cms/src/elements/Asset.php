@@ -929,10 +929,13 @@ class Asset extends Element
     /**
      * Returns the element’s full URL.
      *
-     * @param string|array|null $transform The transform that should be applied, if any. Can either be the handle of a named transform, or an array that defines the transform settings.
+     * @param string|array|null $transform The transform that should be applied, if any. Can either be the handle of a named transform, or an array
+     * that defines the transform settings.
+     * @param bool|null $generateNow Whether the transformed image should be generated immediately if it doesn’t exist. If `null`, it will be left
+     * up to the `generateTransformsBeforePageLoad` config setting.
      * @return string|null
      */
-    public function getUrl($transform = null)
+    public function getUrl($transform = null, bool $generateNow = null)
     {
         /** @var Volume $volume */
         $volume = $this->getVolume();
@@ -962,7 +965,7 @@ class Asset extends Element
         }
 
         try {
-            return Craft::$app->getAssets()->getAssetUrl($this, $transform);
+            return Craft::$app->getAssets()->getAssetUrl($this, $transform, $generateNow);
         } catch (VolumeObjectNotFoundException $e) {
             Craft::error("Could not determine asset's URL ({$this->id}): {$e->getMessage()}");
             Craft::$app->getErrorHandler()->logException($e);
@@ -1770,7 +1773,14 @@ class Asset extends Element
         $transform = Craft::$app->getAssetTransforms()->normalizeTransform($transform);
 
         if ($this->_width < $transform->width && $this->_height < $transform->height && !Craft::$app->getConfig()->getGeneral()->upscaleImages) {
-            return [$this->_width, $this->_height];
+            $transformRatio = $transform->width / $transform->height;
+            $imageRatio = $this->_width / $this->_height;
+
+            if ($transform->mode !== 'crop' || $imageRatio === $transformRatio) {
+                return [$this->_width, $this->_height];
+            }
+
+            return $transformRatio > 1 ? [$this->_width, round($this->_height / $transformRatio)] : [round($this->_width * $transformRatio), $this->_height];
         }
 
         list($width, $height) = Image::calculateMissingDimension($transform->width, $transform->height, $this->_width, $this->_height);

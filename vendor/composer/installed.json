@@ -805,12 +805,12 @@
     },
     {
         "name": "craftcms/cms",
-        "version": "3.4.24",
-        "version_normalized": "3.4.24.0",
+        "version": "3.4.27",
+        "version_normalized": "3.4.27.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/craftcms/cms/zipball/a85014a2aa5ea538a9054b360ec257b9e663ac87",
-            "reference": "a85014a2aa5ea538a9054b360ec257b9e663ac87",
+            "url": "https://api.github.com/repos/craftcms/cms/zipball/68d7e40efc7630fc319a27e0536426028d7baa50",
+            "reference": "68d7e40efc7630fc319a27e0536426028d7baa50",
             "shasum": ""
         },
         "require": {
@@ -866,7 +866,7 @@
             "ext-imagick": "Adds support for more image processing formats and options.",
             "ext-intl": "Adds rich internationalization support."
         },
-        "time": "2020-06-16T19:34:38+00:00",
+        "time": "2020-07-03T19:20:14+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1475,18 +1475,18 @@
     },
     {
         "name": "ezyang/htmlpurifier",
-        "version": "v4.12.0",
-        "version_normalized": "4.12.0.0",
+        "version": "v4.13.0",
+        "version_normalized": "4.13.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/a617e55bc62a87eec73bd456d146d134ad716f03",
-            "reference": "a617e55bc62a87eec73bd456d146d134ad716f03",
+            "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
+            "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2"
         },
-        "time": "2019-10-28T03:44:26+00:00",
+        "time": "2020-06-29T00:56:53+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1495,6 +1495,9 @@
             },
             "files": [
                 "library/HTMLPurifier.composer.php"
+            ],
+            "exclude-from-classmap": [
+                "/library/HTMLPurifier/Language/"
             ]
         },
         "license": [
@@ -3079,19 +3082,19 @@
     },
     {
         "name": "nikic/php-parser",
-        "version": "v4.5.0",
-        "version_normalized": "4.5.0.0",
+        "version": "v4.6.0",
+        "version_normalized": "4.6.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
-            "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
+            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
+            "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
             "shasum": ""
         },
         "require": {
             "ext-tokenizer": "*",
             "php": ">=7.0"
         },
-        "time": "2020-06-03T07:24:19+00:00",
+        "time": "2020-07-02T17:12:47+00:00",
         "bin": [
             "bin/php-parse"
         ],
@@ -5182,19 +5185,19 @@
     },
     {
         "name": "verbb/navigation",
-        "version": "1.3.20",
-        "version_normalized": "1.3.20.0",
+        "version": "1.3.21",
+        "version_normalized": "1.3.21.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/verbb/navigation/zipball/701c2d409547c9da2a92a52d520f5cb30f7f68fd",
-            "reference": "701c2d409547c9da2a92a52d520f5cb30f7f68fd",
+            "url": "https://api.github.com/repos/verbb/navigation/zipball/b4e0ef6c3a2fb99a55f9730c6b8b50e5ff643e66",
+            "reference": "b4e0ef6c3a2fb99a55f9730c6b8b50e5ff643e66",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.4.0",
             "verbb/base": "^1.0.2"
         },
-        "time": "2020-06-22T09:08:47+00:00",
+        "time": "2020-06-24T02:49:02+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Navigation",
@@ -5993,18 +5996,18 @@
     },
     {
         "name": "yiisoft/yii2-composer",
-        "version": "2.0.9",
-        "version_normalized": "2.0.9.0",
+        "version": "2.0.10",
+        "version_normalized": "2.0.10.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/d191176c4f8372e397a9e3df27360dca6a70efaa",
-            "reference": "d191176c4f8372e397a9e3df27360dca6a70efaa",
+            "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/94bb3f66e779e2774f8776d6e1bdeab402940510",
+            "reference": "94bb3f66e779e2774f8776d6e1bdeab402940510",
             "shasum": ""
         },
         "require": {
             "composer-plugin-api": "^1.0 | ^2.0"
         },
-        "time": "2020-04-20T18:47:46+00:00",
+        "time": "2020-06-24T00:04:01+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": "yii\\composer\\Plugin",

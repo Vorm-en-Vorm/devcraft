@@ -69,24 +69,6 @@ return array (
       'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
     ),
   ),
-  'verbb/navigation' => 
-  array (
-    'class' => 'verbb\\navigation\\Navigation',
-    'basePath' => $vendorDir . '/verbb/navigation/src',
-    'handle' => 'navigation',
-    'aliases' => 
-    array (
-      '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
-    ),
-    'name' => 'Navigation',
-    'version' => '1.3.20',
-    'description' => 'A Craft CMS plugin to create navigation menus for your site.',
-    'developer' => 'Verbb',
-    'developerUrl' => 'https://verbb.io',
-    'developerEmail' => 'support@verbb.io',
-    'documentationUrl' => 'https://github.com/verbb/navigation',
-    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/navigation/craft-3/CHANGELOG.md',
-  ),
   'barrelstrength/sprout-forms' => 
   array (
     'class' => 'barrelstrength\\sproutforms\\SproutForms',
@@ -171,5 +153,23 @@ return array (
     'developerEmail' => 'support@verbb.io',
     'documentationUrl' => 'https://github.com/verbb/super-table',
     'changelogUrl' => 'https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md',
+  ),
+  'verbb/navigation' => 
+  array (
+    'class' => 'verbb\\navigation\\Navigation',
+    'basePath' => $vendorDir . '/verbb/navigation/src',
+    'handle' => 'navigation',
+    'aliases' => 
+    array (
+      '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
+    ),
+    'name' => 'Navigation',
+    'version' => '1.3.21',
+    'description' => 'A Craft CMS plugin to create navigation menus for your site.',
+    'developer' => 'Verbb',
+    'developerUrl' => 'https://verbb.io',
+    'developerEmail' => 'support@verbb.io',
+    'documentationUrl' => 'https://github.com/verbb/navigation',
+    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/navigation/craft-3/CHANGELOG.md',
   ),
 );

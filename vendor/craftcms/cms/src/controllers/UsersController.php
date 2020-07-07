@@ -19,6 +19,7 @@ use craft\events\DefineUserContentSummaryEvent;
 use craft\events\LoginFailureEvent;
 use craft\events\RegisterUserActionsEvent;
 use craft\events\UserEvent;
+use craft\helpers\ArrayHelper;
 use craft\helpers\Assets;
 use craft\helpers\FileHelper;
 use craft\helpers\Html;
@@ -26,12 +27,14 @@ use craft\helpers\Image;
 use craft\helpers\Json;
 use craft\helpers\UrlHelper;
 use craft\helpers\User as UserHelper;
+use craft\models\UserGroup;
 use craft\services\Users;
 use craft\web\assets\edituser\EditUserAsset;
 use craft\web\Controller;
 use craft\web\Request;
 use craft\web\ServiceUnavailableHttpException;
 use craft\web\UploadedFile;
+use craft\web\User as UserSession;
 use craft\web\View;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -491,10 +494,16 @@ class UsersController extends Controller
         }
 
         // Maybe automatically log them in
-        $this->_maybeLoginUserAfterAccountActivation($user);
+        $loggedIn = $this->_maybeLoginUserAfterAccountActivation($user);
 
         if ($request->getAcceptsJson()) {
-            return $this->asJson(['success' => true]);
+            $return = [
+                'success' => true,
+            ];
+            if ($loggedIn && Craft::$app->getConfig()->getGeneral()->enableCsrfProtection) {
+                $return['csrfTokenValue'] = $request->getCsrfToken();
+            }
+            return $this->asJson($return);
         }
 
         // Can they access the CP?
@@ -1153,13 +1162,16 @@ class UsersController extends Controller
         // Save the user's photo, if it was submitted
         $this->_processUserPhoto($user);
 
-        // If this is public registration, assign the user to the default user group
-        if ($isPublicRegistration) {
-            // Assign them to the default user group
-            Craft::$app->getUsers()->assignUserToDefaultGroup($user);
-        } else {
-            // Assign user groups and permissions if the current user is allowed to do that
-            $this->_processUserGroupsPermissions($user);
+        if (Craft::$app->getEdition() === Craft::Pro) {
+            // If this is public registration, assign the user to the default user group
+            if ($isPublicRegistration) {
+                // Assign them to the default user group
+                Craft::$app->getUsers()->assignUserToDefaultGroup($user);
+            } else if ($currentUser) {
+                // Assign user groups and permissions if the current user is allowed to do that
+                $this->_saveUserPermissions($user, $request, $currentUser);
+                $this->_saveUserGroups($user, $request, $currentUser);
+            }
         }
 
         // Do we need to send a verification email out?
@@ -1187,17 +1199,17 @@ class UsersController extends Controller
 
         // Is this public registration, and was the user going to be activated automatically?
         $publicActivation = $isPublicRegistration && $user->getStatus() === User::STATUS_ACTIVE;
-
-        if ($publicActivation) {
-            // Maybe automatically log them in
-            $this->_maybeLoginUserAfterAccountActivation($user);
-        }
+        $loggedIn = $publicActivation && $this->_maybeLoginUserAfterAccountActivation($user);
 
         if ($request->getAcceptsJson()) {
-            return $this->asJson([
+            $return = [
                 'success' => true,
                 'id' => $user->id
-            ]);
+            ];
+            if ($loggedIn && $generalConfig->enableCsrfProtection) {
+                $return['csrfTokenValue'] = $request->getCsrfToken();
+            }
+            return $this->asJson($return);
         }
 
         if ($isPublicRegistration) {
@@ -1766,101 +1778,111 @@ class UsersController extends Controller
     }
 
     /**
+     * Saves new permissions on the user
+     *
      * @param User $user
-     * @throws ForbiddenHttpException if the user account doesn't have permission to assign the attempted permissions/groups
+     * @param Request $request
+     * @param User $currentUser
+     * @throws ForbiddenHttpException if the user account doesn't have permission to assign the attempted permissions
      */
-    private function _processUserGroupsPermissions(User $user)
+    private function _saveUserPermissions(User $user, Request $request, User $currentUser)
     {
-        $userSession = Craft::$app->getUser();
-        if (($currentUser = $userSession->getIdentity()) === null) {
+        if (!$currentUser->can('assignUserPermissions')) {
             return;
         }
 
-        $request = Craft::$app->getRequest();
-        $edition = Craft::$app->getEdition();
+        // Save any user permissions
+        if ($user->admin) {
+            $permissions = [];
+        } else {
+            $permissions = $request->getBodyParam('permissions');
 
-        if ($edition === Craft::Pro && $currentUser->can('assignUserPermissions')) {
-            // Save any user permissions
-            if ($user->admin) {
+            if ($permissions === null) {
+                return;
+            }
+
+            // it will be an empty string if no permissions were assigned during user saving.
+            if ($permissions === '') {
                 $permissions = [];
-            } else {
-                $permissions = $request->getBodyParam('permissions');
-
-                // it will be an empty string if no permissions were assigned during user saving.
-                if ($permissions === '') {
-                    $permissions = [];
-                }
-            }
-
-            if (is_array($permissions)) {
-                // See if there are any new permissions in here
-                $hasNewPermissions = false;
-
-                foreach ($permissions as $permission) {
-                    if (!$user->can($permission)) {
-                        $hasNewPermissions = true;
-
-                        // Make sure the current user even has permission to grant it
-                        if (!$userSession->checkPermission($permission)) {
-                            throw new ForbiddenHttpException("Your account doesn't have permission to assign the {$permission} permission to a user.");
-                        }
-                    }
-                }
-
-                if ($hasNewPermissions) {
-                    $this->requireElevatedSession();
-                }
-
-                Craft::$app->getUserPermissions()->saveUserPermissions($user->id, $permissions);
             }
         }
 
-        // Only Craft Pro has user groups
-        if ($edition === Craft::Pro && $currentUser->can('assignUserGroups')) {
-            // Save any user groups
-            $groupIds = $request->getBodyParam('groups');
+        // See if there are any new permissions in here
+        $hasNewPermissions = false;
 
-            if ($groupIds !== null) {
-                if ($groupIds === '') {
-                    $groupIds = [];
+        foreach ($permissions as $permission) {
+            if (!$user->can($permission)) {
+                $hasNewPermissions = true;
+
+                // Make sure the current user even has permission to grant it
+                if (!$currentUser->can($permission)) {
+                    throw new ForbiddenHttpException("Your account doesn't have permission to assign the $permission permission to a user.");
                 }
-
-                $groupUidMap = [];
-                $allGroups = Craft::$app->getUserGroups()->getAllGroups();
-                foreach ($allGroups as $group) {
-                    $groupUidMap[$group->id] = $group->uid;
-                }
-
-                // See if there are any new groups in here
-                $oldGroupIds = [];
-
-                foreach ($user->getGroups() as $group) {
-                    $oldGroupIds[] = $group->id;
-                }
-
-                $hasNewGroups = false;
-
-                foreach ($groupIds as $groupId) {
-                    if (!in_array($groupId, $oldGroupIds, false)) {
-                        $hasNewGroups = true;
-
-                        // Make sure the current user is in the group or has permission to assign it
-                        if (
-                            !$currentUser->isInGroup($groupId) &&
-                            !$currentUser->can('assignUserGroup:' . $groupUidMap[$groupId])
-                        ) {
-                            throw new ForbiddenHttpException("Your account doesn't have permission to assign user group {$groupId} to a user.");
-                        }
-                    }
-                }
-
-                if ($hasNewGroups) {
-                    $this->requireElevatedSession();
-                }
-
-                Craft::$app->getUsers()->assignUserToGroups($user->id, $groupIds);
             }
         }
+
+        if ($hasNewPermissions) {
+            $this->requireElevatedSession();
+        }
+
+        Craft::$app->getUserPermissions()->saveUserPermissions($user->id, $permissions);
+    }
+
+    /**
+     * Saves user groups on a user.
+     *
+     * @param User $user
+     * @param Request $request
+     * @param User $currentUser
+     * @throws ForbiddenHttpException if the user account doesn't have permission to assign the attempted groups
+     */
+    private function _saveUserGroups(User $user, Request $request, User $currentUser)
+    {
+        if (!$currentUser->can('assignUserGroups')) {
+            return;
+        }
+
+        // Save any user groups
+        $groupIds = $request->getBodyParam('groups');
+
+        if ($groupIds === null) {
+            return;
+        }
+
+        if ($groupIds === '') {
+            $groupIds = [];
+        }
+
+        /** @var UserGroup[] $allGroups */
+        $allGroups = ArrayHelper::index(Craft::$app->getUserGroups()->getAllGroups(), 'id');
+
+        // See if there are any new groups in here
+        $oldGroupIds = ArrayHelper::getColumn($user->getGroups(), 'id');
+        $hasNewGroups = false;
+        $newGroups = [];
+
+        foreach ($groupIds as $groupId) {
+            $group = $newGroups[] = $allGroups[$groupId];
+
+            if (!in_array($groupId, $oldGroupIds, false)) {
+                $hasNewGroups = true;
+
+                // Make sure the current user is in the group or has permission to assign it
+                if (
+                    !$currentUser->isInGroup($groupId) &&
+                    !$currentUser->can("assignUserGroup:{$group->uid}")
+                ) {
+                    throw new ForbiddenHttpException("Your account doesn't have permission to assign user group “{$group->name}” to a user.");
+                }
+            }
+        }
+
+        if ($hasNewGroups) {
+            $this->requireElevatedSession();
+        }
+
+        Craft::$app->getUsers()->assignUserToGroups($user->id, $groupIds);
+        $user->setGroups($newGroups);
     }
 
     /**
@@ -1955,13 +1977,15 @@ class UsersController extends Controller
      * Possibly log a user in right after they were activated or reset their password, if Craft is configured to do so.
      *
      * @param User $user The user that was just activated or reset their password
+     * @return bool Whether the user was logged in
      */
-    private function _maybeLoginUserAfterAccountActivation(User $user)
+    private function _maybeLoginUserAfterAccountActivation(User $user): bool
     {
         $generalConfig = Craft::$app->getConfig()->getGeneral();
-        if ($generalConfig->autoLoginAfterAccountActivation === true) {
-            Craft::$app->getUser()->login($user, $generalConfig->userSessionDuration);
+        if (!$generalConfig->autoLoginAfterAccountActivation) {
+            return false;
         }
+        return Craft::$app->getUser()->login($user, $generalConfig->userSessionDuration);
     }
 
     /**
