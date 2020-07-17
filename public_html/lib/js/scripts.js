@@ -1,7 +1,7 @@
 // Smooth scroll down
 $(document).ready(function(){
 	// Add smooth scrolling to all links
-	$("a[href*=\\#]:not([href=\\#]):not([href=\\#contact]):not([href=\\#offerte]):not([href=\\#project*]").on('click', function(event) {
+	$("a[href*=\\#]:not([href=\\#])").on('click', function(event) {
 
 	  // Make sure this.hash has a value before overriding default behavior
 	  if (this.hash !== "") {
