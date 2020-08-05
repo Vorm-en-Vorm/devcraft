@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.23 - 2020-08-05
+
+### Fixed
+- Fix `elementSiteId` not saving for nodes in Craft 3.5+.
+- Fix deprecation notice for `enabledForSite`.
+
+## 1.3.22 - 2020-07-22
+
+### Fixed
+- Fix custom node types with `hasTitle = false`.
+- Fix custom node types with long names in the CP.
+- Ensure the the primary site is selected when editing a nav, rather than the first editable nav.
+
 ## 1.3.21 - 2020-06-24
 
 ### Fixed

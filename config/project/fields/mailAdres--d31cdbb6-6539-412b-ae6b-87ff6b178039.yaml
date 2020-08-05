@@ -1,0 +1,11 @@
+contentColumnType: string
+fieldGroup: b4ee02ab-2d5a-4cf0-b6c8-b521bf42b1f4
+handle: mailAdres
+instructions: ''
+name: 'Mail adres'
+searchable: true
+settings:
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email

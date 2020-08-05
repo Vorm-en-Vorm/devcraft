@@ -1,0 +1,7 @@
+handle: formulierVerstuurd
+hasTitleField: false
+name: 'Formulier verstuurd'
+section: 21d53412-ded8-48ed-838c-48d55b810367
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleLabel: null

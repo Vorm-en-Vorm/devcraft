@@ -1,0 +1,29 @@
+contentColumnType: string
+fieldGroup: 542d2223-32a6-466b-89f9-7a20011acfd2
+handle: altLogo
+instructions: ''
+name: 'Alt. logo'
+searchable: true
+settings:
+  allowSelfRelations: ''
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:9b01f27d-0ce7-4a6b-a0ce-0d53476366b7'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  restrictFiles: ''
+  selectionLabel: ''
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:fec35df0-28e8-4c43-a351-739f588f7de7'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:9b01f27d-0ce7-4a6b-a0ce-0d53476366b7'
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: ''
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

@@ -1,0 +1,57 @@
+contentColumnType: text
+fieldGroup: b4ee02ab-2d5a-4cf0-b6c8-b521bf42b1f4
+handle: openingstijden
+instructions: ''
+name: Openingstijden
+searchable: true
+settings:
+  addRowLabel: 'Voeg een rij toe'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Dag(en)
+            -
+              - handle
+              - dagen
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Tijden
+            -
+              - handle
+              - tijden
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+  maxRows: ''
+  minRows: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

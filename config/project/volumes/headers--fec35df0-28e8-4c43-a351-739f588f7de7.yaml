@@ -1,0 +1,8 @@
+handle: headers
+hasUrls: true
+name: Headers
+settings:
+  path: lib/img/headers
+sortOrder: 1
+type: craft\volumes\Local
+url: '@web/lib/img/headers'

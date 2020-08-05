@@ -1,0 +1,8 @@
+handle: contentImages
+hasUrls: true
+name: 'Content images'
+settings:
+  path: /lib/img/content
+sortOrder: 2
+type: craft\volumes\Local
+url: '@web/lib/img/content'

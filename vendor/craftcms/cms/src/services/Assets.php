@@ -13,7 +13,7 @@ use craft\assetpreviews\Pdf;
 use craft\assetpreviews\Text;
 use craft\assetpreviews\Video;
 use craft\base\AssetPreviewHandlerInterface;
-use craft\base\Volume;
+use craft\base\LocalVolumeInterface;
 use craft\base\VolumeInterface;
 use craft\db\Query;
 use craft\db\Table;
@@ -38,6 +38,7 @@ use craft\helpers\Db;
 use craft\helpers\FileHelper;
 use craft\helpers\Image;
 use craft\helpers\Json;
+use craft\helpers\Queue;
 use craft\helpers\StringHelper;
 use craft\helpers\UrlHelper;
 use craft\image\Raster;
@@ -166,10 +167,9 @@ class Assets extends Component
 
         $asset->tempFilePath = $pathOnServer;
         $asset->newFilename = $filename;
-        $asset->avoidFilenameConflicts = true;
         $asset->uploaderId = Craft::$app->getUser()->getId();
+        $asset->avoidFilenameConflicts = true;
         $asset->setScenario(Asset::SCENARIO_REPLACE);
-
         Craft::$app->getElements()->saveElement($asset);
 
         // Fire an 'afterReplaceFile' event
@@ -229,14 +229,14 @@ class Assets extends Component
         }
 
         $volume = $parent->getVolume();
+        $path = rtrim($folder->path, '/');
 
         try {
-            $volume->createDir(rtrim($folder->path, '/'));
-        } catch (VolumeObjectExistsException $exception) {
-            // Rethrow exception unless this is a temporary Volume or we're allowed to index it silently
-            if ($folder->volumeId !== null && !$indexExisting) {
-                throw $exception;
-            }
+            $volume->createDir($path);
+        } catch (VolumeObjectExistsException $e) {
+            // Already there, so just log a warning about it
+            Craft::warning("Couldn’t create volume folder at $path because it already exists.");
+            Craft::$app->getErrorHandler()->logException($e);
         }
 
         $this->storeFolderRecord($folder);
@@ -318,10 +318,18 @@ class Assets extends Component
                     $volume = $folder->getVolume();
                     $volume->deleteDir($folder->path);
                 }
-
-                VolumeFolderRecord::deleteAll(['id' => $folderId]);
             }
         }
+
+        $assets = Asset::find()->folderId($folderIds)->all();
+
+        $elementService = Craft::$app->getElements();
+
+        foreach ($assets as $asset) {
+            $elementService->deleteElement($asset, true);
+        }
+
+        VolumeFolderRecord::deleteAll(['id' => $folderIds]);
     }
 
     /**
@@ -471,7 +479,7 @@ class Assets extends Component
      * @param string $orderBy
      * @return array
      */
-    public function  getAllDescendantFolders(VolumeFolder $parentFolder, string $orderBy = 'path'): array
+    public function getAllDescendantFolders(VolumeFolder $parentFolder, string $orderBy = 'path'): array
     {
         /** @var $query Query */
         $query = $this->_createFolderQuery()
@@ -592,7 +600,15 @@ class Assets extends Component
 
         // Does the file actually exist?
         if ($index->fileExists) {
-            return $assetTransforms->getUrlForTransformByAssetAndTransformIndex($asset, $index);
+            // For local volumes, really make sure
+            $volume = $asset->getVolume();
+            $transformPath = $asset->getFolder()->path . $assetTransforms->getTransformSubpath($asset, $index);
+
+            if ($volume instanceof LocalVolumeInterface && !$volume->fileExists($transformPath)) {
+                $index->fileExists = false;
+            } else {
+                return $assetTransforms->getUrlForTransformByAssetAndTransformIndex($asset, $index);
+            }
         }
 
         if ($generateNow === null) {
@@ -602,16 +618,15 @@ class Assets extends Component
         if ($generateNow) {
             try {
                 return $assetTransforms->ensureTransformUrlByIndexModel($index);
-            } catch (ImageException $exception) {
-                Craft::warning($exception->getMessage(), __METHOD__);
-                $assetTransforms->deleteTransformIndex($index->id);
+            } catch (\Exception $exception) {
+                Craft::$app->getErrorHandler()->logException($exception);
                 return null;
             }
         }
 
         // Queue up a new Generate Pending Transforms job
         if (!$this->_queuedGeneratePendingTransformsJob) {
-            Craft::$app->getQueue()->push(new GeneratePendingTransforms());
+            Queue::push(new GeneratePendingTransforms());
             $this->_queuedGeneratePendingTransformsJob = true;
         }
 
@@ -629,7 +644,6 @@ class Assets extends Component
      * @param bool $fallbackToIcon whether to return the URL to a generic icon if a thumbnail can't be generated
      * @return string
      * @throws NotSupportedException if the asset can't have a thumbnail, and $fallbackToIcon is `false`
-     * @see Asset::getThumbUrl()
      */
     public function getThumbUrl(Asset $asset, int $width, int $height = null, bool $generate = false, bool $fallbackToIcon = true): string
     {
@@ -806,8 +820,8 @@ class Assets extends Component
 
         $dbFileList = (new Query())
             ->select(['assets.filename'])
-            ->from(['{{%assets}} assets'])
-            ->innerJoin(['{{%elements}} elements'], '[[assets.id]] = [[elements.id]]')
+            ->from(['assets' => Table::ASSETS])
+            ->innerJoin(['elements' => Table::ELEMENTS], '[[elements.id]] = [[assets.id]]')
             ->where([
                 'assets.folderId' => $folderId,
                 'elements.dateDeleted' => null,
@@ -874,7 +888,6 @@ class Assets extends Component
      */
     public function ensureFolderByFullPathAndVolume(string $fullPath, VolumeInterface $volume, bool $justRecord = true): int
     {
-        /** @var Volume $volume */
         $parentId = Craft::$app->getVolumes()->ensureTopFolder($volume);
         $folderId = $parentId;
 
@@ -907,8 +920,10 @@ class Assets extends Component
                 if (!$justRecord) {
                     try {
                         $volume->createDir($path);
-                    } catch (VolumeObjectExistsException $exception) {
-                        // Already there. Good.
+                    } catch (VolumeObjectExistsException $e) {
+                        // Already there, so just log a warning about it
+                        Craft::warning("Couldn’t create volume folder at $path because it already exists.");
+                        Craft::$app->getErrorHandler()->logException($e);
                     }
                 }
 
@@ -986,7 +1001,6 @@ class Assets extends Component
             if (!$volume) {
                 throw new VolumeException(Craft::t('app', 'The volume set for temp asset storage is not valid.'));
             }
-            /** @var Volume $volume */
             $path = (isset($assetSettings['tempSubpath']) ? $assetSettings['tempSubpath'] . '/' : '') .
                 $folderName;
             $folderId = $this->ensureFolderByFullPathAndVolume($path, $volume, false);

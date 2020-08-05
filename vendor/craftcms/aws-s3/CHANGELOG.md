@@ -1,5 +1,11 @@
 # Release Notes for Amazon S3 for Craft CMS
 
+## 1.2.9 - 2020-07-23
+
+### Fixed
+- Fixed a bug where focal point detection would not work if aliases were used in the subfolder setting. ([#86](https://github.com/craftcms/aws-s3/pull/86))
+- Fixed a bug where installing the plugin could fail if the plugin had been installed and uninstalled before. ([#92](https://github.com/craftcms/aws-s3/issues/92))
+
 ## 1.2.8 - 2020-05-18
 
 ### Added

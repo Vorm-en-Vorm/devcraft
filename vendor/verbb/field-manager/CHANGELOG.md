@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.8 - 2020-07-26
+
+### Fixed
+- Fix error when saving a Table field with a dropdown column option.
+
+## 2.1.7 - 2020-07-23
+
+### Fixed
+- Fix being unable to clone Super Table field that has Matrix field.
+
 ## 2.1.6 - 2020-05-13
 
 ### Fixed

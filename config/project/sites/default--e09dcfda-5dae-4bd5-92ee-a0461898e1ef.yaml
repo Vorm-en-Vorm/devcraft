@@ -1,0 +1,8 @@
+baseUrl: $DEFAULT_SITE_URL
+handle: default
+hasUrls: true
+language: nl
+name: Basis
+primary: true
+siteGroup: 25c53824-32cc-4bed-bd91-5c8cfdec2da6
+sortOrder: 1

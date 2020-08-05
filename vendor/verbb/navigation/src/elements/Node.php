@@ -449,6 +449,16 @@ class Node extends Element
             }
         }
 
+        // If no title is set (for a custom node type for instance), generate one.
+        if (!$this->title && $this->nodeType()) {
+            $this->title = $this->nodeType()->displayName();
+        }
+
+        // Save the linked element's site id to the slug - again, our hacky way...
+        if ($this->elementSiteId) {
+            $this->slug = $this->elementSiteId;
+        }
+
         return parent::beforeSave($isNew);
     }
 
@@ -478,7 +488,7 @@ class Node extends Element
 
         // Don't store the URL if its an element. We should rely on its element URL.
         // Check for custom types, they might want to save the URL
-        if ($this->type &&!$this->nodeType()) {
+        if ($this->type && !$this->nodeType()) {
             $record->url = null;
         }
 

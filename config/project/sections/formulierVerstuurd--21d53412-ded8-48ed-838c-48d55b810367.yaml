@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: formulierVerstuurd
+name: 'Formulier verstuurd'
+propagationMethod: all
+siteSettings:
+  e09dcfda-5dae-4bd5-92ee-a0461898e1ef:
+    enabledByDefault: true
+    hasUrls: true
+    template: ''
+    uriFormat: formulier-verstuurd
+type: single

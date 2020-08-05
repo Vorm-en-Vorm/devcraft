@@ -1,0 +1,8 @@
+handle: logos
+hasUrls: true
+name: 'Logo''s'
+settings:
+  path: /lib/img/logos
+sortOrder: 3
+type: craft\volumes\Local
+url: '@web/lib/img/logos'

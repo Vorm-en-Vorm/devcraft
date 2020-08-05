@@ -1,0 +1,9 @@
+format: null
+handle: squaresBig
+height: 800
+interlace: none
+mode: crop
+name: 'Squares Big'
+position: center-center
+quality: null
+width: 800

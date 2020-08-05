@@ -1,0 +1,92 @@
+dateModified: 1596635887
+email:
+  fromEmail: beheer@vormenvorm.nl
+  fromName: 'Basis Raaktinvorm'
+  transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+plugins:
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.2'
+  cookiebot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.17
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  sitemap:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.2
+  sprout-forms:
+    enabled: true
+    schemaVersion: 3.11.8
+    settings:
+      captchaSettings:
+        __assoc__:
+          -
+            - barrelstrength\sproutforms\captchas\DuplicateCaptcha
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - 1
+          -
+            - barrelstrength\sproutforms\captchas\JavascriptCaptcha
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - 1
+          -
+            - barrelstrength\sproutforms\captchas\HoneypotCaptcha
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - 1
+                -
+                  - honeypotFieldName
+                  - beesknees
+                -
+                  - honeypotScreenReaderMessage
+                  - 'Leave this field blank'
+      enableEditFormEntryViaFrontEnd: 0
+      enableSaveDataDefaultValue: 1
+      formTemplateId: barrelstrength\sproutforms\formtemplates\AccessibleTemplates
+      pluginNameOverride: ''
+      saveDataByDefault: 1
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: 'Basis Vorm & Vorm'
+  schemaVersion: 3.5.12
+  timeZone: Europe/Amsterdam
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true
