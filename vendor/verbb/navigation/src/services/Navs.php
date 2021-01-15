@@ -16,6 +16,7 @@ use craft\db\Table;
 use craft\events\ConfigEvent;
 use craft\helpers\ArrayHelper;
 use craft\helpers\Db;
+use craft\helpers\Json;
 use craft\helpers\StringHelper;
 use craft\models\Structure;
 
@@ -142,6 +143,8 @@ class Navs extends Component
             'instructions' => $nav->instructions,
             'propagateNodes' => (bool)$nav->propagateNodes,
             'maxNodes' => $nav->maxNodes,
+            'permissions' => $nav->permissions,
+            'siteSettings' => $nav->siteSettings,
             'sortOrder' => $nav->sortOrder,
         ];
 
@@ -197,11 +200,16 @@ class Navs extends Component
             $navRecord = $this->_getNavRecord($navUid, true);
             $isNewNav = $navRecord->getIsNewRecord();
 
+            // Save for later
+            $oldRecord = clone $navRecord;
+
             $navRecord->name = $data['name'];
             $navRecord->handle = $data['handle'];
             $navRecord->instructions = $data['instructions'];
             $navRecord->propagateNodes = $data['propagateNodes'];
             $navRecord->maxNodes = $data['maxNodes'] ?? '';
+            $navRecord->permissions = $data['permissions'] ?? [];
+            $navRecord->siteSettings = $data['siteSettings'] ?? [];
             $navRecord->sortOrder = $data['sortOrder'];
             $navRecord->uid = $navUid;
 
@@ -258,6 +266,36 @@ class Navs extends Component
                 ->all();
 
             Craft::$app->getElements()->restoreElements($nodes);
+        }
+
+        // Have we changed the propagation method?
+        if ($oldRecord->propagateNodes !== $navRecord->propagateNodes) {
+            // If we've turned off propagating, we need to propagate nodes
+            // For turning on, that's a little more complicated...
+            $turnOffPropagation = $navRecord->propagateNodes === 0;
+            
+            if ($turnOffPropagation) {
+                $oldPrimarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
+                $nav = $this->getNavById($navRecord->id);
+
+                $nodes = Node::find()->navId($navRecord->id)->siteId('*')->all();
+
+                foreach ($nodes as $key => $node) {
+                    // We're creating brand-new, un-linked elements here
+                    $node->id = null;
+
+                    Craft::$app->getElements()->saveElement($node, false, false);
+
+                    // Ensure we retain structure element info
+                    if (!$node->getParent()) {
+                        Craft::$app->getStructures()->appendToRoot($nav->structureId, $node);
+                    } else {
+                        Craft::$app->getStructures()->append($nav->structureId, $node, $node->getParent());
+                    }
+                }
+            } else {
+                // Do nothing for now, until we figure out the best way to handle it...
+            }
         }
 
         // Fire an 'afterSaveNav' event
@@ -387,6 +425,55 @@ class Navs extends Component
         }
     }
 
+    public function getBuilderTabs($nav)
+    {
+        $tabs = [];
+
+        $registeredElements = Navigation::$plugin->getElements()->getRegisteredElements();
+        $registeredNodeTypes = Navigation::$plugin->getNodeTypes()->getRegisteredNodeTypes();
+        
+        foreach ($registeredElements as $key => $registeredElement) {
+            $enabled = $nav->permissions[$registeredElement['type']]['enabled'] ?? $registeredElement['default'] ?? false;
+            $permissions = $nav->permissions[$registeredElement['type']]['permissions'] ?? '*';
+
+            if ((bool)$enabled) {
+                $registeredElement['category'] = 'element';
+                $registeredElement['sources'] = $permissions;
+
+                $tabs[$key] = $registeredElement;
+            }
+        }
+
+        foreach ($registeredNodeTypes as $nodeType) {
+            $enabled = $nav->permissions[get_class($nodeType)]['enabled'] ?? true;
+
+            if ((bool)$enabled) {
+                $key = StringHelper::toKebabCase($nodeType->displayName());
+
+                $tabs[$key] = [
+                    'label' => $nodeType->displayName(),
+                    'button' => Craft::t('navigation', 'Add {name}', ['name' => $nodeType->displayName()]),
+                    'type' => get_class($nodeType),
+                    'category' => 'nodeType',
+                    'nodeType' => $nodeType,
+                ];
+            }
+        }
+
+        $enabled = $nav->permissions['custom']['enabled'] ?? true;
+
+        if ((bool)$enabled) {
+            $tabs['custom'] = [
+                'label' => Craft::t('navigation', 'Custom URL'),
+                'button' => Craft::t('navigation', 'Add Custom URL'),
+                'type' => 'custom',
+                'category' => 'custom',
+            ];
+        }
+
+        return $tabs;
+    }
+
 
     // Private Methods
     // =========================================================================
@@ -407,12 +494,17 @@ class Navs extends Component
             'sortOrder',
             'propagateNodes',
             'maxNodes',
+            'permissions',
+            'siteSettings',
             'uid',
         ]));
 
         if ($record->structure) {
             $nav->maxLevels = $record->structure->maxLevels;
         }
+
+        $nav->permissions = Json::decodeIfJson($nav->permissions);
+        $nav->siteSettings = Json::decodeIfJson($nav->siteSettings);
 
         return $nav;
     }

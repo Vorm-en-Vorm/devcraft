@@ -1,5 +1,174 @@
 # Changelog
 
+## 1.4.12 - 2021-01-15
+
+### Added
+- Add support for [Gatsby Helper](https://github.com/craftcms/gatsby-helper).
+
+### Fixed
+- Fix “Clear Nodes” clearing the primary site’s nodes, instead of the currently-editing site’s nodes.
+- Fix incorrect redirect when clearing nodes.
+- Fix when disabling propagation, node levels weren’t being retained and resetting to the root level.
+
+## 1.4.11 - 2021-01-14
+
+### Fixed
+- Fix for non-absolute, non-root-relative nodes not getting their active state set correctly.
+
+## 1.4.10 - 2020-12-22
+
+### Fixed
+- Fix `getSupportedSites()` for a node always returning all sites.
+
+## 1.4.9 - 2020-12-15
+
+### Added
+- Add `node.isSite()` and `node.isPassive()`.
+
+### Fixed
+- Fix a potential error during migration, where a “All elements must have at least one site associated with them” warning might appear.
+- Fix an error when trying to edit a navigation with no enabled sites.
+
+## 1.4.8 - 2020-12-11
+
+### Fixed
+- Fix `EVENT_REGISTER_GQL_SCHEMA_COMPONENTS` error when running Navigation on Craft 3.4.x sites.
+- Fix showing sites where a user might not have permission to access.
+- Fix when setting a navigation to not propagate nodes, existing nodes should be created for new sites.
+
+## 1.4.7 - 2020-12-07
+
+### Fixed
+- Fix node type not persisting to a custom URL when editing a node (again).
+
+## 1.4.6 - 2020-12-07
+
+### Changed
+- Navigation node queries via GraphQL are now no longer automatically included in the public schema.
+
+### Fixed
+- Fix node type not persisting to a custom URL when editing a node.
+- Fix nodes propagating to all user-enabled sites, instead of the site a navigation is enabled for.
+
+## 1.4.5 - 2020-12-02
+
+### Fixed
+- Fix potential issue with Feed Me throwing errors when not installed or found.
+- Fix node type dropdown in node edit modal not showing the correct enabled node types.
+
+## 1.4.4 - 2020-11-29
+
+### Changed
+- Node field layout designer no longer allows tabs of fields.
+
+### Fixed
+- Fix error when accessing navigation nodes for a navigation that was not enabled.
+- Fix list of editable navigations not being correct, when editing a navigation. This could cause loading the incorrect (un-editable) nav in some instances.
+- Fix node custom fields not showing overrides (label, instructions) as defined in the field layout designer.
+
+## 1.4.3 - 2020-11-16
+
+### Added
+- Add `hasUrl()` node query param.
+
+### Fixed
+- Fix element permissions for navigations not working correctly for non-english users.
+- Allow navigation instructions to include line-breaks.
+
+## 1.4.2 - 2020-11-03
+
+### Added
+- Add support for all registered elements, including third-party ones that support `hasUris`. Element support can be managed in the navigation settings.
+- Add URL for element nodes when hovering over the node type.
+- Add URL for element nodes in node edit modal.
+
+### Changed
+- Refactor render template to use Twig `attr` function for cleaner templates.
+
+### Fixed
+- Fix unnecessary empty attributes being outputted when using `craft.navigation.render()`.
+
+## 1.4.1 - 2020-10-20
+
+### Fixed
+- Fix unnecessary additional queries for nodes.
+
+## 1.4.0 - 2020-10-18
+
+### Added
+- Significantly improved performance when adding multiple nodes at once.
+- Add passive node type. Perfect for headings, dividers or other UI-related nodes that don't have a URL.
+- Add “Clear Nodes” button when editing navigations.
+- Add “Settings” button when editing navigations.
+- Add Permissions to navigations, allowing specific sections/groups/volumes/etc to be enabled to add elements from.
+- Add Enable/Disable for each node type for navigations. Allows easier customising of available nodes to add from.
+- Add Feed Me support. Navigation nodes can now be imported using Feed Me.
+- Add site settings to navigations, to control which sites can have the navigation enabled for.
+- Add `hasAttributes` function to node types.
+
+### Changed
+- Removed `disabledElements` config setting. This is now managed at the plugin level.
+
+### Fixed
+- Fix active node checking when special characters are in URLs.
+- Navee migration is now complete, handling migrating nested nodes.
+- Fix modal node editor not respecting node type settings for field options available to edit.
+- Fix adding multiple nodes at once often being added out of order.
+
+## 1.3.31 - 2020-09-29
+
+### Added
+- Add `propagateSiteElements` config setting to help with multi-site menus. Navigation will use the equivalent element for each site automatically for multi-site menus. But you might want to pick specific elements across your sites, and have them the same across all your navigations.
+
+## 1.3.30 - 2020-09-27
+
+### Fixed
+- Fix homepage entry active state check when outputting multiple different sites navs on a single site.
+- Fix error when trying to get the active state for a node with an empty URL.
+- Fix custom attributes in GraphQL not returning an object.
+
+## 1.3.29 - 2020-09-16
+
+### Fixed
+- Fix detection of active parameter on multi-site setups.
+- Fix nodes being unlinked to their element in some special circumstances.
+
+## 1.3.28 - 2020-08-31
+
+### Changed
+- For site nodes, the trailing slash is now trimmed for the site URL.
+
+### Fixed
+- Fix node being marked as active for partial matches where the URLs contain the same words.
+- Fix default site when editing a nav to be the first editable for a user.
+
+## 1.3.27 - 2020-08-20
+
+### Fixed
+- Fix edit menu button showing with `allowAdminChanges = false`.
+- Fix overflow in model node edit window, effecting some custom fields.
+
+## 1.3.26 - 2020-08-14
+
+### Fixed
+- Fix active-state check for nodes, which weren't catering for multi-sites with a sub-directory in their base url.
+
+## 1.3.25 - 2020-08-11
+
+### Fixed
+- Update `node->uri` to `node->nodeUri`, prevents URI issues when saving elements.
+- Update migration to log potential errors.
+
+## 1.3.24 - 2020-08-10
+
+### Added
+- Add settings button when editing a navigation.
+- Add `uri` property to node.
+
+### Fixed
+- Fix incorrect translation for settings in navigation index.
+- Fix `elementSiteId` error caused by Craft 3.5 changes.
+
 ## 1.3.23 - 2020-08-05
 
 ### Fixed

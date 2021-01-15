@@ -4,17 +4,48 @@ fieldLayouts:
       -
         elements:
           -
-            instructions: null
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            autofocus: false
+            class: null
+            disabled: false
+            id: null
+            instructions: Test
             label: ''
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
             type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
           -
             fieldUid: 66f2a356-452a-4990-9704-8c0c3b914b31
-            required: false
+            instructions: 'Hier plaats je een handleiding voor dit veld'
+            label: ''
+            required: ''
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
           -
             fieldUid: 95a5a802-87c8-46a8-b7dd-5784f30fa86e
-            required: false
+            instructions: ''
+            label: ''
+            required: ''
+            tip: null
             type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: SEO
         sortOrder: 1
 handle: homepage
@@ -23,3 +54,5 @@ name: Homepage
 section: 5a740624-0788-4b14-b14f-72fc4a6389ed
 sortOrder: 1
 titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

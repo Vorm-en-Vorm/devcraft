@@ -27,15 +27,20 @@
 {% set tableData = [] %}
 {% set editableNavs = 0 %}
 
+{% set canReorder = currentUser.can('navigation-createNavs') ? true : false %}
+
 {% for navigation in navigations %}
+    {% set canDelete = currentUser.can('navigation-deleteNav:' ~ navigation.uid) ? true : false %}
+
     {% set tableData = tableData | merge([{
         id: navigation.id,
         title: navigation.name | t('site'),
         url: url('navigation/navs/build/' ~ navigation.id),
         name: navigation.name | t('site') | e,
         handle: navigation.handle,
+        _showDelete: canDelete,
         settings: {
-            label: 'Edit Settings' | t('site') | e,
+            label: 'Edit Settings' | t('app') | e,
             url: currentUser.can('navigation-editNav:' ~ navigation.uid) ? url('navigation/navs/edit/' ~ navigation.id),
         },
     }]) %}
@@ -51,7 +56,7 @@
         { name: '__slot:handle', title: Craft.t('app', 'Handle') },
 
         {% if editable and editableNavs %}
-            { name: 'settings', title: Craft.t('site', 'Settings'),
+            { name: 'settings', title: Craft.t('app', 'Settings'),
                 callback: function(value) {
                     if (value.url) {
                         return '<a href="' + value.url + '">' + value.label + '</a>';
@@ -68,7 +73,7 @@
         container: '#navigations-vue-admin-table',
         deleteAction: '{{ editable ? 'navigation/navs/delete-nav' : '' }}',
         emptyMessage: Craft.t('navigation', 'No navigations exist yet.'),
-        reorderAction: '{{ navigations | length > 1 and editable ? 'navigation/navs/reorder-nav' : '' }}',
+        reorderAction: '{{ navigations | length > 1 and canReorder ? 'navigation/navs/reorder-nav' : '' }}',
         tableData: {{ tableData | json_encode | raw }},
     });
 

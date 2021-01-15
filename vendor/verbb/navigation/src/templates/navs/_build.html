@@ -8,10 +8,30 @@
 
 {% set title = nav.name %}
 
-{% block contextMenu %}
-    {% set sites = craft.app.sites.getEditableSites() %}
+{% block actionButton %}
+    <div class="btngroup submit">
+        <div class="btn settings icon menubtn" data-form="x" title="{{ 'Settings' | t('navigation') }}">
+            {{ 'Settings' | t('navigation') }}
+        </div>
 
-    {% if sites | length %}
+        <div class="menu">
+            <ul>
+                {% if editable and currentUser.can('navigation-editNav:' ~ nav.uid) %}
+                    <li><a href="{{ cpUrl('navigation/navs/edit/' ~ nav.id) }}">{{ 'Settings' | t('navigation') }}</a></li>
+
+                    <hr>
+                {% endif %}
+
+                <li><a class="formsubmit error" data-action="navigation/nodes/clear" data-param="payload" data-value="{{ nav.id }}:{{ site.id }}" data-confirm="{{ 'Are you sure you want to remove all nodes? This cannot be undone.' | t('navigation') }}">{{ 'Clear Nodes' | t('navigation') }}</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block contextMenu %}
+    {% set sites = nav.getEditableSites() %}
+
+    {% if sites | length > 1 %}
         <div id="revision-btn" class="btn menubtn nav-site-menubtn" data-icon="world">{{ site.name }}</div>
 
         <div class="menu">
@@ -31,121 +51,33 @@
 {% block details %}
 
 <div class="nav-sidebar">
-    {% set tabs = craft.navigation.getRegisteredElements() %}
-    {% set disabledElements = settings.disabledElements %}
-
     <nav id="accordion" data-vui-tabs>
         <ul class="tab-list">
-            {% for tabId, tab in tabs %}
+            {% for tabId, tab in craft.navigation.getBuilderTabs(nav) %}
                 {% set selected = loop.first %}
 
-                <li class="tab-list-item" data-id="{{ tabId }}" data-element-type="{{ tab.type }}">
-                    <a id="tab-{{ tabId }}" class="tab{% if selected %} sel{% endif %}" href="#{{ tabId }}" title="{{ tab.label }}">{{ tab.label }}</a>
+                {% set attributes = {
+                    class: 'tab-list-item',
+                    'data-id': tabId,
+                } %}
+
+                {% if tab.category == 'element' %}
+                    {% set attributes = attributes | merge({
+                        'data-element-type': tab.type,
+                    }) %}
+                {% elseif tab.category == 'nodeType' %}
+                    {% set attributes = attributes | merge({
+                        'data-node-type': tab.type,
+                    }) %}
+                {% endif %}
+
+                <li {{ attr(attributes) }}>
+                    <a id="tab-{{ tabId }}" class="tab{% if selected %} sel{% endif %}" href="#{{ tabId }}" title="{{ tab.label }}">
+                        {{ tab.label }}
+                    </a>
 
                     <div id="{{ tabId }}" class="tab-list-pane {% if not selected %}hidden{% endif %}">
-                        {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
-                            {{ forms.selectField({
-                                label: 'Parent' | t('navigation'),
-                                instructions: 'Select a navigation item as the parent.' | t('navigation'),
-                                id: 'parent',
-                                name: 'parent',
-                                options: parentOptions,
-                                class: 'fullwidth js-parent-node',
-                            }) }}
-                        {% endif %}
-
-                        {{ forms.lightswitchField({
-                            label: 'Open in new window' | t('navigation'),
-                            instructions: 'Whether to open this navigation item in a new window.' | t('navigation'),
-                            id: 'newWindow',
-                            name: 'newWindow',
-                            on: false,
-                            class: 'js-new-window-node',
-                        }) }}
-
-                        <div class="buttons">
-                            <div class="btn submit add icon js-btn-element-add" data-element-type="{{ tab.type }}">{{ tab.button }}</div>
-                            <div class="spinner hidden"></div>
-                        </div>
-                    </div>
-                </li>
-            {% endfor %}
-
-            {% set nodeTypes = craft.navigation.getRegisteredNodeTypes() %}
-
-            {% for nodeType in nodeTypes %}
-                <li class="tab-list-item" data-node-type="{{ className(nodeType) }}">
-                    <a id="tab-url" class="tab" href="#{{ nodeType.displayName | kebab }}" title="{{ nodeType.displayName }}">
-                        {{ nodeType.displayName }}
-                    </a>
-
-                    <div id="{{ nodeType.displayName | kebab }}" class="tab-list-pane hidden">
-                        <form class="node-type-form" method="post" accept-charset="UTF-8">
-                            {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
-                                {{ forms.selectField({
-                                    label: 'Parent' | t('navigation'),
-                                    instructions: 'Select a navigation item as the parent.' | t('navigation'),
-                                    id: 'parent',
-                                    name: 'parent',
-                                    options: parentOptions,
-                                    class: 'fullwidth js-parent-node',
-                                }) }}
-                            {% endif %}
-
-                            {% if nodeType.hasNewWindow() %}
-                                {{ forms.lightswitchField({
-                                    label: 'Open in new window' | t('navigation'),
-                                    instructions: 'Whether to open this navigation item in a new window.' | t('navigation'),
-                                    id: 'newWindow',
-                                    name: 'newWindow',
-                                    on: false,
-                                    class: 'js-new-window-node',
-                                }) }}
-                            {% endif %}
-
-                            {% if nodeType.hasTitle() %}
-                                {{ forms.textField({
-                                    label: 'Title' | t('navigation'),
-                                    id: 'title',
-                                    name: 'title',
-                                    first: true,
-                                    required: true,
-                                    instructions: 'Name of this node in the navigation.' | t('navigation'),
-                                }) }}
-                            {% endif %}
-
-                            {% if nodeType.hasUrl() %}
-                                {{ forms.textField({
-                                    label: 'URL' | t('navigation'),
-                                    id: 'url',
-                                    name: 'url',
-                                    instructions: 'The URL of this node.' | t('navigation'),
-                                }) }}
-                            {% endif %}
-
-                            <div class="node-type-data">
-                                {% namespace 'data' %}
-                                    {{ nodeType.getSettingsHtml() | raw }}
-                                {% endnamespace %}
-                            </div>
-
-                            <div class="buttons">
-                                <input type="submit" class="btn submit" value="{{ 'Add {name}' | t('navigation', { name: nodeType.displayName }) }}">
-                                <div class="spinner hidden"></div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-            {% endfor %}
-
-            {% if 'custom' not in disabledElements %}
-                <li class="tab-list-item">
-                    <a id="tab-url" class="tab" href="#custom-url" title="{{ 'Custom URL' | t('navigation') }}">
-                        {{ 'Custom URL' | t('navigation') }}
-                    </a>
-
-                    <div id="custom-url" class="tab-list-pane hidden">
-                        <form id="manual-form" method="post" accept-charset="UTF-8">
+                        {% if tab.category == 'element' %}
                             {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
                                 {{ forms.selectField({
                                     label: 'Parent' | t('navigation'),
@@ -166,30 +98,122 @@
                                 class: 'js-new-window-node',
                             }) }}
 
-                            {{ forms.textField({
-                                label: 'Title' | t('navigation'),
-                                id: 'title',
-                                name: 'title',
-                                first: true,
-                                required: true,
-                                instructions: 'Name of this node in the navigation.' | t('navigation'),
-                            }) }}
-
-                            {{ forms.textField({
-                                label: 'URL' | t('navigation'),
-                                id: 'url',
-                                name: 'url',
-                                instructions: 'The URL of this node.' | t('navigation'),
-                            }) }}
-
                             <div class="buttons">
-                                <input type="submit" class="btn submit" value="{{ 'Add' | t('navigation') }}">
+                                {% set attributes = {
+                                    class: 'btn submit add icon js-btn-element-add',
+                                    'data-element-type': tab.type,
+                                    'data-sources': tab.sources,
+                                } %}
+
+                                <div {{ attr(attributes) }}>
+                                    {{ tab.button }}
+                                </div>
+
                                 <div class="spinner hidden"></div>
                             </div>
-                        </form>
+                        {% elseif tab.category == 'nodeType' %}
+                            <form class="node-type-form" method="post" accept-charset="UTF-8">
+                                {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
+                                    {{ forms.selectField({
+                                        label: 'Parent' | t('navigation'),
+                                        instructions: 'Select a navigation item as the parent.' | t('navigation'),
+                                        id: 'parent',
+                                        name: 'parent',
+                                        options: parentOptions,
+                                        class: 'fullwidth js-parent-node',
+                                    }) }}
+                                {% endif %}
+
+                                {% if tab.nodeType.hasNewWindow() %}
+                                    {{ forms.lightswitchField({
+                                        label: 'Open in new window' | t('navigation'),
+                                        instructions: 'Whether to open this navigation item in a new window.' | t('navigation'),
+                                        id: 'newWindow',
+                                        name: 'newWindow',
+                                        on: false,
+                                        class: 'js-new-window-node',
+                                    }) }}
+                                {% endif %}
+
+                                {% if tab.nodeType.hasTitle() %}
+                                    {{ forms.textField({
+                                        label: 'Title' | t('navigation'),
+                                        id: 'title',
+                                        name: 'title',
+                                        first: true,
+                                        required: true,
+                                        instructions: 'Name of this node in the navigation.' | t('navigation'),
+                                    }) }}
+                                {% endif %}
+
+                                {% if tab.nodeType.hasUrl() %}
+                                    {{ forms.textField({
+                                        label: 'URL' | t('navigation'),
+                                        id: 'url',
+                                        name: 'url',
+                                        instructions: 'The URL of this node.' | t('navigation'),
+                                    }) }}
+                                {% endif %}
+
+                                <div class="node-type-data">
+                                    {% namespace 'data' %}
+                                        {{ tab.nodeType.getSettingsHtml() | raw }}
+                                    {% endnamespace %}
+                                </div>
+
+                                <div class="buttons">
+                                    <button type="submit" class="btn submit add icon">{{ tab.button }}</button>
+                                    <div class="spinner hidden"></div>
+                                </div>
+                            </form>
+
+                        {% elseif tab.category == 'custom' %}
+                            <form id="manual-form" method="post" accept-charset="UTF-8">
+                                {% if nav.maxLevels == '' or nav.maxLevels > 1 %}
+                                    {{ forms.selectField({
+                                        label: 'Parent' | t('navigation'),
+                                        instructions: 'Select a navigation item as the parent.' | t('navigation'),
+                                        id: 'parent',
+                                        name: 'parent',
+                                        options: parentOptions,
+                                        class: 'fullwidth js-parent-node',
+                                    }) }}
+                                {% endif %}
+
+                                {{ forms.lightswitchField({
+                                    label: 'Open in new window' | t('navigation'),
+                                    instructions: 'Whether to open this navigation item in a new window.' | t('navigation'),
+                                    id: 'newWindow',
+                                    name: 'newWindow',
+                                    on: false,
+                                    class: 'js-new-window-node',
+                                }) }}
+
+                                {{ forms.textField({
+                                    label: 'Title' | t('navigation'),
+                                    id: 'title',
+                                    name: 'title',
+                                    first: true,
+                                    required: true,
+                                    instructions: 'Name of this node in the navigation.' | t('navigation'),
+                                }) }}
+
+                                {{ forms.textField({
+                                    label: 'URL' | t('navigation'),
+                                    id: 'url',
+                                    name: 'url',
+                                    instructions: 'The URL of this node.' | t('navigation'),
+                                }) }}
+
+                                <div class="buttons">
+                                    <button type="submit" class="btn submit add icon">{{ tab.button }}</button>
+                                    <div class="spinner hidden"></div>
+                                </div>
+                            </form>
+                        {% endif %}
                     </div>
                 </li>
-            {% endif %}
+            {% endfor %}
         </ul>
     </nav>
 </div>
@@ -207,7 +231,7 @@
         <div class="field">
             <div class="heading">
                 <div class="instructions">
-                    <p>{{ nav.instructions }}</p>
+                    <p>{{ nav.instructions | nl2br }}</p>
                 </div>
             </div>
         </div>
@@ -218,7 +242,7 @@
             {% include '_elements/element' %}
 
             <div class="node-type">
-                <span class="node-type-{{ element.getNodeTypeLabel() }}">{{ element.getNodeTypeLabel() }}</span>
+                <span class="node-type-{{ element.getNodeTypeLabel() }}" title="{{ element.url }}">{{ element.getNodeTypeLabel() }}</span>
             </div>
 
             <span class="node-custom-title edit icon {{ element.hasOverriddenTitle ? '' : 'hidden' }}" title="{{ 'Custom Title' | t('navigation') }}"></span>
@@ -245,7 +269,7 @@
             </div>
 
             <div class="node-type">
-                <span class="node-type-__type__">__type__</span>
+                <span class="node-type-__type__" title="__url__">__type__</span>
             </div>
 
             <a class="move icon" title="{{ 'Move' | t('app') }}"></a>

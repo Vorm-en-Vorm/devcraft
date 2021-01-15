@@ -1,12 +1,8 @@
-dateModified: 1596635887
+dateModified: 1610727164
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
   transportType: craft\mail\transportadapters\Sendmail
-graphql:
-  publicToken:
-    enabled: false
-    expiryDate: null
 plugins:
   aws-s3:
     edition: standard
@@ -23,7 +19,7 @@ plugins:
   navigation:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.17
+    schemaVersion: 1.0.21
   redactor:
     edition: standard
     enabled: true
@@ -79,7 +75,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: 'Basis Vorm & Vorm'
   schemaVersion: 3.5.12

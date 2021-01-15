@@ -1,12 +1,12 @@
 [
     {
         "name": "aws/aws-sdk-php",
-        "version": "3.147.12",
-        "version_normalized": "3.147.12.0",
+        "version": "3.171.18",
+        "version_normalized": "3.171.18.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/960f3d34784577e223b294e978a1c6d0e516b081",
-            "reference": "960f3d34784577e223b294e978a1c6d0e516b081",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9252e55e995492a65ec9b705a5a7fdcfcaef46ef",
+            "reference": "9252e55e995492a65ec9b705a5a7fdcfcaef46ef",
             "shasum": ""
         },
         "require": {
@@ -26,7 +26,7 @@
             "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2020-08-04T18:11:18+00:00",
+        "time": "2021-01-14T19:12:48+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -365,7 +365,7 @@
         "version_normalized": "3.12.2.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/barrelstrength/craft-sprout-forms/zipball/262332bfb59754b765f0ce9540934a1c001e090a",
+            "url": "https://api.github.com/repos/barrelstrength/craft-sprout-forms/zipball/62cc13cecd8c783fce65b692abfa7b37a8e4bdf2",
             "reference": "262332bfb59754b765f0ce9540934a1c001e090a",
             "shasum": ""
         },
@@ -787,19 +787,19 @@
     },
     {
         "name": "craftcms/aws-s3",
-        "version": "1.2.9",
-        "version_normalized": "1.2.9.0",
+        "version": "1.2.11",
+        "version_normalized": "1.2.11.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/craftcms/aws-s3/zipball/7581c658b17212758089c1e2e6c673936b5b2274",
-            "reference": "7581c658b17212758089c1e2e6c673936b5b2274",
+            "url": "https://api.github.com/repos/craftcms/aws-s3/zipball/d9934e0d34c3a1617a5e120d58b7062f8d302751",
+            "reference": "d9934e0d34c3a1617a5e120d58b7062f8d302751",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.1.5",
-            "league/flysystem-aws-s3-v3": "^1.0.13"
+            "league/flysystem-aws-s3-v3": "^1.0.28"
         },
-        "time": "2020-07-23T07:56:51+00:00",
+        "time": "2020-08-24T09:31:11+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Amazon S3",
@@ -1015,18 +1015,18 @@
     },
     {
         "name": "craftcms/redactor",
-        "version": "2.6.1",
-        "version_normalized": "2.6.1.0",
+        "version": "2.8.5",
+        "version_normalized": "2.8.5.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/craftcms/redactor/zipball/835eaf0d7442acb1bc716985f9672c7cd4e8531c",
-            "reference": "835eaf0d7442acb1bc716985f9672c7cd4e8531c",
+            "url": "https://api.github.com/repos/craftcms/redactor/zipball/baa05090b17b9b631ed3eb9f0687f48947d7dbc2",
+            "reference": "baa05090b17b9b631ed3eb9f0687f48947d7dbc2",
             "shasum": ""
         },
         "require": {
-            "craftcms/cms": "^3.4.0-RC1"
+            "craftcms/cms": "^3.5.0"
         },
-        "time": "2020-03-18T14:47:04+00:00",
+        "time": "2020-12-08T12:55:30+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Redactor",
@@ -1330,19 +1330,19 @@
     },
     {
         "name": "dolphiq/sitemap",
-        "version": "1.3.0",
-        "version_normalized": "1.3.0.0",
+        "version": "1.3.1",
+        "version_normalized": "1.3.1.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Dolphiq/craft3-plugin-sitemap/zipball/de300e65198720c40d03270595ca20695f09b242",
-            "reference": "de300e65198720c40d03270595ca20695f09b242",
+            "url": "https://api.github.com/repos/Dolphiq/craft3-plugin-sitemap/zipball/fd08955c00766cdb397c950f4b6b0c573c8548d5",
+            "reference": "fd08955c00766cdb397c950f4b6b0c573c8548d5",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.2.0",
             "jaybizzle/crawler-detect": "1.*"
         },
-        "time": "2020-08-03T15:37:33+00:00",
+        "time": "2020-10-22T12:32:21+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "XML Sitemap",
@@ -1796,21 +1796,18 @@
     },
     {
         "name": "guzzlehttp/promises",
-        "version": "v1.3.1",
-        "version_normalized": "1.3.1.0",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
-            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
+            "reference": "60d379c243457e073cff02bc323a2a86cb355631",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5.0"
+            "php": ">=5.5"
         },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0"
-        },
-        "time": "2016-12-20T10:07:11+00:00",
+        "time": "2020-09-30T07:37:28+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1826,7 +1823,6 @@
                 "src/functions_include.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1844,12 +1840,12 @@
     },
     {
         "name": "guzzlehttp/psr7",
-        "version": "1.6.1",
-        "version_normalized": "1.6.1.0",
+        "version": "1.7.0",
+        "version_normalized": "1.7.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-            "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
+            "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
             "shasum": ""
         },
         "require": {
@@ -1860,18 +1856,14 @@
         "provide": {
             "psr/http-message-implementation": "1.0"
         },
-        "require-dev": {
-            "ext-zlib": "*",
-            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
-        },
         "suggest": {
-            "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+            "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
         },
-        "time": "2019-07-01T23:21:34+00:00",
+        "time": "2020-09-30T07:37:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.6-dev"
+                "dev-master": "1.7-dev"
             }
         },
         "installation-source": "dist",
@@ -1883,7 +1875,6 @@
                 "src/functions_include.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -2001,18 +1992,18 @@
     },
     {
         "name": "jaybizzle/crawler-detect",
-        "version": "v1.2.96",
-        "version_normalized": "1.2.96.0",
+        "version": "v1.2.103",
+        "version_normalized": "1.2.103.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/5a53c78644c54a628c3f5ead915c35b489c92239",
-            "reference": "5a53c78644c54a628c3f5ead915c35b489c92239",
+            "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/3efa2860959cc971f17624b40bf0699823f9d0f3",
+            "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2020-06-14T20:37:24+00:00",
+        "time": "2020-11-23T19:49:25+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2140,12 +2131,12 @@
     },
     {
         "name": "laminas/laminas-feed",
-        "version": "2.12.2",
-        "version_normalized": "2.12.2.0",
+        "version": "2.12.3",
+        "version_normalized": "2.12.3.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/8a193ac96ebcb3e16b6ee754ac2a889eefacb654",
-            "reference": "8a193ac96ebcb3e16b6ee754ac2a889eefacb654",
+            "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/3c91415633cb1be6f9d78683d69b7dcbfe6b4012",
+            "reference": "3c91415633cb1be6f9d78683d69b7dcbfe6b4012",
             "shasum": ""
         },
         "require": {
@@ -2167,7 +2158,7 @@
             "laminas/laminas-validator": "Laminas\\Validator component, for validating email addresses used in Atom feeds and entries when using the Writer subcomponent",
             "psr/http-message": "PSR-7 ^1.0.1, if you wish to use Laminas\\Feed\\Reader\\Http\\Psr7ResponseDecorator"
         },
-        "time": "2020-03-29T12:36:29+00:00",
+        "time": "2020-08-18T13:45:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2403,20 +2394,20 @@
     },
     {
         "name": "league/flysystem-aws-s3-v3",
-        "version": "1.0.25",
-        "version_normalized": "1.0.25.0",
+        "version": "1.0.29",
+        "version_normalized": "1.0.29.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/d409b97a50bf85fbde30cbc9fc10237475e696ea",
-            "reference": "d409b97a50bf85fbde30cbc9fc10237475e696ea",
+            "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/4e25cc0582a36a786c31115e419c6e40498f6972",
+            "reference": "4e25cc0582a36a786c31115e419c6e40498f6972",
             "shasum": ""
         },
         "require": {
-            "aws/aws-sdk-php": "^3.0.0",
+            "aws/aws-sdk-php": "^3.20.0",
             "league/flysystem": "^1.0.40",
             "php": ">=5.5.0"
         },
-        "time": "2020-06-02T18:41:58+00:00",
+        "time": "2020-10-08T18:58:37+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3260,28 +3251,23 @@
     },
     {
         "name": "paragonie/random_compat",
-        "version": "v9.99.99",
-        "version_normalized": "9.99.99.0",
+        "version": "v9.99.100",
+        "version_normalized": "9.99.100.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
-            "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
+            "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
             "shasum": ""
         },
         "require": {
-            "php": "^7"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*|5.*",
-            "vimeo/psalm": "^1"
+            "php": ">= 7"
         },
         "suggest": {
             "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
         },
-        "time": "2018-07-02T15:55:56+00:00",
+        "time": "2020-10-15T08:29:30+00:00",
         "type": "library",
         "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -4041,19 +4027,19 @@
     },
     {
         "name": "sebastianlenz/linkfield",
-        "version": "1.0.23",
-        "version_normalized": "1.0.23.0",
+        "version": "1.0.24",
+        "version_normalized": "1.0.24.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/6d835d0419578861de3297f556b2049627b1cb1e",
-            "reference": "6d835d0419578861de3297f556b2049627b1cb1e",
+            "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/d6d509b96931a469507fd2472783b3e5419e8bab",
+            "reference": "d6d509b96931a469507fd2472783b3e5419e8bab",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.0.0-RC1",
             "php": "^7.0"
         },
-        "time": "2020-06-09T19:46:52+00:00",
+        "time": "2020-11-21T19:26:53+00:00",
         "type": "craft-plugin",
         "extra": {
             "handle": "typedlinkfield",
@@ -4466,12 +4452,12 @@
     },
     {
         "name": "symfony/polyfill-ctype",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/1c302646f6efc070cd46856e600e5e0684d6b454",
-            "reference": "1c302646f6efc070cd46856e600e5e0684d6b454",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/aed596913b70fae57be53d86faa2e9ef85a2297b",
+            "reference": "aed596913b70fae57be53d86faa2e9ef85a2297b",
             "shasum": ""
         },
         "require": {
@@ -4480,11 +4466,11 @@
         "suggest": {
             "ext-ctype": "For best performance"
         },
-        "time": "2020-07-14T12:35:20+00:00",
+        "time": "2020-10-23T09:01:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4583,12 +4569,12 @@
     },
     {
         "name": "symfony/polyfill-intl-grapheme",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/b740103edbdcc39602239ee8860f0f45a8eb9aa5",
-            "reference": "b740103edbdcc39602239ee8860f0f45a8eb9aa5",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/64fbe93b02024763359aea2bc81af05086c6af82",
+            "reference": "64fbe93b02024763359aea2bc81af05086c6af82",
             "shasum": ""
         },
         "require": {
@@ -4597,11 +4583,11 @@
         "suggest": {
             "ext-intl": "For best performance"
         },
-        "time": "2020-07-14T12:35:20+00:00",
+        "time": "2020-10-23T09:01:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4643,12 +4629,12 @@
     },
     {
         "name": "symfony/polyfill-intl-idn",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/5dcab1bc7146cf8c1beaa4502a3d9be344334251",
-            "reference": "5dcab1bc7146cf8c1beaa4502a3d9be344334251",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/4ad5115c0f5d5172a9fe8147675ec6de266d8826",
+            "reference": "4ad5115c0f5d5172a9fe8147675ec6de266d8826",
             "shasum": ""
         },
         "require": {
@@ -4660,11 +4646,11 @@
         "suggest": {
             "ext-intl": "For best performance"
         },
-        "time": "2020-08-04T06:02:08+00:00",
+        "time": "2020-10-21T09:57:48+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4710,12 +4696,12 @@
     },
     {
         "name": "symfony/polyfill-intl-normalizer",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/37078a8dd4a2a1e9ab0231af7c6cb671b2ed5a7e",
-            "reference": "37078a8dd4a2a1e9ab0231af7c6cb671b2ed5a7e",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/8db0ae7936b42feb370840cf24de1a144fb0ef27",
+            "reference": "8db0ae7936b42feb370840cf24de1a144fb0ef27",
             "shasum": ""
         },
         "require": {
@@ -4724,11 +4710,11 @@
         "suggest": {
             "ext-intl": "For best performance"
         },
-        "time": "2020-07-14T12:35:20+00:00",
+        "time": "2020-10-23T09:01:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4773,12 +4759,12 @@
     },
     {
         "name": "symfony/polyfill-mbstring",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/a6977d63bf9a0ad4c65cd352709e230876f9904a",
-            "reference": "a6977d63bf9a0ad4c65cd352709e230876f9904a",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b5f7b932ee6fa802fc792eabd77c4c88084517ce",
+            "reference": "b5f7b932ee6fa802fc792eabd77c4c88084517ce",
             "shasum": ""
         },
         "require": {
@@ -4787,11 +4773,11 @@
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2020-07-14T12:35:20+00:00",
+        "time": "2020-10-23T09:01:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4832,23 +4818,23 @@
     },
     {
         "name": "symfony/polyfill-php70",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-            "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
+            "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/3fe414077251a81a1b15b1c709faf5c2fbae3d4e",
+            "reference": "3fe414077251a81a1b15b1c709faf5c2fbae3d4e",
             "shasum": ""
         },
         "require": {
             "paragonie/random_compat": "~1.0|~2.0|~9.99",
             "php": ">=5.3.3"
         },
-        "time": "2020-07-14T12:35:20+00:00",
+        "time": "2020-10-23T09:01:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -4891,22 +4877,22 @@
     },
     {
         "name": "symfony/polyfill-php72",
-        "version": "v1.18.1",
-        "version_normalized": "1.18.1.0",
+        "version": "v1.19.0",
+        "version_normalized": "1.19.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/639447d008615574653fb3bc60d1986d7172eaae",
-            "reference": "639447d008615574653fb3bc60d1986d7172eaae",
+            "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/beecef6b463b06954638f02378f52496cb84bacc",
+            "reference": "beecef6b463b06954638f02378f52496cb84bacc",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2020-07-14T12:35:20+00:00",
+        "time": "2020-10-23T09:01:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.18-dev"
+                "dev-main": "1.19-dev"
             },
             "thanks": {
                 "name": "symfony/polyfill",
@@ -5281,19 +5267,19 @@
     },
     {
         "name": "verbb/field-manager",
-        "version": "2.1.8",
-        "version_normalized": "2.1.8.0",
+        "version": "2.2.2",
+        "version_normalized": "2.2.2.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/verbb/field-manager/zipball/fa53c354869477d367fefbc6c186b0f6ed9874fa",
-            "reference": "fa53c354869477d367fefbc6c186b0f6ed9874fa",
+            "url": "https://api.github.com/repos/verbb/field-manager/zipball/ebb8020a2220cd0bc28652b9cf9e4b11a293c278",
+            "reference": "ebb8020a2220cd0bc28652b9cf9e4b11a293c278",
             "shasum": ""
         },
         "require": {
-            "craftcms/cms": "^3.1.0",
+            "craftcms/cms": "^3.5.0",
             "verbb/base": "^1.0.2"
         },
-        "time": "2020-07-26T13:29:27+00:00",
+        "time": "2021-01-05T05:16:51+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Field Manager",
@@ -5334,19 +5320,19 @@
     },
     {
         "name": "verbb/navigation",
-        "version": "1.3.23",
-        "version_normalized": "1.3.23.0",
+        "version": "1.4.12",
+        "version_normalized": "1.4.12.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/verbb/navigation/zipball/5fcfc99bdee083e8be837d0d9243efb00f82a8a1",
-            "reference": "5fcfc99bdee083e8be837d0d9243efb00f82a8a1",
+            "url": "https://api.github.com/repos/verbb/navigation/zipball/bfb0438250830e21f2c1ba75e22652337efccfbe",
+            "reference": "bfb0438250830e21f2c1ba75e22652337efccfbe",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.4.0",
             "verbb/base": "^1.0.2"
         },
-        "time": "2020-08-05T12:32:48+00:00",
+        "time": "2021-01-15T00:59:17+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Navigation",
@@ -5388,19 +5374,19 @@
     },
     {
         "name": "verbb/super-table",
-        "version": "2.5.2",
-        "version_normalized": "2.5.2.0",
+        "version": "2.6.5",
+        "version_normalized": "2.6.5.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/verbb/super-table/zipball/3aeaffc795c44edf11e48a00ebf4d2d418b6b230",
-            "reference": "3aeaffc795c44edf11e48a00ebf4d2d418b6b230",
+            "url": "https://api.github.com/repos/verbb/super-table/zipball/348c41fc687254036a58cfa0d82a614bedc41707",
+            "reference": "348c41fc687254036a58cfa0d82a614bedc41707",
             "shasum": ""
         },
         "require": {
-            "craftcms/cms": "^3.4.23",
+            "craftcms/cms": "^3.5.0",
             "verbb/base": "^1.0.2"
         },
-        "time": "2020-07-27T23:09:41+00:00",
+        "time": "2020-12-16T01:37:53+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Super Table",
@@ -5794,12 +5780,12 @@
     },
     {
         "name": "voku/stringy",
-        "version": "6.3.1",
-        "version_normalized": "6.3.1.0",
+        "version": "6.4.0",
+        "version_normalized": "6.4.0.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/voku/Stringy/zipball/68429ad7626e94e2ec3a2a9f0b530e96ebb4a4db",
-            "reference": "68429ad7626e94e2ec3a2a9f0b530e96ebb4a4db",
+            "url": "https://api.github.com/repos/voku/Stringy/zipball/b534a95b58b020faf3e3b779abc0bc277b5fb83c",
+            "reference": "b534a95b58b020faf3e3b779abc0bc277b5fb83c",
             "shasum": ""
         },
         "require": {
@@ -5816,7 +5802,7 @@
         "replace": {
             "danielstjules/stringy": "~3.0"
         },
-        "time": "2020-05-24T00:26:26+00:00",
+        "time": "2020-09-27T21:32:36+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -6306,54 +6292,6 @@
             "redis",
             "sqs",
             "yii"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-shell",
-        "version": "2.0.4",
-        "version_normalized": "2.0.4.0",
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-shell/zipball/6832c3dde303d89f7123bdbcb8cb4d5c80fae4df",
-            "reference": "6832c3dde303d89f7123bdbcb8cb4d5c80fae4df",
-            "shasum": ""
-        },
-        "require": {
-            "psy/psysh": "~0.9.3|~0.10.3",
-            "symfony/var-dumper": "~2.7|~3.0|~4.0|~5.0",
-            "yiisoft/yii2": "~2.0.0"
-        },
-        "time": "2020-05-02T11:43:24+00:00",
-        "type": "yii2-extension",
-        "extra": {
-            "bootstrap": "yii\\shell\\Bootstrap",
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "yii\\shell\\": ""
-            }
-        },
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Daniel Gomez Pan",
-                "email": "pana_1990@hotmail.com"
-            },
-            {
-                "name": "Sascha Vincent Kurowski",
-                "email": "svkurowski@gmail.com"
-            }
-        ],
-        "description": "The interactive shell extension for Yii framework",
-        "keywords": [
-            "shell",
-            "yii2"
         ]
     },
     {

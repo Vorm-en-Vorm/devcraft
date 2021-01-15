@@ -1,5 +1,75 @@
 # Changelog
 
+## 2.6.5 - 2020-12-16
+
+### Fixed
+- Fix an `Undefined property` fatal error when saving an element containing a Super Table field, on Craft 3.5.17.
+
+## 2.6.4 - 2020-11-28
+
+### Changed
+- Sub-fields of Super Table fields now have “Use this field’s values as search keywords” unchecked for new fields. This is inline with Craft's native Matrix behaviour.
+
+### Fixed
+- Fix block type model `getHandle()` returning values included a hyphen, causing issues with GraphQL.
+- Fix typehint for `getRelatedElementsQuery()`.
+
+## 2.6.3 - 2020-09-28
+
+### Fixed
+- Fix InvalidArgumentException not found error. (thanks @smcyr).
+- Fix static matrix layout visual issue.
+
+## 2.6.2 - 2020-08-21
+
+### Fixed
+- Fix duplicate instructions for blocks in Craft 3.5+.
+- Fix checkbox styling in Craft 3.5+.
+
+## 2.6.1 - 2020-08-13
+
+### Fixed
+- Fix content table checking to cater for potentially problematic fields.
+
+## 2.6.0.4 - 2020-08-11
+
+### Fixed
+- Fix layout issue with row layout fields, where any overflow was hidden.
+
+## 2.6.0.3 - 2020-08-10
+
+### Fixed
+- Fix error when rebuilding project config.
+
+## 2.6.0.2 - 2020-08-10
+
+### Fixed
+- Fix potential error during migration from Craft 2.
+
+## 2.6.0.1 - 2020-08-10
+
+### Fixed
+- Fix GQL error.
+- Fix errors with block query.
+
+## 2.6.0 - 2020-08-10
+
+### Added
+- Add Craft 3.5+ compatibility.
+- Now requires Craft 3.5+.
+
+## 2.5.4 - 2020-07-30
+
+### Fixed
+- Fix an error when translating the description if the propagation method is set to PROPAGATION_METHOD_LANGUAGE. (thanks @andersaloof).
+- Fix JS error when adding new blocks.
+
+## 2.5.3 - 2020-07-28
+
+### Fixed
+- Refactor nested Matrix handling. Removed bespoke Matrix code, thanks to core Craft changes. Addresses a few upcoming changes in Craft 3.5+ (but backward-compatible).
+- Now requires Craft 3.4.30+.
+
 ## 2.5.2 - 2020-07-28
 
 ### Fixed

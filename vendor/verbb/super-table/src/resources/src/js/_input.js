@@ -133,7 +133,7 @@ if (typeof Craft.SuperTable === typeof undefined) {
 
         getParsedBlockHtml: function(html, id) {
             if (typeof html == 'string') {
-                return html.replace(/__BLOCK_ST__/g, id);
+                return html.replace(new RegExp(`__BLOCK_${this.settings.placeholderKey}__`, 'g'), id);
             } else {
                 return '';
             }
@@ -281,14 +281,12 @@ if (typeof Craft.SuperTable === typeof undefined) {
             var row = new Craft.SuperTable.InputRow.Row(this, $tr);
             this.sorter.addItems($tr);
 
-            row.expand();
-
             this.updateAddBlockBtn();
         },
 
         getParsedBlockHtml: function(html, id) {
             if (typeof html == 'string') {
-                return html.replace(/__BLOCK_ST__/g, id);
+                return html.replace(new RegExp(`__BLOCK_${this.settings.placeholderKey}__`, 'g'), id);
             } else {
                 return '';
             }
@@ -441,6 +439,7 @@ if (typeof Craft.SuperTable === typeof undefined) {
 
         addRow: function() {
             var type = this.blockType.type;
+            var isStatic = this.settings.staticField;
 
             this.totalNewBlocks++;
 
@@ -449,10 +448,12 @@ if (typeof Craft.SuperTable === typeof undefined) {
             var bodyHtml = this.getParsedBlockHtml(this.blockType.bodyHtml, id),
                 footHtml = this.getParsedBlockHtml(this.blockType.footHtml, id);
 
-            var html = '<div class="superTableMatrix matrixblock" data-id="{{ blockId }}"{% if block.collapsed %} data-collapsed{% endif %}>' +
+            var html = '<div class="superTableMatrix matrixblock ' + (isStatic ? 'static' : '') + '" data-id="' + id + '">' +
                 '<input type="hidden" name="' + this.inputNamePrefix + '[sortOrder][]" value="' + id + '">' +
-                '<input type="hidden" name="' + this.inputNamePrefix + '[blocks][' + id + '][type]" value="' + type + '">' +
-                '<div class="titlebar">' +
+                '<input type="hidden" name="' + this.inputNamePrefix + '[blocks][' + id + '][type]" value="' + type + '">';
+
+            if (!isStatic) {
+                html += '<div class="titlebar">' +
                 '<div class="blocktype"></div>' +
                 '<div class="preview"></div>' +
                 '</div>' +
@@ -469,9 +470,11 @@ if (typeof Craft.SuperTable === typeof undefined) {
                 '</ul>' +
                 '</div>' +
                 '<a class="move icon" title="' + Craft.t('super-table', 'Reorder') + '" role="button"></a>' +
-                '</div>' +
-                '<div class="fields">' + bodyHtml + '</div>' +
                 '</div>';
+            }
+
+            html += '<div class="fields">' + bodyHtml + '</div>' +
+            '</div>';
 
             var $tr = $(html).appendTo(this.$divInner);
 
@@ -489,7 +492,7 @@ if (typeof Craft.SuperTable === typeof undefined) {
 
         getParsedBlockHtml: function(html, id) {
             if (typeof html == 'string') {
-                return html.replace(/__BLOCK_ST__/g, id);
+                return html.replace(new RegExp(`__BLOCK_${this.settings.placeholderKey}__`, 'g'), id);
             } else {
                 return '';
             }

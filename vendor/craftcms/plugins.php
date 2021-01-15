@@ -45,38 +45,6 @@ return array (
     'developerEmail' => 'sprout@barrelstrengthdesign.com',
     'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
   ),
-  'craftcms/redactor' => 
-  array (
-    'class' => 'craft\\redactor\\Plugin',
-    'basePath' => $vendorDir . '/craftcms/redactor/src',
-    'handle' => 'redactor',
-    'aliases' => 
-    array (
-      '@craft/redactor' => $vendorDir . '/craftcms/redactor/src',
-    ),
-    'name' => 'Redactor',
-    'version' => '2.6.1',
-    'description' => 'Edit rich text content in Craft CMS using Redactor by Imperavi.',
-    'developer' => 'Pixel & Tonic',
-    'developerUrl' => 'https://pixelandtonic.com/',
-    'developerEmail' => 'support@craftcms.com',
-    'documentationUrl' => 'https://github.com/craftcms/redactor/blob/v2/README.md',
-  ),
-  'sebastianlenz/linkfield' => 
-  array (
-    'class' => 'typedlinkfield\\Plugin',
-    'basePath' => $vendorDir . '/sebastianlenz/linkfield/src',
-    'handle' => 'typedlinkfield',
-    'aliases' => 
-    array (
-      '@typedlinkfield' => $vendorDir . '/sebastianlenz/linkfield/src',
-    ),
-    'name' => 'Typed link field',
-    'version' => '1.0.23',
-    'description' => 'A Craft field type for selecting links',
-    'developer' => 'Sebastian Lenz',
-    'developerUrl' => 'https://github.com/sebastian-lenz/',
-  ),
   'craftcms/aws-s3' => 
   array (
     'class' => 'craft\\awss3\\Plugin',
@@ -87,12 +55,29 @@ return array (
       '@craft/awss3' => $vendorDir . '/craftcms/aws-s3/src',
     ),
     'name' => 'Amazon S3',
-    'version' => '1.2.9',
+    'version' => '1.2.11',
     'description' => 'Amazon S3 integration for Craft CMS',
     'developer' => 'Pixel & Tonic',
     'developerUrl' => 'https://pixelandtonic.com/',
     'developerEmail' => 'support@craftcms.com',
     'documentationUrl' => 'https://github.com/craftcms/aws-s3/blob/master/README.md',
+  ),
+  'craftcms/redactor' => 
+  array (
+    'class' => 'craft\\redactor\\Plugin',
+    'basePath' => $vendorDir . '/craftcms/redactor/src',
+    'handle' => 'redactor',
+    'aliases' => 
+    array (
+      '@craft/redactor' => $vendorDir . '/craftcms/redactor/src',
+    ),
+    'name' => 'Redactor',
+    'version' => '2.8.5',
+    'description' => 'Edit rich text content in Craft CMS using Redactor by Imperavi.',
+    'developer' => 'Pixel & Tonic',
+    'developerUrl' => 'https://pixelandtonic.com/',
+    'developerEmail' => 'support@craftcms.com',
+    'documentationUrl' => 'https://github.com/craftcms/redactor/blob/v2/README.md',
   ),
   'dolphiq/sitemap' => 
   array (
@@ -104,7 +89,7 @@ return array (
       '@dolphiq/sitemap' => $vendorDir . '/dolphiq/sitemap/src',
     ),
     'name' => 'XML Sitemap',
-    'version' => '1.3.0',
+    'version' => '1.3.1',
     'schemaVersion' => '1.0.2',
     'description' => 'Craft 3 plugin that provides an easy way to provide and manage a XML sitemap for search engines like Google and Bing',
     'developer' => 'Dolphiq',
@@ -118,6 +103,21 @@ return array (
       'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
     ),
   ),
+  'sebastianlenz/linkfield' => 
+  array (
+    'class' => 'typedlinkfield\\Plugin',
+    'basePath' => $vendorDir . '/sebastianlenz/linkfield/src',
+    'handle' => 'typedlinkfield',
+    'aliases' => 
+    array (
+      '@typedlinkfield' => $vendorDir . '/sebastianlenz/linkfield/src',
+    ),
+    'name' => 'Typed link field',
+    'version' => '1.0.24',
+    'description' => 'A Craft field type for selecting links',
+    'developer' => 'Sebastian Lenz',
+    'developerUrl' => 'https://github.com/sebastian-lenz/',
+  ),
   'verbb/field-manager' => 
   array (
     'class' => 'verbb\\fieldmanager\\FieldManager',
@@ -128,7 +128,7 @@ return array (
       '@verbb/fieldmanager' => $vendorDir . '/verbb/field-manager/src',
     ),
     'name' => 'Field Manager',
-    'version' => '2.1.8',
+    'version' => '2.2.2',
     'description' => 'Manage your fields and field groups with ease with simple field or group cloning and quicker overall management.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',
@@ -146,7 +146,7 @@ return array (
       '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
     ),
     'name' => 'Navigation',
-    'version' => '1.3.23',
+    'version' => '1.4.12',
     'description' => 'A Craft CMS plugin to create navigation menus for your site.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',
@@ -164,7 +164,7 @@ return array (
       '@verbb/supertable' => $vendorDir . '/verbb/super-table/src',
     ),
     'name' => 'Super Table',
-    'version' => '2.5.2',
+    'version' => '2.6.5',
     'description' => 'Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',

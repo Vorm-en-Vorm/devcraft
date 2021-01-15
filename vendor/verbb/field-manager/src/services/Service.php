@@ -6,6 +6,7 @@ use verbb\fieldmanager\FieldManager;
 use Craft;
 use craft\base\FieldInterface;
 use craft\db\Query;
+use craft\helpers\ArrayHelper;
 use craft\helpers\Json;
 use craft\models\FieldGroup;
 
@@ -127,9 +128,21 @@ class Service extends Component
 
         foreach ($originField->blockTypes as $i => $blockType) {
             $fields = [];
+            $blockKey = 'new' . ($i + 1);
 
             foreach ($blockType->getFields() as $j => $blockField) {
-                $fields['new' . ($j + 1)] = [
+                $fieldKey = 'new' . ($j + 1);
+                $width = 100;
+
+                $fieldLayout = $blockType->getFieldLayout();
+                $fieldLayoutElements = $fieldLayout->getTabs()[0]->elements ?? [];
+
+                if ($fieldLayoutElements) {
+                    $fieldLayoutElement = ArrayHelper::firstWhere($fieldLayoutElements, 'field.uid', $blockField->uid);
+                    $width = (int)($fieldLayoutElement->width ?? 0) ?: 100;
+                }
+
+                $fields[$fieldKey] = [
                     'type' => get_class($blockField),
                     'name' => $blockField['name'],
                     'handle' => $blockField['handle'],
@@ -139,14 +152,15 @@ class Service extends Component
                     'translationMethod' => $blockField['translationMethod'],
                     'translationKeyFormat' => $blockField['translationKeyFormat'],
                     'typesettings' => $blockField['settings'],
+                    'width' => $width,
                 ];
 
                 if (get_class($blockField) == 'verbb\supertable\fields\SuperTableField') {
-                    $fields['new' . $j]['typesettings']['blockTypes'] = $this->processCloneSuperTable($blockField);
+                    $fields['new' . ($j + 1)]['typesettings']['blockTypes'] = $this->processCloneSuperTable($blockField);
                 }
             }
 
-            $blockTypes['new' . ($i + 1)] = [
+            $blockTypes[$blockKey] = [
                 'name' => $blockType->name,
                 'handle' => $blockType->handle,
                 'sortOrder' => $blockType->sortOrder,
@@ -175,6 +189,7 @@ class Service extends Component
                 'handle' => $blockType->handle,
                 'sortOrder' => $blockType->sortOrder,
                 'maxBlocks' => $blockType->maxBlocks,
+                'maxSiblingBlocks' => $blockType->maxSiblingBlocks,
                 'maxChildBlocks' => $blockType->maxChildBlocks,
                 'childBlocks' => is_string($blockType->childBlocks) ? Json::decodeIfJson($blockType->childBlocks) : $blockType->childBlocks,
                 'topLevel' => (bool)$blockType->topLevel,

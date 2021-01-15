@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.2.2 - 2021-01-05
+
+### Fixed
+- Fix error when cloning or importing Neo fields.
+
+## 2.2.1 - 2020-09-28
+
+### Fixed
+- Fix error when cloning Matrix fields. (thanks @brimby).
+
+## 2.2.0 - 2020-09-05
+
+### Changed
+- Editing the name of an existing field no longer re-generates the field handle.
+- Now required Craft 3.5+.
+
+### Fixed
+- Fix field widths not being retained when cloning Matrix fields.
+- Fix error when cloning Matrix + Super Table fields.
+- Add width property to import for Matrix.
+- Add width property to export for Matrix.
+
 ## 2.1.8 - 2020-07-26
 
 ### Fixed

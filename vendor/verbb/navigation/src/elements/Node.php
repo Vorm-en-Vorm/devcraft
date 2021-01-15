@@ -6,6 +6,8 @@ use verbb\navigation\Navigation;
 use verbb\navigation\elements\db\NodeQuery;
 use verbb\navigation\events\NodeActiveEvent;
 use verbb\navigation\models\Nav as NavModel;
+use verbb\navigation\nodetypes\PassiveType;
+use verbb\navigation\nodetypes\SiteType;
 use verbb\navigation\records\Nav as NavRecord;
 use verbb\navigation\records\Node as NodeRecord;
 
@@ -89,7 +91,7 @@ class Node extends Element
 
     public static function gqlScopesByContext($context): array
     {
-        return ['navs.' . $context->uid];
+        return ['navigationNavs.' . $context->uid];
     }
 
 
@@ -108,6 +110,7 @@ class Node extends Element
     public $data = [];
     public $newWindow = false;
 
+    public $uri;
     public $newParentId;
     public $deletedWithNav = false;
     public $typeLabel = '';
@@ -133,6 +136,10 @@ class Node extends Element
 
         if (!empty($this->data)) {
             $this->data = Json::decode($this->data);
+        }
+
+        if (!$this->typeLabel) {
+            $this->typeLabel = $this->getNodeTypeLabel();
         }
     }
 
@@ -227,7 +234,8 @@ class Node extends Element
             return $this->nodeType()->getUrl();
         }
 
-        $url = Craft::getAlias($url);
+        // Parse aliases and env variables
+        $url = Craft::parseEnv($url);
 
         // Allow twig support
         if ($url) {
@@ -267,6 +275,15 @@ class Node extends Element
     public function setElementUrl($value)
     {
         $this->_elementUrl = $value;
+    }
+
+    public function getNodeUri()
+    {
+        if ($url = $this->getUrl()) {
+            return str_replace(UrlHelper::siteUrl(), '', $url);
+        }
+
+        return '';
     }
 
     public function getLinkAttributes($extraAttributes = null)
@@ -351,23 +368,26 @@ class Node extends Element
         return null;
     }
 
+    public function getNodeType()
+    {
+        if (!$this->type) {
+            return 'custom';
+        }
+
+        return $this->type;
+    }
+
     public function getNodeTypeLabel()
     {
-        if ($this->getElement()) {
-            $displayName = StringHelper::toLowerCase($this->getElement()->displayName());
-
-            return $displayName;
-        }
-
         if ($this->isManual()) {
             return Craft::t('navigation', 'manual');
-        }
-
-        if ($this->nodeType()) {
+        } else if ($this->nodeType()) {
             return StringHelper::toLowerCase($this->nodeType()->displayName());
-        }
+        } else {
+            $classNameParts = explode('\\', $this->type);
 
-        return '';
+            return StringHelper::toLowerCase(array_pop($classNameParts));
+        }
     }
 
     public function isElement()
@@ -381,6 +401,16 @@ class Node extends Element
         }
 
         return false;
+    }
+
+    public function isPassive()
+    {
+        return $this->type === PassiveType::class;
+    }
+
+    public function isSite()
+    {
+        return $this->type === SiteType::class;
     }
 
     public function hasOverriddenTitle()
@@ -401,10 +431,19 @@ class Node extends Element
         $nav = $this->getNav();
 
         if (!$nav->propagateNodes) {
-            return [$this->siteId];
+            $siteIds = [$this->siteId];
+        } else {
+            $siteIds = $nav->getEditableSiteIds();
         }
 
-        return Craft::$app->getSites()->getAllSiteIds();
+        $siteIds = array_filter($siteIds);
+
+        // Just an extra check in case there are no sites, for whatever reason
+        if (!$siteIds) {
+            $siteIds = Craft::$app->getSites()->getAllSiteIds();
+        }
+
+        return $siteIds;
     }
 
     public function getGqlTypeName(): string
@@ -418,6 +457,8 @@ class Node extends Element
 
     public function beforeSave(bool $isNew): bool
     {
+        $settings = Navigation::$plugin->getSettings();
+
         // Set the structure ID for Element::attributes() and afterSave()
         $this->structureId = $this->getNav()->structureId;
 
@@ -436,7 +477,8 @@ class Node extends Element
         }
 
         // If this is propagating, we want to fetch the information for that site's linked element
-        if ($this->propagating && $this->isElement()) {
+        // At next breakpoint, remove `propagateSiteElements`
+        if ($this->propagating && $this->isElement() && $settings->propagateSiteElements) {
             $localeElement = Craft::$app->getElements()->getElementById($this->elementId, null, $this->siteId);
 
             if ($localeElement) {
@@ -455,8 +497,13 @@ class Node extends Element
         }
 
         // Save the linked element's site id to the slug - again, our hacky way...
-        if ($this->elementSiteId) {
-            $this->slug = $this->elementSiteId;
+        if ($this->getElementSiteId()) {
+            $this->slug = $this->elementSiteId = $this->getElementSiteId();
+        }
+
+        // 'custom' is the same as '', but we'll change to the former one day
+        if ($this->type === 'custom') {
+            $this->type = '';
         }
 
         return parent::beforeSave($isNew);
@@ -569,6 +616,19 @@ class Node extends Element
         return $nav ? $nav->getNavFieldLayout() : null;
     }
 
+    public function getCustomAttributesObject()
+    {
+        $object = [];
+
+        if (is_array($this->customAttributes)) {
+            foreach ($this->customAttributes as $attribute) {
+                $object[$attribute['attribute']] = $attribute['value'];
+            }
+        }
+
+        return $object;
+    }
+
 
     // Private Methods
     // =========================================================================
@@ -586,39 +646,53 @@ class Node extends Element
             return;
         }
 
-        $relativeUrl = str_replace(UrlHelper::siteUrl(), '', $this->getUrl(false));
-        $currentUrl = implode('/', $request->getSegments());
+        $siteUrl = trim(UrlHelper::siteUrl(), '/');
+        $nodeUrl = (string)$this->getUrl(false);
 
-        // Stop straight away if this is potentially the homepage
-        if ($currentUrl === '') {
-            // Check if we have the homepage entry in the nav, and mark that as active
-            if ($this->_elementUrl && $this->_elementUrl === '__home__') {
-                return true;
-            }
+        // Get the full url to compare, this makes sure it works with any setup (either other domain per site or subdirs)
+        // Using `getUrl()` would return the site-relative path, which isn't what we want to compare with.
+        // Also trim the '/' to normalise for comparison.
+        $currentUrl = trim(urldecode($request->absoluteUrl), '/');
 
-            return false;
+        // Convert a root-relative node's URL to its absolute equivalent. Note we're not using the site URL,
+        // becuase the node's URL will likely already contain that.
+        if (UrlHelper::isRootRelativeUrl($nodeUrl)) {
+            $nodeUrl = $request->hostInfo . '/' . trim($nodeUrl, '/');
         }
 
-        // If addTrailingSlashesToUrls, remove trailing '/' for comparison
-        if (Craft::$app->config->general->addTrailingSlashesToUrls) {
-            $relativeUrl = rtrim($relativeUrl, '/');
+        // A final check if the node is still not an absolute URL, make it (a site) one.
+        if (!UrlHelper::isAbsoluteUrl($nodeUrl)) {
+            $nodeUrl = UrlHelper::siteUrl($nodeUrl);
         }
 
-        // If manual URL, make sure to remove a leading '/' for comparison
-        if ($this->isManual()) {
-            $relativeUrl = ltrim($relativeUrl, '/');
+        // Trim the node's url to normalise for comparison, after we've resolved it to an absolute URL.
+        $nodeUrl = trim($nodeUrl, '/');
+
+        // Stop straight away if this is the homepage entry
+        if ($this->_elementUrl && $this->_elementUrl === '__home__') {
+            return $currentUrl === $nodeUrl ? true : false;
         }
 
-        $isActive = (bool)($currentUrl === $relativeUrl);
+        // Check if they match, easy enough!
+        $isActive = (bool)($currentUrl === $nodeUrl);
 
         // Also check if any children are active
         if ($includeChildren) {
             // Then, provide a helper based purely on the URL structure.
             // /example-page and /example-page/nested-page should both be active, even if both aren't nodes.
-            if (substr($currentUrl, 0, strlen($relativeUrl . '/')) === $relativeUrl . '/') {
-                if ($relativeUrl !== '') {
+
+            // Include trailing slashes to check if the parent has a child, otherwise we get partial matches
+            // for things like /some-entry and /some-entry-title - both would incorrectly match
+            if (substr($currentUrl, 0, strlen($nodeUrl . '/')) === $nodeUrl . '/') {
+                // Make sure we're not on the homepage (unless this node is for the homepage)
+                if ($nodeUrl !== $siteUrl) {
                     $isActive = true;
                 }
+            }
+
+            // If `$currentUrl` string equals `$nodeUrl` string, zero is returned - if this happens, a match is found.
+            if (strpos($currentUrl, $nodeUrl) === 0) {
+                $isActive = true;
             }
         }
 

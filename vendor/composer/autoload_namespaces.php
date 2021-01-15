@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
-    'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
     'Props\\' => array($vendorDir . '/mrclay/props-dic/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),

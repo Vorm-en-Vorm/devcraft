@@ -90,21 +90,25 @@ Craft.Navigation = Garnish.Base.extend({
 
     showModal: function(e) {
         this.elementType = $(e.currentTarget).data('element-type');
+        this.sources = $(e.currentTarget).data('sources');
 
         if (!this.elementModals[this.elementType]) {
-            this.elementModals[this.elementType] = this.createModal(this.elementType);
+            this.elementModals[this.elementType] = this.createModal();
         } else {
             this.elementModals[this.elementType].show();
+
+            // De-select any previously selected items
+            this.elementModals[this.elementType].elementIndex.view.deselectAllElements();
         }
     },
 
-    createModal: function(elementType) {
-        return Craft.createElementSelectorModal(elementType, {
+    createModal: function() {
+        return Craft.createElementSelectorModal(this.elementType, {
             criteria: {
                 enabledForSite: null,
                 // siteId: this.siteId,
             },
-            sources: '*',
+            sources: this.sources,
             multiSelect: true,
             onSelect: $.proxy(this, 'onModalSelect'),
         });
@@ -113,7 +117,9 @@ Craft.Navigation = Garnish.Base.extend({
     onModalSelect: function(elements) {
         var $optionsContainer = $('.tab-list-item[data-element-type="' + this.elementType.replace(/\\/ig, '\\\\') + '"]');
         var parentId = $optionsContainer.find('.js-parent-node select').val();
-        var newWindow = $optionsContainer.find('[name="newWindow"]  input').val();
+        var newWindow = $optionsContainer.find('input[name="newWindow"]').val();
+
+        var data = [];
 
         for (var i = 0; i < elements.length; i++) {
             var element = elements[i];
@@ -121,7 +127,7 @@ Craft.Navigation = Garnish.Base.extend({
             // Unselect element in modal
             this.elementModals[this.elementType].$body.find('tr[data-id="' + element.id + '"]').removeClass('sel');
 
-            var data = {
+            data.push({
                 navId: this.nav.id,
                 siteId: this.siteId,
                 elementId: element.id,
@@ -131,26 +137,26 @@ Craft.Navigation = Garnish.Base.extend({
                 type: this.elementType,
                 newWindow: newWindow,
                 parentId: parentId,
-            };
-
-            this.saveNode(data);
+            });
         }
+
+        this.saveNode(data);
     },
 
     onManualSubmit: function(e) {
         e.preventDefault();
 
         var parentId = this.$manualForm.find('.js-parent-node select').val();
-        var newWindow = this.$manualForm.find('[name="newWindow"]  input').val();
+        var newWindow = this.$manualForm.find('input[name="newWindow"]').val();
 
-        var data = {
+        var data = [{
             navId: this.nav.id,
             siteId: this.siteId,
             title: this.$manualForm.find('[name="title"]').val(),
             url: this.$manualForm.find('[name="url"]').val(),
             newWindow: newWindow,
             parentId: parentId,
-        };
+        }];
 
         this.saveNode(data);
     },
@@ -161,12 +167,12 @@ Craft.Navigation = Garnish.Base.extend({
         var $nodeTypeForm = $(e.target);
 
         var parentId = $nodeTypeForm.find('.js-parent-node select').val();
-        var newWindow = $nodeTypeForm.find('[name="newWindow"] input').val();
+        var newWindow = $nodeTypeForm.find('input[name="newWindow"]').val();
         var type = $nodeTypeForm.parents('[data-node-type]').data('node-type');
         var $typeForm = $nodeTypeForm.find('.node-type-data select, .node-type-data textarea, .node-type-data input');
         var typeData = $typeForm.serializeJSON();
 
-        var data = {
+        var data = [{
             navId: this.nav.id,
             siteId: this.siteId,
             title: $nodeTypeForm.find('[name="title"]').val(),
@@ -175,7 +181,7 @@ Craft.Navigation = Garnish.Base.extend({
             parentId: parentId,
             type: type,
             data: typeData.data,
-        };
+        }];
 
         this.saveNode(data);
     },
@@ -230,7 +236,9 @@ Craft.Navigation = Garnish.Base.extend({
         this.$manualLoader.removeClass('hidden');
         this.$addElementLoader.removeClass('hidden');
 
-        Craft.postActionRequest('navigation/nodes/save-node', data, $.proxy(function(response, textStatus) {
+        data = { nodes: data };
+
+        Craft.postActionRequest('navigation/nodes/add-nodes', data, $.proxy(function(response, textStatus) {
             this.$nodeTypeLoader.addClass('hidden');
             this.$manualLoader.addClass('hidden');
             this.$addElementLoader.addClass('hidden');
@@ -239,10 +247,14 @@ Craft.Navigation = Garnish.Base.extend({
                 this.$manualForm.find('[name="title"]').val('');
                 this.$manualForm.find('[name="url"]').val('');
 
-                var id = response.node.id;
-                var $structureElement = this.addNode(response.node, response.level);
+                for (var i = 0; i < response.nodes.length; i++) {
+                    var node = response.nodes[i];
 
-                this.structureElements[id] = new Craft.Navigation.StructureElement(this, $structureElement);
+                    var id = node.id;
+                    var $structureElement = this.addNode(node, response.level);
+
+                    this.structureElements[id] = new Craft.Navigation.StructureElement(this, $structureElement);
+                }
 
                 this.$emptyContainer.addClass('hidden');
 

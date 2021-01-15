@@ -6,6 +6,7 @@ use verbb\navigation\elements\Node;
 use verbb\navigation\fields\NavigationField;
 use verbb\navigation\gql\interfaces\NodeInterface;
 use verbb\navigation\gql\queries\NodeQuery;
+use verbb\navigation\integrations\NodeFeedMeElement;
 use verbb\navigation\models\Settings;
 use verbb\navigation\services\Navs;
 use verbb\navigation\twigextensions\Extension;
@@ -16,6 +17,7 @@ use craft\base\Plugin;
 use craft\events\ConfigEvent;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterGqlQueriesEvent;
+use craft\events\RegisterGqlSchemaComponentsEvent;
 use craft\events\RegisterGqlTypesEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\RegisterUserPermissionsEvent;
@@ -32,12 +34,18 @@ use craft\web\twig\variables\CraftVariable;
 use yii\base\Event;
 use yii\web\User;
 
+use craft\feedme\events\RegisterFeedMeElementsEvent;
+use craft\feedme\services\Elements as FeedMeElements;
+
+use craft\gatsbyhelper\events\RegisterSourceNodeTypesEvent;
+use craft\gatsbyhelper\services\SourceNodes;
+
 class Navigation extends Plugin
 {
     // Public Properties
     // =========================================================================
 
-    public $schemaVersion = '1.0.17';
+    public $schemaVersion = '1.0.21';
     public $hasCpSettings = true;
     public $hasCpSection = true;
 
@@ -68,6 +76,7 @@ class Navigation extends Plugin
         $this->_registerElementTypes();
         $this->_registerPermissions();
         $this->_registerGraphQl();
+        $this->_registerFeedMeSupport();
     }
 
     public function getPluginName()
@@ -201,5 +210,45 @@ class Navigation extends Plugin
                 $event->queries[$key] = $value;
             }
         });
+
+        if (version_compare(Craft::$app->getInfo()->version, '3.5.0', '>=')) {
+            Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_SCHEMA_COMPONENTS, function(RegisterGqlSchemaComponentsEvent $event) {
+                $navs = Navigation::$plugin->getNavs()->getAllNavs();
+
+                if (!empty($navs)) {
+                    $label = Craft::t('navigation', 'Navigation');
+                    $event->queries[$label]['navigationNavs.all:read'] = ['label' => Craft::t('navigation', 'View all navigations')];
+
+                    foreach ($navs as $nav) {
+                        $suffix = 'navigationNavs.' . $nav->uid;
+
+                        $event->queries[$label][$suffix . ':read'] = [
+                            'label' => Craft::t('navigation', 'View navigation - {nav}', ['nav' => Craft::t('site', $nav->name)]),
+                        ];
+                    }
+                }
+            });
+        }
+
+        if (class_exists(SourceNodes::class)) {
+            Event::on(SourceNodes::class, SourceNodes::EVENT_REGISTER_SOURCE_NODE_TYPES, function(RegisterSourceNodeTypesEvent $event) {
+                $event->types[] = [
+                    'node' => 'node',
+                    'list' => 'nodes',
+                    'filterArgument' => '',
+                    'filterTypeExpression' => '(.+)_Node',
+                    'targetInterface' => NodeInterface::getName(),
+                ];
+            });
+        }
+    }
+
+    private function _registerFeedMeSupport()
+    {
+        if (class_exists(FeedMeElements::class)) {
+            Event::on(FeedMeElements::class, FeedMeElements::EVENT_REGISTER_FEED_ME_ELEMENTS, function(RegisterFeedMeElementsEvent $e) {
+                $e->elements[] = NodeFeedMeElement::class;
+            });
+        }
     }
 }
