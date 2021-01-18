@@ -34,7 +34,12 @@
             },
 
             showErrorDetails: function(details) {
-                $('<div/>', {id: 'error', 'class': 'code', html: this.parseStatus(details)}).appendTo(this.$status);
+                $('<div/>', {
+                    id: 'error',
+                    class: 'code',
+                    tabindex: 0,
+                    html: this.parseStatus(details),
+                }).appendTo(this.$status);
             },
 
             postActionRequest: function(action) {
@@ -99,6 +104,7 @@
                         $button.attr('href', option.url);
                         $button.attr('target', '_blank');
                     } else {
+                        $button.attr('role', 'button');
                         this.addListener($button, 'click', option, 'onOptionSelect');
                     }
                 }

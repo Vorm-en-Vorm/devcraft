@@ -13,15 +13,17 @@ class ArrayyIterator extends \ArrayIterator
 {
     /**
      * @var string
+     *
+     * @phpstan-var string|class-string<\Arrayy\Arrayy<TKey,T>>
      */
     private $class;
 
     /**
-     * @param array<mixed,mixed> $array
-     * @param int                $flags
-     * @param string             $class
+     * @param array<int|string,mixed> $array
+     * @param int                     $flags
+     * @param string                  $class
      *
-     * @psalm-param array<TKey,T> $array
+     * @phpstan-param array<TKey,T> $array
      */
     public function __construct(array $array = [], int $flags = 0, string $class = '')
     {
@@ -38,7 +40,7 @@ class ArrayyIterator extends \ArrayIterator
         $value = parent::current();
 
         if (\is_array($value)) {
-            return \call_user_func([$this->class, 'create'], $value);
+            $value = \call_user_func([$this->class, 'create'], $value, static::class, false);
         }
 
         return $value;
@@ -50,7 +52,7 @@ class ArrayyIterator extends \ArrayIterator
      * @return Arrayy|mixed
      *                      <p>Will return a "Arrayy"-object instead of an array.</p>
      *
-     * @psalm-param TKey $offset
+     * @phpstan-param TKey $offset
      * @param-return Arrayy<TKey,T>|mixed
      */
     public function offsetGet($offset)
@@ -58,7 +60,7 @@ class ArrayyIterator extends \ArrayIterator
         $value = parent::offsetGet($offset);
 
         if (\is_array($value)) {
-            $value = \call_user_func([$this->class, 'create'], $value);
+            $value = \call_user_func([$this->class, 'create'], $value, static::class, false);
         }
 
         return $value;

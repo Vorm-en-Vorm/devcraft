@@ -10,7 +10,7 @@ use Arrayy\Collection\Collection;
 /**
  * @template TKey of array-key
  * @template T of object
- * @extends  Collection<TKey,T>
+ * @extends Collection<TKey,T>
  */
 final class InstancesCollection extends Collection implements TypeInterface
 {
@@ -20,9 +20,9 @@ final class InstancesCollection extends Collection implements TypeInterface
      * @param bool|null     $checkPropertiesInConstructor
      * @param string[]|null $classNames
      *
-     * @psalm-param array<TKey,T> $data
-     * @psalm-param class-string<\Arrayy\ArrayyIterator>|null $iteratorClass
-     * @psalm-param array<class-string<T>>|null $classNames
+     * @phpstan-param array<TKey,T> $data
+     * @phpstan-param class-string<\Arrayy\ArrayyIterator>|null $iteratorClass
+     * @phpstan-param array<class-string<T>>|null $classNames
      */
     public function __construct(
         array $data = [],

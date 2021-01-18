@@ -73,7 +73,7 @@
                                         if (this.totalActions > 0) {
                                             this.processIndexing();
                                         } else {
-                                            this.onComplete();
+                                            this.finishIndexing();
                                         }
                                     }
                                 }.bind(this));
@@ -129,15 +129,27 @@
                     $buttons = $('<div class="buttons right"/>').appendTo($footer);
 
                 if (data.showDelete) {
-                    var $cancelBtn = $('<div class="btn">' + Craft.t('app', 'Keep them') + '</div>').appendTo($buttons),
-                    $okBtn = $('<input type="submit" class="btn submit" value="' + Craft.t('app', 'Delete them') + '"/>').appendTo($buttons);
+                    let $cancelBtn = $('<button/>', {
+                        type: 'button',
+                        class: 'btn',
+                        text: Craft.t('app', 'Keep them'),
+                    }).appendTo($buttons);
+                    $('<button/>', {
+                        type: 'submit',
+                        class: 'btn submit',
+                        text: Craft.t('app', 'Delete them'),
+                    }).appendTo($buttons);
 
                     this.addListener($cancelBtn, 'click', function() {
                         modal.hide();
                         this.onComplete();
                     });
                 } else {
-                    $('<input type="submit" class="btn submit" value="' + Craft.t('app', 'OK') + '"/>').appendTo($buttons);
+                    $('<button/>', {
+                        type: 'submit',
+                        class: 'btn submit',
+                        text: Craft.t('app', 'OK'),
+                    }).appendTo($buttons);
                 }
 
                 Craft.initUiElements($body);
@@ -173,6 +185,7 @@
 
                 Craft.postActionRequest('utilities/asset-index-perform-action', {params: params}, function (response) {
                     if (response.confirm) {
+                        this.hideProgressBar();
                         this.showConfirmDialog(response);
                     } else {
                         this.onComplete();
@@ -180,20 +193,23 @@
                 }.bind(this));
             },
 
+            hideProgressBar: function () {
+                this.progressBar.$progressBarStatus.addClass('hidden');
+                this.progressBar.$progressBar.velocity({opacity: 0}, {
+                    duration: 'fast'
+                });
+            },
+
             onComplete: function() {
+                this.hideProgressBar();
+
                 if (!this.$allDone) {
                     this.$allDone = $('<div class="alldone" data-icon="done" />').appendTo(this.$status);
                     this.$allDone.css('opacity', 0);
+                    this.$allDone.velocity({opacity: 1}, {duration: 'fast'});
+                    this.$trigger.removeClass('disabled');
+                    this.$trigger.trigger('focus');
                 }
-
-                this.progressBar.$progressBarStatus.addClass('hidden');
-                this.progressBar.$progressBar.velocity({opacity: 0}, {
-                    duration: 'fast', complete: $.proxy(function() {
-                        this.$allDone.velocity({opacity: 1}, {duration: 'fast'});
-                        this.$trigger.removeClass('disabled');
-                        this.$trigger.trigger('focus');
-                    }, this)
-                });
             }
         },
         {

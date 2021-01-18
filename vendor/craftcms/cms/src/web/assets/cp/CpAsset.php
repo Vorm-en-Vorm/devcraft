@@ -112,6 +112,7 @@ JS;
             'All',
             'Any changes will be lost if you leave this page.',
             'Apply this to the {number} remaining conflicts?',
+            'Are you sure you want to close the editor? Any changes will be lost.',
             'Are you sure you want to delete this draft?',
             'Are you sure you want to delete this image?',
             'Are you sure you want to delete “{name}”?',
@@ -135,9 +136,10 @@ JS;
             'Delete folder',
             'Delete heading',
             'Delete it',
+            'Delete their content',
             'Delete them',
-            'Delete user',
-            'Delete users',
+            'Delete {num, plural, =1{user} other{users}}',
+            'Delete {num, plural, =1{user} other{users}} and content',
             'Delete',
             'Display as thumbnails',
             'Display in a table',
@@ -148,8 +150,8 @@ JS;
             'Edit',
             'Element',
             'Elements',
-            'Enabled everywhere',
             'Enabled for {site}',
+            'Enabled',
             'Enter the name of the folder',
             'Enter your password to continue.',
             'Enter your password to log back in.',
@@ -164,6 +166,7 @@ JS;
             'Handle',
             'Header Column Heading',
             'Heading',
+            'Hide nested sources',
             'Hide sidebar',
             'Hide',
             'Incorrect password.',
@@ -212,14 +215,17 @@ JS;
             'Replace it',
             'Replace the folder (all existing files will be deleted)',
             'Save as a new asset',
+            'Save draft',
             'Save',
             'Saving',
             'Score',
             'Search in subfolders',
+            'Select all',
             'Select transform',
             'Select',
             'Settings',
             'Show nav',
+            'Show nested sources',
             'Show sidebar',
             'Show',
             'Show/hide children',
@@ -240,6 +246,7 @@ JS;
             'Transfer it to:',
             'Try again',
             'Update {type}',
+            'Upload a file',
             'Upload failed for {filename}',
             'Upload files',
             'What do you want to do with their content?',
@@ -299,6 +306,7 @@ JS;
             'allowUppercaseInSlug' => (bool)$generalConfig->allowUppercaseInSlug,
             'apiParams' => Craft::$app->apiParams,
             'asciiCharMap' => StringHelper::asciiCharMap(true, Craft::$app->language),
+            'autosaveDrafts' => (bool)$generalConfig->autosaveDrafts,
             'baseApiUrl' => Craft::$app->baseApiUrl,
             'baseCpUrl' => UrlHelper::cpUrl(),
             'baseSiteUrl' => UrlHelper::siteUrl(),
@@ -327,7 +335,7 @@ JS;
             'pageTrigger' => $generalConfig->getPageTrigger(),
             'path' => $request->getPathInfo(),
             'pathParam' => $generalConfig->pathParam,
-            'previewIframeResizerOptions' => $generalConfig->previewIframeResizerOptions !== [] ? $generalConfig->previewIframeResizerOptions : null,
+            'previewIframeResizerOptions' => $this->_previewIframeResizerOptions($generalConfig),
             'primarySiteId' => $primarySite ? (int)$primarySite->id : null,
             'primarySiteLanguage' => $primarySite->language ?? null,
             'Pro' => Craft::Pro,
@@ -402,6 +410,24 @@ JS;
         }
 
         return $groups;
+    }
+
+    /**
+     * @param GeneralConfig $generalConfig
+     * @return array|false|null
+     */
+    private function _previewIframeResizerOptions(GeneralConfig $generalConfig)
+    {
+        if (!$generalConfig->useIframeResizer) {
+            return false;
+        }
+
+        // Treat false as [] as well now that useIframeResizer exists
+        if (empty($generalConfig->previewIframeResizerOptions)) {
+            return null;
+        }
+
+        return $generalConfig->previewIframeResizerOptions;
     }
 
     private function _publishableSections(User $currentUser): array

@@ -81,27 +81,7 @@ class Formatter extends \yii\i18n\Formatter
         }
 
         if (strncmp($format, 'php:', 4) === 0) {
-            $format = substr($format, 4);
-            // special cases for PHP format characters not supported by ICU
-            $split = preg_split('/(?<!\\\\)(S|w|t|L|B|u|I|Z|U|A|a)/', $format, -1, PREG_SPLIT_DELIM_CAPTURE);
-            $formatted = '';
-            foreach (array_filter($split) as $i => $seg) {
-                if ($i % 2 === 0) {
-                    $formatted .= $this->asDate($value, FormatConverter::convertDatePhpToIcu($seg));
-                } else {
-                    switch ($seg) {
-                        case 'A':
-                            $formatted .= mb_strtoupper($this->asDate($value, FormatConverter::convertDatePhpToIcu($seg)));
-                            break;
-                        case 'a':
-                            $formatted .= mb_strtolower($this->asDate($value, FormatConverter::convertDatePhpToIcu($seg)));
-                            break;
-                        default:
-                            $formatted .= $value->format($seg);
-                    }
-                }
-            }
-            return $formatted;
+            return $this->_formatDateTimeValueWithPhpFormat($value, substr($format, 4), 'date');
         }
 
         if (Craft::$app->getI18n()->getIsIntlLoaded()) {
@@ -130,7 +110,7 @@ class Formatter extends \yii\i18n\Formatter
         }
 
         if (strncmp($format, 'php:', 4) === 0) {
-            $format = FormatConverter::convertDatePhpToIcu(substr($format, 4));
+            return $this->_formatDateTimeValueWithPhpFormat($value, substr($format, 4), 'time');
         }
 
         if (Craft::$app->getI18n()->getIsIntlLoaded()) {
@@ -159,7 +139,7 @@ class Formatter extends \yii\i18n\Formatter
         }
 
         if (strncmp($format, 'php:', 4) === 0) {
-            $format = FormatConverter::convertDatePhpToIcu(substr($format, 4));
+            return $this->_formatDateTimeValueWithPhpFormat($value, substr($format, 4), 'datetime');
         }
 
         if (Craft::$app->getI18n()->getIsIntlLoaded()) {
@@ -301,6 +281,52 @@ class Formatter extends \yii\i18n\Formatter
     public function asShortSize($value, $decimals = null, $options = [], $textOptions = [])
     {
         return strtoupper(parent::asShortSize($value, $decimals, $options, $textOptions));
+    }
+
+    /**
+     * Formats a value as a date, using a PHP date format.
+     *
+     * @param int|string|DateTime $value
+     * @param string|null $format
+     * @param string $type 'date', 'time', or 'datetime'.
+     */
+    private function _formatDateTimeValueWithPhpFormat($value, string $format, string $type): string
+    {
+        // special cases for PHP format characters not supported by ICU
+        $split = preg_split('/(?<!\\\\)(S|w|t|L|B|u|I|Z|U|A|a)/', $format, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $formatted = '';
+
+        foreach (array_filter($split) as $i => $seg) {
+            if ($i % 2 === 0) {
+                $formatted .= $this->asDate($value, FormatConverter::convertDatePhpToIcu($seg));
+            } else {
+                switch ($seg) {
+                    case 'A':
+                        $formatted .= mb_strtoupper($this->asDate($value, FormatConverter::convertDatePhpToIcu($seg)));
+                        break;
+                    case 'a':
+                        $formatted .= mb_strtolower($this->asDate($value, FormatConverter::convertDatePhpToIcu($seg)));
+                        break;
+                    default:
+                        // Make sure we are formatting the date with the right timezone consistently
+                        if (!isset($timestamp)) {
+                            list($timestamp, $hasTimeInfo, $hasDateInfo) = $this->normalizeDatetimeValue($value, true);
+                            if ($type === 'date' && !$hasTimeInfo || $type === 'time' && !$hasDateInfo) {
+                                $timeZone = $this->defaultTimeZone;
+                            } else {
+                                $timeZone = $this->timeZone;
+                            }
+                            if ($timeZone) {
+                                $timestamp->setTimezone(new DateTimeZone($timeZone));
+                            }
+                        }
+
+                        $formatted .= $timestamp->format($seg);
+                }
+            }
+        }
+
+        return $formatted;
     }
 
     /**

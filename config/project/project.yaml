@@ -1,4 +1,4 @@
-dateModified: 1610727164
+dateModified: 1610966523
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
@@ -78,7 +78,7 @@ system:
   edition: pro
   live: true
   name: 'Basis Vorm & Vorm'
-  schemaVersion: 3.5.12
+  schemaVersion: 3.5.13
   timeZone: Europe/Amsterdam
 users:
   allowPublicRegistration: false

@@ -9,6 +9,7 @@ namespace craft\helpers;
 
 use Craft;
 use craft\behaviors\SessionBehavior;
+use craft\cache\FileCache;
 use craft\config\DbConfig;
 use craft\db\Command;
 use craft\db\Connection;
@@ -30,7 +31,6 @@ use craft\web\Session;
 use craft\web\User as WebUser;
 use craft\web\View;
 use yii\base\InvalidArgumentException;
-use yii\caching\FileCache;
 use yii\helpers\Inflector;
 use yii\i18n\PhpMessageSource;
 use yii\log\Dispatcher;
@@ -413,6 +413,7 @@ class App
 
         return [
             'class' => FileCache::class,
+            'keyPrefix' => Craft::$app->id,
             'cachePath' => Craft::$app->getPath()->getCachePath(),
             'fileMode' => $generalConfig->defaultFileMode,
             'dirMode' => $generalConfig->defaultDirMode,
@@ -510,11 +511,19 @@ class App
     }
 
     /**
-     * Returns the `mutex` component config.
+     * Returns a file-based `mutex` component config.
+     *
+     * ::: tip
+     * If you were calling this to override the [[\yii\mutex\FileMutex::$isWindows]] property, note that you
+     * can safely remove your custom `mutex` component config for Craft 3.5.0 and later. Craft now uses a
+     * database-based mutex component by default (see [[dbMutexConfig()]]), which doesn’t care which type of
+     * file system is used.
+     * :::
      *
      * @return array
      * @since 3.0.18
-     * @deprecated in 3.5.0. Use [[dbMutexConfig()]] instead.
+     * @deprecated in 3.5.0.
+     *
      */
     public static function mutexConfig(): array
     {

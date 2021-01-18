@@ -370,19 +370,20 @@ SQL;
      */
     private function _createDumpConfigFile(): string
     {
-        $filePath = Craft::$app->getPath()->getTempPath() . DIRECTORY_SEPARATOR . 'my.cnf';
+        $filePath = FileHelper::normalizePath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'my.cnf';
 
         $parsed = Db::parseDsn($this->db->dsn);
         $username = $this->db->getIsPgsql() && !empty($parsed['user']) ? $parsed['user'] : $this->db->username;
         $password = $this->db->getIsPgsql() && !empty($parsed['password']) ? $parsed['password'] : $this->db->password;
         $contents = '[client]' . PHP_EOL .
             'user=' . $username . PHP_EOL .
-            'password="' . addslashes($password) . '"' . PHP_EOL .
-            'host=' . ($parsed['host'] ?? '') . PHP_EOL .
-            'port=' . ($parsed['port'] ?? '');
+            'password="' . addslashes($password) . '"';
 
         if (isset($parsed['unix_socket'])) {
             $contents .= PHP_EOL . 'socket=' . $parsed['unix_socket'];
+        } else {
+            $contents .= PHP_EOL . 'host=' . ($parsed['host'] ?? '') .
+                PHP_EOL . 'port=' . ($parsed['port'] ?? '');
         }
 
         FileHelper::writeToFile($filePath, $contents);

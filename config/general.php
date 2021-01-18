@@ -34,9 +34,6 @@ return [
     'dev' => [
         // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
         'devMode' => true,
-        'environmentVariables' => array(
-            'siteUrl' => 'https://devcraft.test/',
-        ),
     ],
 
     // Staging environment settings
@@ -44,17 +41,11 @@ return [
         // Set this to `false` to prevent administrative changes from being made on staging
         'allowAdminChanges' => true,
         'devMode' => true,
-        'environmentVariables' => array(
-            'siteUrl' => 'https://devcraft.nl/public_html/',
-        ),
     ],
 
     // Production environment settings
     'production' => [
         // Set this to `false` to prevent administrative changes from being made on production
         'allowAdminChanges' => true,
-        'environmentVariables' => array(
-            'siteUrl' => 'https://devcraft.nl/',
-        ),
     ],
 ];

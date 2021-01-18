@@ -28,23 +28,6 @@ return array (
       'services' => 'humandirect\\cookiebot\\services\\CookiebotService',
     ),
   ),
-  'barrelstrength/sprout-forms' => 
-  array (
-    'class' => 'barrelstrength\\sproutforms\\SproutForms',
-    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    'handle' => 'sprout-forms',
-    'aliases' => 
-    array (
-      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    ),
-    'name' => 'Sprout Forms',
-    'version' => '3.12.2',
-    'description' => 'Simple, beautiful forms. 100% control.',
-    'developer' => 'Barrel Strength',
-    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
-    'developerEmail' => 'sprout@barrelstrengthdesign.com',
-    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
-  ),
   'craftcms/aws-s3' => 
   array (
     'class' => 'craft\\awss3\\Plugin',
@@ -171,5 +154,22 @@ return array (
     'developerEmail' => 'support@verbb.io',
     'documentationUrl' => 'https://github.com/verbb/super-table',
     'changelogUrl' => 'https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md',
+  ),
+  'barrelstrength/sprout-forms' => 
+  array (
+    'class' => 'barrelstrength\\sproutforms\\SproutForms',
+    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
+    'handle' => 'sprout-forms',
+    'aliases' => 
+    array (
+      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
+    ),
+    'name' => 'Sprout Forms',
+    'version' => '3.13.1',
+    'description' => 'Simple, beautiful forms. 100% control.',
+    'developer' => 'Barrel Strength',
+    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
+    'developerEmail' => 'sprout@barrelstrengthdesign.com',
+    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
   ),
 );

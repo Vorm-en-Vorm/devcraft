@@ -30,19 +30,10 @@ return array (
       '@creocoder/nestedsets' => $vendorDir . '/creocoder/yii2-nested-sets/src',
     ),
   ),
-  'yiisoft/yii2-debug' => 
-  array (
-    'name' => 'yiisoft/yii2-debug',
-    'version' => '2.1.13.0',
-    'alias' => 
-    array (
-      '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',
-    ),
-  ),
   'yiisoft/yii2-queue' => 
   array (
     'name' => 'yiisoft/yii2-queue',
-    'version' => '2.3.0.0',
+    'version' => '2.3.1.0',
     'alias' => 
     array (
       '@yii/queue' => $vendorDir . '/yiisoft/yii2-queue/src',
@@ -56,6 +47,15 @@ return array (
       '@yii/queue/sync' => $vendorDir . '/yiisoft/yii2-queue/src/drivers/sync',
       '@yii/queue/sqs' => $vendorDir . '/yiisoft/yii2-queue/src/drivers/sqs',
       '@yii/queue/stomp' => $vendorDir . '/yiisoft/yii2-queue/src/drivers/stomp',
+    ),
+  ),
+  'yiisoft/yii2-debug' => 
+  array (
+    'name' => 'yiisoft/yii2-debug',
+    'version' => '2.1.16.0',
+    'alias' => 
+    array (
+      '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',
     ),
   ),
 );

@@ -40,6 +40,11 @@ class CategoriesController extends Controller
      */
     const EVENT_PREVIEW_CATEGORY = 'previewCategory';
 
+    /**
+     * @inheritdoc
+     */
+    protected $allowAnonymous = ['view-shared-category'];
+
     // Category Groups
     // -------------------------------------------------------------------------
 
@@ -362,7 +367,7 @@ class CategoriesController extends Controller
         // Enable Live Preview?
         if (!$this->request->isMobileBrowser(true) && Craft::$app->getCategories()->isGroupTemplateValid($variables['group'], $category->siteId)) {
             $this->getView()->registerJs('Craft.LivePreview.init(' . Json::encode([
-                    'fields' => '#title-field, #fields > div > div > .field',
+                    'fields' => '#fields > .flex-fields > .field',
                     'extraFields' => '#settings',
                     'previewUrl' => $category->getUrl(),
                     'previewAction' => Craft::$app->getSecurity()->hashData('categories/preview-category'),
@@ -400,7 +405,7 @@ class CategoriesController extends Controller
         $variables['continueEditingUrl'] = $variables['baseCpEditUrl'] . $siteSegment;
 
         // Set the "Save and add another" URL
-        $variables['nextCategoryUrl'] = "categories/{$variables['group']->handle}/new{$siteSegment}";
+        $variables['nextCategoryUrl'] = "categories/{$variables['group']->handle}/new{$siteSegment}?parentId={parent.id}#";
 
         // Render the template!
         return $this->renderTemplate('categories/_edit', $variables);
@@ -479,7 +484,7 @@ class CategoriesController extends Controller
         $this->_populateCategoryModel($category);
 
         // Save the category
-        if ($category->enabled && $category->enabledForSite) {
+        if ($category->enabled && $category->getEnabledForSite()) {
             $category->setScenario(Element::SCENARIO_LIVE);
         }
 
