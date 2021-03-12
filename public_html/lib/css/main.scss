@@ -33,6 +33,18 @@ p a{
     text-decoration: underline;
     &:hover{
     }
+} 
+blockquote{
+	background-color: #f4f4f4;
+	border-color: orange;
+	padding:16px 8px;
+	font-style: italic;
+	line-height: 24px;
+}
+pre{
+	background-color: #f4f4f4;
+	padding:16px 8px;
+	line-height: 24px;
 }
 
 //Buttons
@@ -55,22 +67,6 @@ header{
                         padding-right: 0px;
                         text-transform: uppercase;
                         font-weight: 700;
-                        &.phone-link{
-                            margin-left: 8px;
-                            display: flex;
-                            align-items: center;
-                            &:before{
-                                content:"";
-                                width:20px;
-                                height: 20px;
-                                margin-right: 8px;
-                                display: inline-block;
-                                background-image:url("../img/phone-icon.svg");
-                                background-position: center center;
-                                background-repeat: no-repeat;
-                                background-size: contain;
-                            }
-                        }
                     }
                     &:hover{
                         a{
@@ -83,10 +79,7 @@ header{
                                 position: absolute;
                                 left:0px;
                                 bottom:0px;
-                                background: -moz-linear-gradient(left,  rgba(47,172,102,1) 0%, rgba(0,161,154,0.44) 50%, rgba(255,255,255,0) 90%);
-                                background: -webkit-linear-gradient(left,  rgba(47,172,102,1) 0%,rgba(0,161,154,0.44) 50%,rgba(255,255,255,0) 90%);
-                                background: linear-gradient(to right,  rgba(47,172,102,1) 0%,rgba(0,161,154,0.44) 50%,rgba(255,255,255,0) 90%);
-                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2fac66', endColorstr='#00ffffff',GradientType=1 );
+                                background-color: red;
                                 height: 3px;
                                 width: 100%;
                             }
@@ -242,8 +235,6 @@ header{
 // Responsive
 @media only screen and (max-width:1230px){
 
-
-
 }
 
 @media only screen and (max-width:992px){
@@ -252,18 +243,12 @@ header{
 
 @media only screen and (max-width:768px){
     
-
-
 }
 
 @media only screen and (max-width:576px){
 
-
-
 }
 
 @media only screen and (max-width:380px){
-
-
 
 }
