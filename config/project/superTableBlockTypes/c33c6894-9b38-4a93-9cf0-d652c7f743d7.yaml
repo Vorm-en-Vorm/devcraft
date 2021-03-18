@@ -1,0 +1,37 @@
+field: 34316472-5cfa-4904-843a-a6158bd5d63f # Youtube Video
+fieldLayouts:
+  0a391a9d-0d11-4549-ab06-13400b29b06c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a471f727-b009-4fe4-95b0-3ed456565f38 # Youtube video ID
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  a471f727-b009-4fe4-95b0-3ed456565f38: # Youtube video ID
+    contentColumnType: text
+    fieldGroup: null
+    handle: youtubeVideoId
+    instructions: "- Ga naar de video op Youtube\r\n- Kopieer de ID van de video, deze vind je terug in de URL. Namelijk alles wat achter \"watch?v=\" staat (https://www.youtube.com/watch?v=ScMzIvxBSi4)\r\n- Plaats dit ID in het veld (In bovenstaand geval: ScMzIvxBSi4)"
+    name: 'Youtube video ID'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ScMzIvxBSi4
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

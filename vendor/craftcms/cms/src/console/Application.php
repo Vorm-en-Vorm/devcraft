@@ -67,7 +67,7 @@ class Application extends \yii\console\Application
     public function runAction($route, $params = [])
     {
         if (!$this->getIsInstalled()) {
-            list($firstSeg) = explode('/', $route, 2);
+            [$firstSeg] = explode('/', $route, 2);
             if ($route !== 'install/plugin' && !in_array($firstSeg, ['install', 'setup'], true)) {
                 // Is the connection valid at least?
                 if (!$this->getIsDbConnectionValid()) {
@@ -75,6 +75,7 @@ class Application extends \yii\console\Application
                 } else {
                     $infoTable = $this->getDb()->getSchema()->getRawTableName(Table::INFO);
                     // Figure out the exception that is getting thrown
+                    $e = null;
                     try {
                         (new Query())->from([Table::INFO])->where(['id' => 1])->one();
                     } catch (\Throwable $e) {

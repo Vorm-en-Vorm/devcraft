@@ -1,0 +1,111 @@
+field: c60c2474-7439-41cd-85f5-6e4cae7dd248 # Contentbuilder
+fieldLayouts:
+  c10278ff-e9c9-497b-a36a-f5e98a17e504:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 82e60674-80c4-47d3-a0ec-b069eeecbf68 # Afbeelding
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 34316472-5cfa-4904-843a-a6158bd5d63f # Youtube Video
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 829ccdca-7035-412b-b8a2-82ccbd585c68 # Vimeo video
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  34316472-5cfa-4904-843a-a6158bd5d63f: # Youtube Video
+    contentColumnType: string
+    fieldGroup: null
+    handle: youtubeVideo
+    instructions: ''
+    name: 'Youtube Video'
+    searchable: false
+    settings:
+      contentTable: '{{%stc_youtubevideo}}'
+      fieldLayout: matrix
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: 'Voeg ID toe'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  829ccdca-7035-412b-b8a2-82ccbd585c68: # Vimeo video
+    contentColumnType: string
+    fieldGroup: null
+    handle: vimeoVideo
+    instructions: ''
+    name: 'Vimeo video'
+    searchable: false
+    settings:
+      contentTable: '{{%stc_vimeovideo}}'
+      fieldLayout: matrix
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: 'Voeg ID toe'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  82e60674-80c4-47d3-a0ec-b069eeecbf68: # Afbeelding
+    contentColumnType: string
+    fieldGroup: null
+    handle: afbeelding
+    instructions: ''
+    name: Afbeelding
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:0ec915c7-18b6-48c5-b39e-cdb91912dff1'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: 'Voeg een afbeelding toe'
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:fec35df0-28e8-4c43-a351-739f588f7de7'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:fec35df0-28e8-4c43-a351-739f588f7de7'
+        - 'volume:0ec915c7-18b6-48c5-b39e-cdb91912dff1'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: mediaVolleBreedte
+name: 'Media volle breedte'
+sortOrder: 2

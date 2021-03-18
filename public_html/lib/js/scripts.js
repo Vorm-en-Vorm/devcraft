@@ -27,7 +27,5 @@ $(document).ready(function(){
   (function () {
 	$('.navbar-toggler').on('click', function() {
 		$('.hamburger-menu').toggleClass('animate');
-        $(".overlay-menu").toggleClass("visible");
-        $("body").toggleClass("fixed");
 	})
 })();

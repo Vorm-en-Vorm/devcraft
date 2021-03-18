@@ -247,7 +247,26 @@ final class Json
         foreach ($json as $key => $jsonValue) {
             $class = $this->getMappedType($originalClass, $jsonValue);
             if ($class === null) {
-                $array[$key] = $jsonValue;
+                $foundArrayy = false;
+                if ($array instanceof \Arrayy\Arrayy && $jsonValue instanceof \stdClass) {
+                    foreach ($array->getPhpDocPropertiesFromClass() as $typesKey => $typesTmp) {
+                        if (
+                            $typesKey === $key
+                            &&
+                            \count($typesTmp->getTypes()) === 1
+                            &&
+                            \is_subclass_of($typesTmp->getTypes()[0], \Arrayy\Arrayy::class)
+                        ) {
+                            $array[$key] = $typesTmp->getTypes()[0]::createFromObjectVars($jsonValue);
+                            $foundArrayy = true;
+
+                            break;
+                        }
+                    }
+                }
+                if ($foundArrayy === false) {
+                    $array[$key] = $jsonValue;
+                }
             } elseif ($this->isArrayOfType($class)) {
                 $array[$key] = $this->mapArray(
                     $jsonValue,
@@ -351,7 +370,7 @@ final class Json
         $accessor = null;
 
         /** @var \Arrayy\Arrayy[] $ARRAYY_CACHE */
-        /** @phpstan-var array<string, \Arrayy\Arrayy<mixed, mixed>> $ARRAYY_CACHE */
+        /** @phpstan-var array<string, \Arrayy\Arrayy<array-key, mixed>> $ARRAYY_CACHE */
         static $ARRAYY_CACHE = [];
 
         if (\is_subclass_of($class->name, \Arrayy\Arrayy::class)) {

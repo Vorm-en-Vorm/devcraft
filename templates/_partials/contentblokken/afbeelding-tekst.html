@@ -1,0 +1,22 @@
+<div class="text-img-block">
+    <div class="container">
+        <div class="row">
+
+            {% for img in block.afbeelding.all() %}                        
+            <div class="col-12 col-md-6 img-col">
+                <img src="{{ img.getUrl('heroMedium') }}" alt="{{ img.title }} - {{ siteName }}" />
+            </div>
+            {% endfor %}
+
+            <div class="col-12 col-md-6 txt-col">
+                {% if block.titel|length %}<h2>{{ block.titel }}</h2>{% endif %}
+                {{ block.tekst }}
+                {% if block.button.getUrl|length %}
+                <a href="{{ block.button.getUrl('') }}" class="button" target="{{ block.button.getTarget('') }}">{{ block.button.getCustomText('') }}</a>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+</div>

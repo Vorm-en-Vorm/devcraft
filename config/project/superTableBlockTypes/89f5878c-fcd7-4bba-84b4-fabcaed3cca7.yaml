@@ -1,0 +1,37 @@
+field: 829ccdca-7035-412b-b8a2-82ccbd585c68 # Vimeo video
+fieldLayouts:
+  7b960e7d-965e-4c13-9b40-0af17456040b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: cdeeaf65-65f5-43a3-8bf9-a54b7f0fa69b # Vimeo video ID
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  cdeeaf65-65f5-43a3-8bf9-a54b7f0fa69b: # Vimeo video ID
+    contentColumnType: text
+    fieldGroup: null
+    handle: vimeoVideoId
+    instructions: "- Ga naar de video op Vimeo\r\n- Kopieer de ID van de video, deze vind je terug in de URL. Namelijk het aantal nummers. (https://vimeo.com/354481065)\r\n- Plaats hieronder het ID in het veld (BV: 354481065)"
+    name: 'Vimeo video ID'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: '354481065'
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

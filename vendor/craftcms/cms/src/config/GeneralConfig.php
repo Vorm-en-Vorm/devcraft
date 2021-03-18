@@ -30,6 +30,35 @@ class GeneralConfig extends BaseObject
     const IMAGE_DRIVER_IMAGICK = 'imagick';
 
     /**
+     * @since 3.6.0
+     */
+    const CAMEL_CASE = 'camel';
+    /**
+     * @since 3.6.0
+     */
+    const PASCAL_CASE = 'pascal';
+    /**
+     * @since 3.6.0
+     */
+    const SNAKE_CASE = 'snake';
+
+    /**
+     * @var array The default user accessibility preferences that should be applied to users that haven’t saved their preferences yet.
+     *
+     * The array can contain the following keys:
+     *
+     * - `useShapes` – Whether shapes should be used to represent statuses
+     * - `underlineLinks` – Whether links should be underlined
+     *
+     * @since 3.6.4
+     * @group System
+     */
+    public $accessibilityDefaults = [
+        'useShapes' => false,
+        'underlineLinks' => false,
+    ];
+
+    /**
      * @var string The URI segment Craft should look for when determining if the current request should be routed to a controller action.
      * @group Routing
      */
@@ -60,11 +89,11 @@ class GeneralConfig extends BaseObject
     /**
      * @var bool Whether admins should be allowed to make administrative changes to the system.
      *
-     * If this is disabled, the Settings and Plugin Store sections will be hidden, the Craft edition and Craft/plugin versions will be locked,
+     * When this is disabled, the Settings and Plugin Store sections will be hidden, the Craft edition and Craft/plugin versions will be locked,
      * and the project config will become read-only.
      *
-     * Therefore you should only disable this in production environments when you have a deployment workflow that runs `composer install`
-     * automatically on deploy.
+     * It’s best to disable this in production environments with a deployment workflow that runs `composer install` and
+     * [propagates project config updates](../project-config.md#propagating-changes) on deploy.
      *
      * ::: warning
      * Don’t disable this setting until **all** environments have been updated to Craft 3.1.0 or later.
@@ -102,7 +131,100 @@ class GeneralConfig extends BaseObject
      * @see extraAllowedFileExtensions
      * @group Assets
      */
-    public $allowedFileExtensions = ['7z', 'aiff', 'asf', 'avi', 'bmp', 'csv', 'doc', 'docx', 'fla', 'flv', 'gif', 'gz', 'gzip', 'htm', 'html', 'jp2', 'jpeg', 'jpg', 'jpx', 'js', 'json', 'm2t', 'mid', 'mov', 'mp3', 'mp4', 'm4a', 'm4v', 'mpc', 'mpeg', 'mpg', 'ods', 'odt', 'ogg', 'ogv', 'pdf', 'png', 'potx', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx', 'ppz', 'pxd', 'qt', 'ram', 'rar', 'rm', 'rmi', 'rmvb', 'rtf', 'sdc', 'sitd', 'svg', 'swf', 'sxc', 'sxw', 'tar', 'tgz', 'tif', 'tiff', 'txt', 'vob', 'vsd', 'wav', 'webm', 'webp', 'wma', 'wmv', 'xls', 'xlsx', 'zip'];
+    public $allowedFileExtensions = [
+        '7z',
+        'aiff',
+        'asc',
+        'asf',
+        'avi',
+        'bmp',
+        'cap',
+        'cin',
+        'csv',
+        'dfxp',
+        'doc',
+        'docx',
+        'fla',
+        'flv',
+        'gif',
+        'gz',
+        'gzip',
+        'itt',
+        'jp2',
+        'jpeg',
+        'jpg',
+        'jpx',
+        'js',
+        'json',
+        'lrc',
+        'm2t',
+        'm4a',
+        'm4v',
+        'mcc',
+        'mid',
+        'mov',
+        'mp3',
+        'mp4',
+        'mpc',
+        'mpeg',
+        'mpg',
+        'mpsub',
+        'ods',
+        'odt',
+        'ogg',
+        'ogv',
+        'pdf',
+        'png',
+        'potx',
+        'pps',
+        'ppsm',
+        'ppsx',
+        'ppt',
+        'pptm',
+        'pptx',
+        'ppz',
+        'pxd',
+        'qt',
+        'ram',
+        'rar',
+        'rm',
+        'rmi',
+        'rmvb',
+        'rt',
+        'rtf',
+        'sami',
+        'sbv',
+        'scc',
+        'sdc',
+        'sitd',
+        'smi',
+        'srt',
+        'stl',
+        'sub',
+        'svg',
+        'swf',
+        'sxc',
+        'sxw',
+        'tar',
+        'tds',
+        'tgz',
+        'tif',
+        'tiff',
+        'ttml',
+        'txt',
+        'vob',
+        'vsd',
+        'vtt',
+        'wav',
+        'webm',
+        'webp',
+        'wma',
+        'wmv',
+        'xls',
+        'xlsx',
+        'xml',
+        'zip',
+    ];
 
     /**
      * @var bool Whether users should be allowed to create similarly-named tags.
@@ -207,6 +329,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group System
+     * @defaultAlt 1 day
      */
     public $cacheDuration = 86400;
 
@@ -230,6 +353,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Security
+     * @defaultAlt 5 minutes
      */
     public $cooldownDuration = 300;
 
@@ -299,7 +423,6 @@ class GeneralConfig extends BaseObject
      * ```
      *
      * @deprecated in 3.0.10. Any corrections to ASCII char mappings should be submitted to [Stringy](https://github.com/voku/Stringy).
-     * @group System
      */
     public $customAsciiCharMappings = [];
 
@@ -383,6 +506,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Security
+     * @defaultAlt 1 day
      */
     public $defaultTokenDuration = 86400;
 
@@ -400,6 +524,7 @@ class GeneralConfig extends BaseObject
      * - `6` – Saturday
      *
      * @group System
+     * @defaultAlt Monday
      */
     public $defaultWeekStartDay = 1;
 
@@ -456,6 +581,13 @@ class GeneralConfig extends BaseObject
     public $disallowRobots = false;
 
     /**
+     * @var bool Whether the `transform` directive should be disabled for the GraphQL API.
+     * @since 3.6.0
+     * @group GraphQL
+     */
+    public $disableGraphqlTransformDirective = false;
+
+    /**
      * @var bool Whether front-end web requests should support basic HTTP authentication.
      * @since 3.5.0
      * @group Security
@@ -470,6 +602,13 @@ class GeneralConfig extends BaseObject
      * @group Security
      */
     public $enableCsrfCookie = true;
+
+    /**
+     * @var bool Whether GraphQL introspection queries are allowed. Defaults to `true` and is always allowed in the CP.
+     * @since 3.6.0
+     * @group GraphQL
+     */
+    public $enableGraphqlIntrospection = true;
 
     /**
      * @var bool Whether the GraphQL API should be enabled.
@@ -489,6 +628,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Security
+     * @defaultAlt 5 minutes
      */
     public $elevatedSessionDuration = 300;
 
@@ -595,6 +735,20 @@ class GeneralConfig extends BaseObject
     public $gqlTypePrefix = '';
 
     /**
+     * The casing to use for autogenerated component handles.
+     *
+     * This can be set to one of the following:
+     *
+     * - `camel` – for camelCase
+     * - `pascal` – for PascalCase (aka UpperCamelCase)
+     * - `snake` – for snake_case
+     *
+     * @since 3.6.0
+     * @group System
+     */
+    public $handleCasing = self::CAMEL_CASE;
+
+    /**
      * @var bool Whether the system should run in Headless Mode, which optimizes the system and control panel for headless CMS implementations.
      *
      * When this is enabled, the following changes will take place:
@@ -607,9 +761,9 @@ class GeneralConfig extends BaseObject
      * - The <config3:loginPath>, <config3:logoutPath>, <config3:setPasswordPath>, and <config3:verifyEmailPath> settings will be ignored.
      *
      * ::: tip
-     * With Headless Mode enabled, users may only set passwords and verify email addresses via the control panel or controller
-     * actions. Be sure to grant “Access the control panel” permission to content editors and administrators that should be able to
-     * log into the control panel unless you’re providing your own auth forms.
+     * With Headless Mode enabled, users may only set passwords and verify email addresses via the control panel. Be sure to grant “Access the control
+     * panel” permission to all content editors and administrators. You’ll also need to set the <config3:baseCpUrl> config setting if the control
+     * panel is located on a different domain than your front end.
      * :::
      *
      * @since 3.3.0
@@ -654,6 +808,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Security
+     * @defaultAlt 5 minutes
      */
     public $invalidLoginWindowDuration = 3600;
 
@@ -728,6 +883,27 @@ class GeneralConfig extends BaseObject
     public $maxCachedCloudImageSize = 2000;
 
     /**
+     * @var int The maximum allowed complexity a GraphQL query is allowed to have. Set to `0` to allow any complexity.
+     * @since 3.6.0
+     * @group GraphQL
+     */
+    public $maxGraphqlComplexity = 0;
+
+    /**
+     * @var int The maximum allowed depth a GraphQL query is allowed to reach. Set to `0` to allow any depth.
+     * @since 3.6.0
+     * @group GraphQL
+     */
+    public $maxGraphqlDepth = 0;
+
+    /**
+     * @var int The maximum allowed results for a single GraphQL query. Set to `0` to disable any limits.
+     * @since 3.6.0
+     * @group GraphQL
+     */
+    public $maxGraphqlResults = 0;
+
+    /**
      * @var int The number of invalid login attempts Craft will allow within the specified duration before the account gets locked.
      * @group Security
      */
@@ -761,6 +937,7 @@ class GeneralConfig extends BaseObject
      *
      * See [[ConfigHelper::sizeInBytes()]] for a list of supported value types.
      * @group Assets
+     * @defaultAlt 16MB
      */
     public $maxUploadFileSize = 16777216;
 
@@ -878,6 +1055,13 @@ class GeneralConfig extends BaseObject
     public $postLogoutRedirect = '';
 
     /**
+     * @var bool Whether the <config3:gqlTypePrefix> config setting should have an impact on `query`, `mutation`, and `subscirption` types.
+     * @since 3.6.6
+     * @group GraphQL
+     */
+    public $prefixGqlRootTypes = true;
+
+    /**
      * @var bool Whether CMYK should be preserved as the colorspace when manipulating images.
      *
      * Setting this to `true` will prevent Craft from transforming CMYK images to sRGB, but on some ImageMagick versions it can cause
@@ -970,11 +1154,12 @@ class GeneralConfig extends BaseObject
      *
      * @since 3.3.0
      * @group Garbage Collection
+     * @defaultAlt 90 days
      */
     public $purgeStaleUserSessionDuration = 7776000;
 
     /**
-     * @var mixed The amount of time to wait before Craft purges drafts of new elements that were never formally saved.
+     * @var mixed The amount of time to wait before Craft purges unpublished drafts that were never updated with content.
      *
      * Set to `0` to disable this feature.
      *
@@ -982,8 +1167,19 @@ class GeneralConfig extends BaseObject
      *
      * @since 3.2.0
      * @group Garbage Collection
+     * @defaultAlt 30 days
      */
     public $purgeUnsavedDraftsDuration = 2592000;
+
+    /**
+     * @var bool Whether SVG thumbnails should be rasterized.
+     *
+     * Note this will only work if ImageMagick is installed, and <config3:imageDriver> is set to either `auto` or `imagick`.
+     *
+     * @since 3.6.0
+     * @group Image Handling
+     */
+    public $rasterizeSvgThumbs = false;
 
     /**
      * @var mixed The amount of time Craft will remember a username and pre-populate it on the control panel’s Login page.
@@ -993,6 +1189,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Session
+     * @defaultAlt 1 year
      */
     public $rememberUsernameDuration = 31536000;
 
@@ -1004,6 +1201,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Session
+     * @defaultAlt 14 days
      */
     public $rememberedUserSessionDuration = 1209600;
 
@@ -1075,6 +1273,13 @@ class GeneralConfig extends BaseObject
      * @group System
      */
     public $runQueueAutomatically = true;
+
+    /**
+     * @var bool Whether images uploaded via the control panel should be sanitized.
+     * @since 3.6.0
+     * @group Security
+     */
+    public $sanitizeCpImageUploads = true;
 
     /**
      * @var string The [SameSite](https://www.owasp.org/index.php/SameSite) value that should be set on Craft cookies, if any.
@@ -1162,7 +1367,8 @@ class GeneralConfig extends BaseObject
      *
      * This can be set to a string, which will override the primary site’s name only, or an array with site handles used as the keys.
      *
-     * @group System
+     * @deprecated in 3.6.0. Set your sites’ Name settings on a per-environment basis using environment variables instead.
+     * See [Environmental Configuration](https://craftcms.com/docs/3.x/config/#environmental-configuration) for more info.
      */
     public $siteName;
 
@@ -1187,7 +1393,8 @@ class GeneralConfig extends BaseObject
      * ],
      * ```
      *
-     * @group Routing
+     * @deprecated in 3.6.0. Set your sites’ Base URL settings on a per-environment basis using aliases or environment variables instead.
+     * See [Environmental Configuration](https://craftcms.com/docs/3.x/config/#environmental-configuration) for more info.
      */
     public $siteUrl;
 
@@ -1228,6 +1435,7 @@ class GeneralConfig extends BaseObject
      *
      * @since 3.1.0
      * @group Garbage Collection
+     * @defaultAlt 30 days
      */
     public $softDeleteDuration = 2592000;
 
@@ -1244,7 +1452,6 @@ class GeneralConfig extends BaseObject
      * If it is set to `true`, the errors will still be logged to Craft’s log files.
      *
      * @deprecated in 3.3.0
-     * @group System
      */
     public $suppressTemplateErrors = false;
 
@@ -1370,7 +1577,7 @@ class GeneralConfig extends BaseObject
 
     /**
      * @var bool|string Determines what protocol/schema Craft will use when generating tokenized URLs. If set to `'auto'`, Craft will check the
-     * <config3:siteUrl> and the protocol of the current request and if either of them are https will use `https` in the tokenized URL. If not,
+     * current site’s base URL and the protocol of the current request and if either of them are https will use `https` in the tokenized URL. If not,
      * will use `http`.
      *
      * If set to `false`, Craft will always use `http`. If set to `true`, then, Craft will always use `https`.
@@ -1387,6 +1594,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Session
+     * @defaultAlt 1 hour
      */
     public $userSessionDuration = 3600;
 
@@ -1415,6 +1623,7 @@ class GeneralConfig extends BaseObject
      * See [[ConfigHelper::durationInSeconds()]] for a list of supported value types.
      *
      * @group Security
+     * @defaultAlt 1 day
      */
     public $verificationCodeDuration = 86400;
 
@@ -1542,7 +1751,6 @@ class GeneralConfig extends BaseObject
         $this->elevatedSessionDuration = ConfigHelper::durationInSeconds($this->elevatedSessionDuration);
         $this->invalidLoginWindowDuration = ConfigHelper::durationInSeconds($this->invalidLoginWindowDuration);
         $this->purgePendingUsersDuration = ConfigHelper::durationInSeconds($this->purgePendingUsersDuration);
-        $this->purgeUnsavedDraftsDuration = ConfigHelper::durationInSeconds($this->purgeUnsavedDraftsDuration);
         $this->rememberUsernameDuration = ConfigHelper::durationInSeconds($this->rememberUsernameDuration);
         $this->rememberedUserSessionDuration = ConfigHelper::durationInSeconds($this->rememberedUserSessionDuration);
         $this->softDeleteDuration = ConfigHelper::durationInSeconds($this->softDeleteDuration);
@@ -1570,6 +1778,26 @@ class GeneralConfig extends BaseObject
                     throw new InvalidConfigException($e->getMessage(), 0, $e);
                 }
             }
+        }
+
+        if ($this->siteName) {
+            if (is_array($this->siteName) && count($this->siteName) > 1) {
+                $fix = 'You can set your sites’ Name settings on a per-environment basis using environment variables.';
+            } else {
+                $fix = 'You can set your site’s Name setting on a per-environment basis using an environment variable.';
+            }
+            Craft::$app->getDeprecator()->log('siteName', "The `siteName` config setting has been deprecated. $fix " .
+                'See [Environmental Configuration](https://craftcms.com/docs/3.x/config/#environmental-configuration) for more info.');
+        }
+
+        if ($this->siteUrl) {
+            if (is_array($this->siteUrl) && count($this->siteUrl) > 1) {
+                $fix = 'You can set your sites’ Base URL settings on a per-environment basis using aliases or environment variables.';
+            } else {
+                $fix = 'You can set your site’s Base URL setting on a per-environment basis using an alias or environment variable.';
+            }
+            Craft::$app->getDeprecator()->log('siteUrl', "The `siteUrl` config setting has been deprecated. $fix " .
+                'See [Environmental Configuration](https://craftcms.com/docs/3.x/config/#environmental-configuration) for more info.');
         }
 
         if ($this->suppressTemplateErrors) {

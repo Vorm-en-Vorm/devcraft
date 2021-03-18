@@ -1,0 +1,28 @@
+<div class="fullwidth-media">
+    
+        {% if block.afbeelding|length %}
+                {% for img in block.afbeelding.all() %}                        
+                {% set full = img.url('heroBig') %}
+                {% set half = img.url('heroMedium') %}
+                {% set fourth = img.url('heroSmall') %}
+                <img src="{{full}}" class="fullwidth-image" alt="{{ img.title }} - {{ siteName }}" srcset="{{fourth}} 780w, {{half}} 1024w, {{full}} 1600w" sizes="(min-width: 1025px) 1600px, (min-width: 781px) 1024px, 100vw" />
+            {% endfor %}
+        {% endif %}
+
+        {% if block.youtubeVideo|length %}
+            {% for block in block.youtubeVideo %}
+            <div class="video-container ">            
+                <iframe width="1920" height="1080" src="https://www.youtube.com/embed/{{ block.youtubeVideoId }}?modestbranding=0&autoplay=1&mute=1&controls=1&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&playlist={{ block.youtubeVideoId }}" frameborder="0"></iframe>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if block.vimeoVideo|length %}
+            {% for block in block.vimeoVideo %}
+            <div class="video-container ">        
+                <iframe width="1920" height="1080" src="https://player.vimeo.com/video/{{ block.vimeoVideoId }}?background=1&autoplay=1&controls=1&loop=1&byline=0&title=0&background=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+</div>

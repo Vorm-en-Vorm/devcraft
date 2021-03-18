@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.4.15 - 2021-03-13
+
+### Fixed
+- Fix an error when trying to view the default navigation, if the user didn’t have permission to access the primary site.
+- Fix an error that would occur when switching an element node to a non-element node (Entry to Passive).
+- Fix type label not updating when switching to a different node type.
+
+## 1.4.14 - 2021-03-04
+
+### Fixed
+- Fix `nodeUri` returning the incorrect value for multi-sites with GraphQL.
+- Fix when no site selected, the primary site not being used when editing a navigation.
+- Fix when selecting element nodes on multi-sites, the element selector modal now defaults to the currently editing site.
+
+## 1.4.13 - 2021-01-26
+
+### Fixed
+- Fix passive nodes being marked as active.
+- Ensure active state checks only check against nodes with URLs.
+- Fix potential error with GraphQL and querying `customAttributes` and `data`.
+
 ## 1.4.12 - 2021-01-15
 
 ### Added

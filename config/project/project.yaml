@@ -1,4 +1,4 @@
-dateModified: 1610966523
+dateModified: 1616081352
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
@@ -8,18 +8,15 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '1.2'
-  cookiebot:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  field-manager:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   navigation:
     edition: standard
     enabled: true
+    licenseKey: WL5FI4O4DXBA02S3Z24ZL2NU
     schemaVersion: 1.0.21
+    settings:
+      bypassProjectConfig: false
+      pluginName: Navigatie
+      propagateSiteElements: true
   redactor:
     edition: standard
     enabled: true
@@ -61,11 +58,19 @@ plugins:
                 -
                   - honeypotScreenReaderMessage
                   - 'Leave this field blank'
-      enableEditFormEntryViaFrontEnd: 0
-      enableSaveDataDefaultValue: 1
+      cleanupProbability: 1000
+      defaultSection: entries
+      enableEditFormEntryViaFrontEnd: ''
+      enableSaveData: '1'
+      enableSaveDataDefaultValue: '1'
       formTemplateId: barrelstrength\sproutforms\formtemplates\AccessibleTemplates
-      pluginNameOverride: ''
-      saveDataByDefault: 1
+      pluginNameOverride: Formulieren
+      saveSpamToDatabase: ''
+      showNotificationsTab: true
+      showReportsTab: true
+      spamLimit: 500
+      spamRedirectBehavior: redirectAsNormal
+      trackRemoteIp: ''
   super-table:
     edition: standard
     enabled: true
@@ -78,11 +83,5 @@ system:
   edition: pro
   live: true
   name: 'Basis Vorm & Vorm'
-  schemaVersion: 3.5.13
+  schemaVersion: 3.6.6
   timeZone: Europe/Amsterdam
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: ''
-  photoVolumeUid: null
-  requireEmailVerification: true

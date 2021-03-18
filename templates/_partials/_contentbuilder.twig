@@ -1,0 +1,15 @@
+<div class="content-blocks">
+{% set blocks = entry.contentbuilder.all() %}
+
+	{% for block in blocks %}
+	
+		{% if block.type == "afbeeldingTekst" %}
+			{% include '_partials/_contentblokken/afbeelding-tekst.html' %}
+
+		{% elseif block.type == "mediaVolleBreedte" %}
+			{% include '_partials/_contentblokken/fullwidth-media.html' %}
+
+        {% endif %}
+
+    {% endfor %}
+</div>

@@ -31,6 +31,7 @@ use craft\gql\types\input\Matrix as MatrixInputType;
 use craft\helpers\ArrayHelper;
 use craft\helpers\Db;
 use craft\helpers\ElementHelper;
+use craft\helpers\Gql;
 use craft\helpers\Gql as GqlHelper;
 use craft\helpers\Html;
 use craft\helpers\Json;
@@ -184,8 +185,8 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
                 self::PROPAGATION_METHOD_NONE,
                 self::PROPAGATION_METHOD_SITE_GROUP,
                 self::PROPAGATION_METHOD_LANGUAGE,
-                self::PROPAGATION_METHOD_ALL
-            ]
+                self::PROPAGATION_METHOD_ALL,
+            ],
         ];
         $rules[] = [['blockTypes'], ArrayValidator::class, 'min' => 1, 'skipOnEmpty' => false];
         $rules[] = [['minBlocks', 'maxBlocks'], 'integer', 'min' => 0];
@@ -441,7 +442,7 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
                         /** @var PlainText $fallback */
                         $fallback = $field->createFallback(PlainText::class);
                         $fallback->addError('type', Craft::t('app', 'The field type “{type}” could not be found.', [
-                            'type' => $field->expectedType
+                            'type' => $field->expectedType,
                         ]));
                         $field = $fallback;
                         $element->setField($field);
@@ -573,7 +574,7 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
                         "matrixblocks_$ns.fieldId" => $this->id,
                         "elements_$ns.enabled" => true,
                         "elements_$ns.dateDeleted" => null,
-                    ])
+                    ]),
             ];
 
             if ($value === ':notempty:') {
@@ -608,7 +609,7 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
         switch ($this->propagationMethod) {
             case self::PROPAGATION_METHOD_NONE:
                 return Craft::t('app', 'Blocks will only be saved in the {site} site.', [
-                    'site' => Craft::t('site', $element->getSite()->name),
+                    'site' => Craft::t('site', $element->getSite()->getName()),
                 ]);
             case self::PROPAGATION_METHOD_SITE_GROUP:
                 return Craft::t('app', 'Blocks will be saved across all sites in the {group} site group.', [
@@ -688,7 +689,7 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
         if ($createDefaultBlocks) {
             $blockTypeJs = Json::encode($blockTypes[0]->handle);
             for ($i = count($value); $i < $this->minBlocks; $i++) {
-                $js .= "\nmatrixInput.addBlock({$blockTypeJs});";
+                $js .= "\nmatrixInput.addBlock($blockTypeJs, null, false);";
             }
         }
 
@@ -711,7 +712,10 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
     public function getElementValidationRules(): array
     {
         return [
-            'validateBlocks',
+            [
+                'validateBlocks',
+                'on' => [Element::SCENARIO_ESSENTIALS, Element::SCENARIO_DEFAULT, Element::SCENARIO_LIVE],
+            ],
             [
                 ArrayValidator::class,
                 'min' => $this->minBlocks ?: null,
@@ -744,11 +748,15 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
         $value = $element->getFieldValue($this->handle);
         $blocks = $value->all();
         $allBlocksValidate = true;
+        $scenario = $element->getScenario();
 
         foreach ($blocks as $i => $block) {
             /** @var MatrixBlock $block */
-            if ($block->enabled && $element->getScenario() === Element::SCENARIO_LIVE) {
-                $block->setScenario(Element::SCENARIO_LIVE);
+            if (
+                $scenario === Element::SCENARIO_ESSENTIALS ||
+                ($block->enabled && $scenario === Element::SCENARIO_LIVE)
+            ) {
+                $block->setScenario($scenario);
             }
 
             if (!$block->validate()) {
@@ -840,7 +848,7 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
                 'fieldId' => $this->id,
                 'allowOwnerDrafts' => true,
                 'allowOwnerRevisions' => true,
-            ]
+            ],
         ];
     }
 
@@ -861,6 +869,7 @@ class Matrix extends Field implements EagerLoadingFieldInterface, GqlInlineFragm
             'type' => Type::listOf(GqlHelper::getUnionType($typeName, $typeArray, $resolver)),
             'args' => MatrixBlockArguments::getArguments(),
             'resolve' => MatrixBlockResolver::class . '::resolve',
+            'complexity' => Gql::eagerLoadComplexity(),
         ];
     }
 

@@ -4,30 +4,6 @@ $vendorDir = dirname(__DIR__);
 $rootDir = dirname(dirname(__DIR__));
 
 return array (
-  'balazscsaba2006/cookiebot' => 
-  array (
-    'class' => 'humandirect\\cookiebot\\Cookiebot',
-    'basePath' => $vendorDir . '/balazscsaba2006/cookiebot/src',
-    'handle' => 'cookiebot',
-    'aliases' => 
-    array (
-      '@humandirect/cookiebot' => $vendorDir . '/balazscsaba2006/cookiebot/src',
-    ),
-    'name' => 'Cookiebot',
-    'version' => '1.0.9',
-    'description' => 'CookieBot integration into Craft CMS 3.',
-    'developer' => 'Human Direct',
-    'developerUrl' => 'https://humandirect.eu',
-    'developerEmail' => 'csaba.balazs@humandirect.eu',
-    'documentationUrl' => 'https://github.com/balazscsaba2006/craft3-cookiebot',
-    'changelogUrl' => 'https://raw.githubusercontent.com/balazscsaba2006/craft3-cookiebot/master/CHANGELOG.md',
-    'hasCpSettings' => true,
-    'hasCpSection' => false,
-    'components' => 
-    array (
-      'services' => 'humandirect\\cookiebot\\services\\CookiebotService',
-    ),
-  ),
   'craftcms/aws-s3' => 
   array (
     'class' => 'craft\\awss3\\Plugin',
@@ -86,6 +62,23 @@ return array (
       'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
     ),
   ),
+  'barrelstrength/sprout-forms' => 
+  array (
+    'class' => 'barrelstrength\\sproutforms\\SproutForms',
+    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
+    'handle' => 'sprout-forms',
+    'aliases' => 
+    array (
+      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
+    ),
+    'name' => 'Sprout Forms',
+    'version' => '3.13.2.3',
+    'description' => 'Simple, beautiful forms. 100% control.',
+    'developer' => 'Barrel Strength',
+    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
+    'developerEmail' => 'sprout@barrelstrengthdesign.com',
+    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
+  ),
   'sebastianlenz/linkfield' => 
   array (
     'class' => 'typedlinkfield\\Plugin',
@@ -96,28 +89,10 @@ return array (
       '@typedlinkfield' => $vendorDir . '/sebastianlenz/linkfield/src',
     ),
     'name' => 'Typed link field',
-    'version' => '1.0.24',
+    'version' => '1.0.25',
     'description' => 'A Craft field type for selecting links',
     'developer' => 'Sebastian Lenz',
     'developerUrl' => 'https://github.com/sebastian-lenz/',
-  ),
-  'verbb/field-manager' => 
-  array (
-    'class' => 'verbb\\fieldmanager\\FieldManager',
-    'basePath' => $vendorDir . '/verbb/field-manager/src',
-    'handle' => 'field-manager',
-    'aliases' => 
-    array (
-      '@verbb/fieldmanager' => $vendorDir . '/verbb/field-manager/src',
-    ),
-    'name' => 'Field Manager',
-    'version' => '2.2.2',
-    'description' => 'Manage your fields and field groups with ease with simple field or group cloning and quicker overall management.',
-    'developer' => 'Verbb',
-    'developerUrl' => 'https://verbb.io',
-    'developerEmail' => 'support@verbb.io',
-    'documentationUrl' => 'https://github.com/verbb/field-manager',
-    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/field-manager/craft-3/CHANGELOG.md',
   ),
   'verbb/navigation' => 
   array (
@@ -129,7 +104,7 @@ return array (
       '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
     ),
     'name' => 'Navigation',
-    'version' => '1.4.12',
+    'version' => '1.4.15',
     'description' => 'A Craft CMS plugin to create navigation menus for your site.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',
@@ -147,29 +122,12 @@ return array (
       '@verbb/supertable' => $vendorDir . '/verbb/super-table/src',
     ),
     'name' => 'Super Table',
-    'version' => '2.6.5',
+    'version' => '2.6.7',
     'description' => 'Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',
     'developerEmail' => 'support@verbb.io',
     'documentationUrl' => 'https://github.com/verbb/super-table',
     'changelogUrl' => 'https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md',
-  ),
-  'barrelstrength/sprout-forms' => 
-  array (
-    'class' => 'barrelstrength\\sproutforms\\SproutForms',
-    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    'handle' => 'sprout-forms',
-    'aliases' => 
-    array (
-      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    ),
-    'name' => 'Sprout Forms',
-    'version' => '3.13.1',
-    'description' => 'Simple, beautiful forms. 100% control.',
-    'developer' => 'Barrel Strength',
-    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
-    'developerEmail' => 'sprout@barrelstrengthdesign.com',
-    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
   ),
 );

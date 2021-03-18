@@ -130,13 +130,8 @@ class Node extends Element
     {
         parent::init();
 
-        if (!empty($this->customAttributes)) {
-            $this->customAttributes = Json::decode($this->customAttributes);
-        }
-
-        if (!empty($this->data)) {
-            $this->data = Json::decode($this->data);
-        }
+        $this->customAttributes = Json::decodeIfJson($this->customAttributes) ?? [];
+        $this->data = Json::decodeIfJson($this->data) ?? [];
 
         if (!$this->typeLabel) {
             $this->typeLabel = $this->getNodeTypeLabel();
@@ -280,7 +275,7 @@ class Node extends Element
     public function getNodeUri()
     {
         if ($url = $this->getUrl()) {
-            return str_replace(UrlHelper::siteUrl(), '', $url);
+            return str_replace(UrlHelper::siteUrl('', null, null, $this->siteId), '', $url);
         }
 
         return '';
@@ -539,6 +534,12 @@ class Node extends Element
             $record->url = null;
         }
 
+        // Ensure the elementId is empty for non-element nodes. This is important when switching
+        // from an element node to a non-element node.
+        if (!$this->isElement()) {
+            $record->elementId = null;
+        }
+
         $record->save(false);
 
         $this->id = $record->id;
@@ -649,6 +650,11 @@ class Node extends Element
         $siteUrl = trim(UrlHelper::siteUrl(), '/');
         $nodeUrl = (string)$this->getUrl(false);
 
+        // If no URL and not a manual node, skip. Think passive nodes.
+        if ($nodeUrl === '' && !$this->isManual()) {
+            return;
+        }
+
         // Get the full url to compare, this makes sure it works with any setup (either other domain per site or subdirs)
         // Using `getUrl()` would return the site-relative path, which isn't what we want to compare with.
         // Also trim the '/' to normalise for comparison.
@@ -692,7 +698,10 @@ class Node extends Element
 
             // If `$currentUrl` string equals `$nodeUrl` string, zero is returned - if this happens, a match is found.
             if (strpos($currentUrl, $nodeUrl) === 0) {
-                $isActive = true;
+                // Make sure we're not on the homepage (unless this node is for the homepage)
+                if ($nodeUrl !== $siteUrl) {
+                    $isActive = true;
+                }
             }
         }
 
