@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '50805e5fd776670f4171f8f5bb7c5929dc232343',
+    'reference' => 'f59bcefa5d670f2d7fc261793312c5e18b31b11f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '50805e5fd776670f4171f8f5bb7c5929dc232343',
+      'reference' => 'f59bcefa5d670f2d7fc261793312c5e18b31b11f',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -244,6 +244,15 @@
         0 => '~3.0',
       ),
     ),
+    'davechild/textstatistics' => 
+    array (
+      'pretty_version' => '1.0.3',
+      'version' => '1.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e83d5f82726db80e662ae305fce3b3c41299b4f5',
+    ),
     'defuse/php-encryption' => 
     array (
       'pretty_version' => 'v2.2.1',
@@ -307,6 +316,24 @@
       ),
       'reference' => 'beff89576a72540ee99476aeb9cfe98222e76fb8',
     ),
+    'erusev/parsedown' => 
+    array (
+      'pretty_version' => '1.7.4',
+      'version' => '1.7.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cb17b6477dfff935958ba01325f2e8a2bfa6dab3',
+    ),
+    'erusev/parsedown-extra' => 
+    array (
+      'pretty_version' => '0.8.1',
+      'version' => '0.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '91ac3ff98f0cea243bdccc688df43810f044dcef',
+    ),
     'ezyang/htmlpurifier' => 
     array (
       'pretty_version' => 'v4.13.0',
@@ -360,6 +387,15 @@
       array (
       ),
       'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
+    ),
+    'icanboogie/inflector' => 
+    array (
+      'pretty_version' => 'v1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fb6ca7977f8a7ebb46aff0183ee868d798f77ab8',
     ),
     'jaybizzle/crawler-detect' => 
     array (
@@ -469,6 +505,15 @@
       ),
       'reference' => 'badb01e62383430706433191b82506b6df24ad98',
     ),
+    'masterminds/html5' => 
+    array (
+      'pretty_version' => '2.7.4',
+      'version' => '2.7.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9227822783c75406cfe400984b2f095cdf03d417',
+    ),
     'mikehaertl/php-shellcommand' => 
     array (
       'pretty_version' => '1.6.4',
@@ -478,6 +523,15 @@
       ),
       'reference' => '3488d7803df1e8f1a343d3d0ca452d527ad8d5e5',
     ),
+    'mofodojodino/profanity-filter' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '529d24adcdb5b9507a4622db6aba6e54c5bb82a9',
+    ),
     'mtdowling/jmespath.php' => 
     array (
       'pretty_version' => '2.6.0',
@@ -486,6 +540,15 @@
       array (
       ),
       'reference' => '42dae2cbd13154083ca6d70099692fef8ca84bfb',
+    ),
+    'mundschenk-at/php-typography' => 
+    array (
+      'pretty_version' => 'v6.6.0',
+      'version' => '6.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '67af39c936751f96a959b9bf211044512675283c',
     ),
     'opis/closure' => 
     array (
@@ -822,6 +885,15 @@
       array (
       ),
       'reference' => '298a08ddda623485208506fcee08817807a251dd',
+    ),
+    'topshelfcraft/wordsmith' => 
+    array (
+      'pretty_version' => '3.3.0.1',
+      'version' => '3.3.0.1',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e7acf27cc33e7fef8d53ab8af2d0ff498c424e67',
     ),
     'true/punycode' => 
     array (

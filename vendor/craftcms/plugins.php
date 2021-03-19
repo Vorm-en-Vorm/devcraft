@@ -130,4 +130,22 @@ return array (
     'documentationUrl' => 'https://github.com/verbb/super-table',
     'changelogUrl' => 'https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md',
   ),
+  'topshelfcraft/wordsmith' => 
+  array (
+    'class' => 'topshelfcraft\\wordsmith\\Wordsmith',
+    'basePath' => $vendorDir . '/topshelfcraft/wordsmith/src',
+    'handle' => 'wordsmith',
+    'aliases' => 
+    array (
+      '@topshelfcraft/wordsmith' => $vendorDir . '/topshelfcraft/wordsmith/src',
+    ),
+    'name' => 'Wordsmith',
+    'version' => '3.3.0.1',
+    'schemaVersion' => '0.0.0.0',
+    'description' => '...because you have the best words.',
+    'developer' => 'Michael Rog',
+    'developerUrl' => 'https://topshelfcraft.com',
+    'documentationUrl' => 'https://wordsmith.docs.topshelfcraft.com/',
+    'changelogUrl' => 'https://raw.githubusercontent.com/topshelfcraft/wordsmith/master/CHANGELOG.md',
+  ),
 );

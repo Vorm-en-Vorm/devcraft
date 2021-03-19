@@ -8,5 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
+    'ParsedownExtra' => array($vendorDir . '/erusev/parsedown-extra'),
+    'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
+    'DaveChild\\TextStatistics' => array($vendorDir . '/davechild/textstatistics/src'),
+    '' => array($vendorDir . '/mofodojodino/profanity-filter/src'),
 );

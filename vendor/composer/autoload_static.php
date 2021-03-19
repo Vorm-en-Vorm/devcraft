@@ -24,15 +24,16 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         '7e9bd612cc444b3eed788ebbe46263a0' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/autoload.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '65380ab4d81167209b0a4fac46641984' => __DIR__ . '/..' . '/voku/arrayy/src/Create.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        '65380ab4d81167209b0a4fac46641984' => __DIR__ . '/..' . '/voku/arrayy/src/Create.php',
         'c88a6f0dbb89a32bf4e283d3a7d626ab' => __DIR__ . '/..' . '/voku/stringy/src/Create.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
         '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
+        '603ce470d3b0980801c7a6185a3d6d53' => __DIR__ . '/..' . '/icanboogie/inflector/lib/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -66,6 +67,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         't' => 
         array (
             'typedlinkfield\\' => 15,
+            'topshelfcraft\\wordsmith\\' => 24,
         ),
         'p' => 
         array (
@@ -154,6 +156,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'O' => 
         array (
             'Opis\\Closure\\' => 13,
+        ),
+        'M' => 
+        array (
+            'Masterminds\\' => 12,
         ),
         'L' => 
         array (
@@ -306,6 +312,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'typedlinkfield\\' => 
         array (
             0 => __DIR__ . '/..' . '/sebastianlenz/linkfield/src',
+        ),
+        'topshelfcraft\\wordsmith\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/topshelfcraft/wordsmith/src',
         ),
         'phpDocumentor\\Reflection\\' => 
         array (
@@ -505,6 +515,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
+        'Masterminds\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
         'LitEmoji\\' => 
         array (
             0 => __DIR__ . '/..' . '/elvanto/litemoji/src',
@@ -653,6 +667,14 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             array (
                 0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
             ),
+            'ParsedownExtra' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown-extra',
+            ),
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
         ),
         'H' => 
         array (
@@ -661,13 +683,83 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
+        'D' => 
+        array (
+            'DaveChild\\TextStatistics' => 
+            array (
+                0 => __DIR__ . '/..' . '/davechild/textstatistics/src',
+            ),
+        ),
+    );
+
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/..' . '/mofodojodino/profanity-filter/src',
     );
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ICanBoogie\\Inflections' => __DIR__ . '/..' . '/icanboogie/inflector/lib/inflections.php',
+        'ICanBoogie\\Inflector' => __DIR__ . '/..' . '/icanboogie/inflector/lib/inflector.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'PHP_Typography\\Bin\\File_Operations' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/bin/class-file-operations.php',
+        'PHP_Typography\\Bin\\Pattern_Converter' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/bin/class-pattern-converter.php',
+        'PHP_Typography\\DOM' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-dom.php',
+        'PHP_Typography\\Fixes\\Default_Registry' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/class-default-registry.php',
+        'PHP_Typography\\Fixes\\Node_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/class-node-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Abstract_Node_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-abstract-node-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Classes_Dependent_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-classes-dependent-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Dash_Spacing_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-dash-spacing-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Dewidow_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-dewidow-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\French_Punctuation_Spacing_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-french-punctuation-spacing-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Numbered_Abbreviation_Spacing_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-numbered-abbreviation-spacing-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Process_Words_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-process-words-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Simple_Regex_Replacement_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-simple-regex-replacement-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Simple_Style_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-simple-style-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Single_Character_Word_Spacing_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-single-character-word-spacing-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Area_Units_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-area-units-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Dashes_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-dashes-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Diacritics_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-diacritics-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Ellipses_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-ellipses-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Exponents_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-exponents-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Fractions_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-fractions-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Marks_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-marks-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Maths_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-maths-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Ordinal_Suffix_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-ordinal-suffix-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Smart_Quotes_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-smart-quotes-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Space_Collapse_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-space-collapse-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Style_Ampersands_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-style-ampersands-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Style_Caps_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-style-caps-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Style_Hanging_Punctuation_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-style-hanging-punctuation-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Style_Initial_Quotes_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-style-initial-quotes-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Style_Numbers_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-style-numbers-fix.php',
+        'PHP_Typography\\Fixes\\Node_Fixes\\Unit_Spacing_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/node-fixes/class-unit-spacing-fix.php',
+        'PHP_Typography\\Fixes\\Registry' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/class-registry.php',
+        'PHP_Typography\\Fixes\\Token_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/class-token-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Abstract_Token_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-abstract-token-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Hyphenate_Compounds_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-hyphenate-compounds-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Hyphenate_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-hyphenate-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Smart_Dashes_Hyphen_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-smart-dashes-hyphen-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Wrap_Emails_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-wrap-emails-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Wrap_Hard_Hyphens_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-wrap-hard-hyphens-fix.php',
+        'PHP_Typography\\Fixes\\Token_Fixes\\Wrap_URLs_Fix' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/fixes/token-fixes/class-wrap-urls-fix.php',
+        'PHP_Typography\\Hyphenator' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-hyphenator.php',
+        'PHP_Typography\\Hyphenator\\Cache' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/hyphenator/class-cache.php',
+        'PHP_Typography\\Hyphenator\\Trie_Node' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/hyphenator/class-trie-node.php',
+        'PHP_Typography\\PHP_Typography' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-php-typography.php',
+        'PHP_Typography\\RE' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-re.php',
+        'PHP_Typography\\Settings' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-settings.php',
+        'PHP_Typography\\Settings\\Dash_Style' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/settings/class-dash-style.php',
+        'PHP_Typography\\Settings\\Dashes' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/settings/class-dashes.php',
+        'PHP_Typography\\Settings\\Quote_Style' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/settings/class-quote-style.php',
+        'PHP_Typography\\Settings\\Quotes' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/settings/class-quotes.php',
+        'PHP_Typography\\Settings\\Simple_Dashes' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/settings/class-simple-dashes.php',
+        'PHP_Typography\\Settings\\Simple_Quotes' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/settings/class-simple-quotes.php',
+        'PHP_Typography\\Strings' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-strings.php',
+        'PHP_Typography\\Text_Parser' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-text-parser.php',
+        'PHP_Typography\\Text_Parser\\Token' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/text-parser/class-token.php',
+        'PHP_Typography\\U' => __DIR__ . '/..' . '/mundschenk-at/php-typography/src/class-u.php',
         'RequirementsChecker' => __DIR__ . '/..' . '/craftcms/server-check/server/requirements/RequirementsChecker.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
@@ -680,6 +772,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             $loader->prefixLengthsPsr4 = ComposerStaticInita505485b8042e81a98eea8ed6884600b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita505485b8042e81a98eea8ed6884600b::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInita505485b8042e81a98eea8ed6884600b::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInita505485b8042e81a98eea8ed6884600b::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInita505485b8042e81a98eea8ed6884600b::$classMap;
 
         }, null, ClassLoader::class);

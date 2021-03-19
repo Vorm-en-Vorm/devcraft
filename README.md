@@ -15,7 +15,7 @@
         <li>Redactor</li>
         <li>Super Table</li>
         <li>Typed link Field</li>
-        <li>Cookiebot</li>
+        <li>Wordsmith</li>
           <li>Sitemap XML / Sproutforms XML</li></ul>
 
 
