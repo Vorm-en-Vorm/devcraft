@@ -8,7 +8,7 @@
             </div>
             {% endfor %}
 
-            <div class="col-12 col-md-6 txt-col">
+            <div class="col-12 {% if block.afbeelding|length > 0 %} col-md-6 {% endif %} txt-col">
                 {% if block.titel|length %}<h2>{{ block.titel }}</h2>{% endif %}
                 {{ block.tekst }}
                 {% if block.button.getUrl|length %}
