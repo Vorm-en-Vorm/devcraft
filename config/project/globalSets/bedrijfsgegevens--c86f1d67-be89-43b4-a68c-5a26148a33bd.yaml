@@ -6,18 +6,18 @@ fieldLayouts:
           0d619cac-99f9-4690-9c68-c830b0307130:
             required: false
             sortOrder: 7
-          121768a5-acf8-4986-8618-1a6f62fa78d3:
-            required: false
-            sortOrder: 3
-          164b2e16-5027-48e5-ac43-2bbc69933af7:
-            required: false
-            sortOrder: 5
           23ffccda-b42d-4a69-9df2-3a0c38d90491:
             required: false
             sortOrder: 4
           68d2a53f-38d0-45ad-841b-d8c571d26ac9:
             required: false
             sortOrder: 6
+          164b2e16-5027-48e5-ac43-2bbc69933af7:
+            required: false
+            sortOrder: 5
+          121768a5-acf8-4986-8618-1a6f62fa78d3:
+            required: false
+            sortOrder: 3
           c3d59e0f-a710-4ad5-b208-4b4188bb4dd3:
             required: false
             sortOrder: 1
@@ -54,12 +54,12 @@ fieldLayouts:
           6aa0500e-7445-4584-b540-938f78466e01:
             required: false
             sortOrder: 6
-          700fa535-b4e6-4e0d-8182-50c28dd900aa:
-            required: false
-            sortOrder: 3
           89db323a-4306-456c-b30a-9374317350e6:
             required: false
             sortOrder: 1
+          700fa535-b4e6-4e0d-8182-50c28dd900aa:
+            required: false
+            sortOrder: 3
           eaf2fc24-89c2-4490-bd1a-7bd5cbd78620:
             required: false
             sortOrder: 4

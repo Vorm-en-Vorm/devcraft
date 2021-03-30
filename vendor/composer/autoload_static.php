@@ -30,9 +30,9 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'c88a6f0dbb89a32bf4e283d3a7d626ab' => __DIR__ . '/..' . '/voku/stringy/src/Create.php',
+        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
-        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '603ce470d3b0980801c7a6185a3d6d53' => __DIR__ . '/..' . '/icanboogie/inflector/lib/helpers.php',
     );
 
@@ -103,6 +103,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         ),
         'b' => 
         array (
+            'barrelstrength\\sproutformsgooglerecaptcha\\' => 42,
             'barrelstrength\\sproutforms\\' => 27,
             'barrelstrength\\sproutbasesentemail\\' => 35,
             'barrelstrength\\sproutbasereports\\' => 33,
@@ -374,6 +375,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
+        'barrelstrength\\sproutformsgooglerecaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barrelstrength/sprout-forms-google-recaptcha/src',
         ),
         'barrelstrength\\sproutforms\\' => 
         array (

@@ -52,25 +52,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  339abcb4-a057-493b-b476-f0e97109e503: # Titel
-    contentColumnType: text
-    fieldGroup: null
-    handle: titel
-    instructions: ''
-    name: Titel
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   3a54b8a0-7fe7-4a7c-8b7a-e04d4de00b09: # Uitlijning afbeelding
     contentColumnType: boolean
     fieldGroup: null
@@ -113,6 +94,25 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  339abcb4-a057-493b-b476-f0e97109e503: # Titel
+    contentColumnType: text
+    fieldGroup: null
+    handle: titel
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   cc7d51c5-63b8-4815-a43e-fbaa97aa29e5: # Afbeelding
     contentColumnType: string
     fieldGroup: null

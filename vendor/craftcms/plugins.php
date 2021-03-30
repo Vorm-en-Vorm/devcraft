@@ -62,23 +62,6 @@ return array (
       'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
     ),
   ),
-  'barrelstrength/sprout-forms' => 
-  array (
-    'class' => 'barrelstrength\\sproutforms\\SproutForms',
-    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    'handle' => 'sprout-forms',
-    'aliases' => 
-    array (
-      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    ),
-    'name' => 'Sprout Forms',
-    'version' => '3.13.2.3',
-    'description' => 'Simple, beautiful forms. 100% control.',
-    'developer' => 'Barrel Strength',
-    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
-    'developerEmail' => 'sprout@barrelstrengthdesign.com',
-    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
-  ),
   'sebastianlenz/linkfield' => 
   array (
     'class' => 'typedlinkfield\\Plugin',
@@ -147,5 +130,39 @@ return array (
     'developerUrl' => 'https://topshelfcraft.com',
     'documentationUrl' => 'https://wordsmith.docs.topshelfcraft.com/',
     'changelogUrl' => 'https://raw.githubusercontent.com/topshelfcraft/wordsmith/master/CHANGELOG.md',
+  ),
+  'barrelstrength/sprout-forms-google-recaptcha' => 
+  array (
+    'class' => 'barrelstrength\\sproutformsgooglerecaptcha\\SproutFormsGoogleRecaptcha',
+    'basePath' => $vendorDir . '/barrelstrength/sprout-forms-google-recaptcha/src',
+    'handle' => 'sprout-forms-google-recaptcha',
+    'aliases' => 
+    array (
+      '@barrelstrength/sproutformsgooglerecaptcha' => $vendorDir . '/barrelstrength/sprout-forms-google-recaptcha/src',
+    ),
+    'name' => 'Google reCAPTCHA for Sprout Forms',
+    'version' => '1.4.0',
+    'description' => 'Google Recaptcha for Sprout Forms',
+    'developer' => 'Barrel Strength',
+    'developerUrl' => 'https://barrelstrengthdesign.com',
+    'developerEmail' => 'sprout@barrelstrengthdesign.com',
+    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
+  ),
+  'barrelstrength/sprout-forms' => 
+  array (
+    'class' => 'barrelstrength\\sproutforms\\SproutForms',
+    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
+    'handle' => 'sprout-forms',
+    'aliases' => 
+    array (
+      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
+    ),
+    'name' => 'Sprout Forms',
+    'version' => '3.13.4',
+    'description' => 'Simple, beautiful forms. 100% control.',
+    'developer' => 'Barrel Strength',
+    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
+    'developerEmail' => 'sprout@barrelstrengthdesign.com',
+    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
   ),
 );

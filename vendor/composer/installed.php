@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f59bcefa5d670f2d7fc261793312c5e18b31b11f',
+    'reference' => '6a95882f1aef50dd323f7449939cc876ecf52655',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f59bcefa5d670f2d7fc261793312c5e18b31b11f',
+      'reference' => '6a95882f1aef50dd323f7449939cc876ecf52655',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -58,12 +58,12 @@
     ),
     'barrelstrength/sprout-base-reports' => 
     array (
-      'pretty_version' => '1.5.9',
-      'version' => '1.5.9.0',
+      'pretty_version' => '1.5.10',
+      'version' => '1.5.10.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b5e1bfeb953f7f2360359cbbddf4d3807ee5e884',
+      'reference' => '6d0f7a407a460b594ba0af56c86caff0930af763',
     ),
     'barrelstrength/sprout-base-sent-email' => 
     array (
@@ -76,12 +76,21 @@
     ),
     'barrelstrength/sprout-forms' => 
     array (
-      'pretty_version' => '3.13.2.3',
-      'version' => '3.13.2.3',
+      'pretty_version' => '3.13.4',
+      'version' => '3.13.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '51f40aeb02e379948556f315e6e9972882ac711b',
+      'reference' => 'e72a6f635ae6d19178edfc8198ef394c79aabf84',
+    ),
+    'barrelstrength/sprout-forms-google-recaptcha' => 
+    array (
+      'pretty_version' => '1.4.0',
+      'version' => '1.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e26b687208cdb0babd53b0c797c75cadca088567',
     ),
     'bower-asset/inputmask' => 
     array (
@@ -167,12 +176,12 @@
     ),
     'composer/xdebug-handler' => 
     array (
-      'pretty_version' => '1.4.5',
-      'version' => '1.4.5.0',
+      'pretty_version' => '1.4.6',
+      'version' => '1.4.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f28d44c286812c714741478d968104c5e604a1d4',
+      'reference' => 'f27e06cd9675801df441b3656569b328e04aa37c',
     ),
     'craftcms/aws-s3' => 
     array (
@@ -185,12 +194,12 @@
     ),
     'craftcms/cms' => 
     array (
-      'pretty_version' => '3.6.10',
-      'version' => '3.6.10.0',
+      'pretty_version' => '3.6.11.2',
+      'version' => '3.6.11.2',
       'aliases' => 
       array (
       ),
-      'reference' => '3f88316387ca91ceaf9b63dc9983e17b77b510e2',
+      'reference' => '3a2ab820b75ef50b78223f1222a5fe534cc60ba2',
     ),
     'craftcms/oauth2-craftid' => 
     array (
@@ -363,12 +372,12 @@
     ),
     'guzzlehttp/guzzle' => 
     array (
-      'pretty_version' => '7.2.0',
-      'version' => '7.2.0.0',
+      'pretty_version' => '7.3.0',
+      'version' => '7.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0aa74dfb41ae110835923ef10a9d803a22d50e79',
+      'reference' => '7008573787b430c1c1f650e3722d9bba59967628',
     ),
     'guzzlehttp/promises' => 
     array (
@@ -381,12 +390,12 @@
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '1.7.0',
-      'version' => '1.7.0.0',
+      'pretty_version' => '1.8.1',
+      'version' => '1.8.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
+      'reference' => '35ea11d335fd638b5882ff1725228b3d35496ab1',
     ),
     'icanboogie/inflector' => 
     array (
@@ -735,12 +744,12 @@
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v5.2.5',
-      'version' => '5.2.5.0',
+      'pretty_version' => 'v5.2.6',
+      'version' => '5.2.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '938ebbadae1b0a9c9d1ec313f87f9708609f1b79',
+      'reference' => '35f039df40a3b335ebf310f244cb242b3a83ac8d',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -870,12 +879,12 @@
     ),
     'symfony/string' => 
     array (
-      'pretty_version' => 'v5.2.4',
-      'version' => '5.2.4.0',
+      'pretty_version' => 'v5.2.6',
+      'version' => '5.2.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '4e78d7d47061fa183639927ec40d607973699609',
+      'reference' => 'ad0bd91bce2054103f5eaa18ebeba8d3bc2a0572',
     ),
     'symfony/yaml' => 
     array (
@@ -951,12 +960,12 @@
     ),
     'voku/anti-xss' => 
     array (
-      'pretty_version' => '4.1.31',
-      'version' => '4.1.31.0',
+      'pretty_version' => '4.1.32',
+      'version' => '4.1.32.0',
       'aliases' => 
       array (
       ),
-      'reference' => '22dea9be8dbffa466995ea87a12da5f3bce874bb',
+      'reference' => '159b49a50cf3f6cf72ee43b0dcf7c2580a0c12d1',
     ),
     'voku/arrayy' => 
     array (

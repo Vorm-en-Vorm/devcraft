@@ -34,44 +34,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  34316472-5cfa-4904-843a-a6158bd5d63f: # Youtube Video
-    contentColumnType: string
-    fieldGroup: null
-    handle: youtubeVideo
-    instructions: ''
-    name: 'Youtube Video'
-    searchable: false
-    settings:
-      contentTable: '{{%stc_youtubevideo}}'
-      fieldLayout: matrix
-      maxRows: '1'
-      minRows: ''
-      placeholderKey: null
-      propagationMethod: all
-      selectionLabel: 'Voeg ID toe'
-      staticField: ''
-    translationKeyFormat: null
-    translationMethod: site
-    type: verbb\supertable\fields\SuperTableField
-  829ccdca-7035-412b-b8a2-82ccbd585c68: # Vimeo video
-    contentColumnType: string
-    fieldGroup: null
-    handle: vimeoVideo
-    instructions: ''
-    name: 'Vimeo video'
-    searchable: false
-    settings:
-      contentTable: '{{%stc_vimeovideo}}'
-      fieldLayout: matrix
-      maxRows: '1'
-      minRows: ''
-      placeholderKey: null
-      propagationMethod: all
-      selectionLabel: 'Voeg ID toe'
-      staticField: ''
-    translationKeyFormat: null
-    translationMethod: site
-    type: verbb\supertable\fields\SuperTableField
   82e60674-80c4-47d3-a0ec-b069eeecbf68: # Afbeelding
     contentColumnType: string
     fieldGroup: null
@@ -106,6 +68,44 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
+  829ccdca-7035-412b-b8a2-82ccbd585c68: # Vimeo video
+    contentColumnType: string
+    fieldGroup: null
+    handle: vimeoVideo
+    instructions: ''
+    name: 'Vimeo video'
+    searchable: false
+    settings:
+      contentTable: '{{%stc_vimeovideo}}'
+      fieldLayout: matrix
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: 'Voeg ID toe'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  34316472-5cfa-4904-843a-a6158bd5d63f: # Youtube Video
+    contentColumnType: string
+    fieldGroup: null
+    handle: youtubeVideo
+    instructions: ''
+    name: 'Youtube Video'
+    searchable: false
+    settings:
+      contentTable: '{{%stc_youtubevideo}}'
+      fieldLayout: matrix
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: 'Voeg ID toe'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
 handle: mediaVolleBreedte
 name: 'Media volle breedte'
 sortOrder: 2

@@ -43,6 +43,7 @@ return array(
     'craft\\awss3\\' => array($vendorDir . '/craftcms/aws-s3/src'),
     'craft\\' => array($vendorDir . '/craftcms/cms/src'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
+    'barrelstrength\\sproutformsgooglerecaptcha\\' => array($vendorDir . '/barrelstrength/sprout-forms-google-recaptcha/src'),
     'barrelstrength\\sproutforms\\' => array($vendorDir . '/barrelstrength/sprout-forms/src'),
     'barrelstrength\\sproutbasesentemail\\' => array($vendorDir . '/barrelstrength/sprout-base-sent-email/src'),
     'barrelstrength\\sproutbasereports\\' => array($vendorDir . '/barrelstrength/sprout-base-reports/src'),

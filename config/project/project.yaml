@@ -1,4 +1,4 @@
-dateModified: 1616149512
+dateModified: 1617095106
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
@@ -71,6 +71,10 @@ plugins:
       spamLimit: 500
       spamRedirectBehavior: redirectAsNormal
       trackRemoteIp: ''
+  sprout-forms-google-recaptcha:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.0
   super-table:
     edition: standard
     enabled: true
@@ -87,5 +91,5 @@ system:
   edition: pro
   live: true
   name: 'Basis Vorm & Vorm'
-  schemaVersion: 3.6.6
+  schemaVersion: 3.6.7
   timeZone: Europe/Amsterdam
