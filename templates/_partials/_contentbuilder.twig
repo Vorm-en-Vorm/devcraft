@@ -4,10 +4,10 @@
 	{% for block in blocks %}
 	
 		{% if block.type == "afbeeldingTekst" %}
-			{% include '_partials/_contentblokken/afbeelding-tekst.html' %}
+			{% include '_partials/contentblokken/afbeelding-tekst.html' %}
 
 		{% elseif block.type == "mediaVolleBreedte" %}
-			{% include '_partials/_contentblokken/fullwidth-media.html' %}
+			{% include '_partials/contentblokken/fullwidth-media.html' %}
 
         {% endif %}
 

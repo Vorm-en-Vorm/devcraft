@@ -1,5 +1,9 @@
 /* Variables */
 /* Variables */
+body {
+  background-color: red;
+}
+
 button {
   outline: none;
 }
