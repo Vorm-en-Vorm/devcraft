@@ -277,12 +277,12 @@
         },
         {
             "name": "barrelstrength/sprout-forms",
-            "version": "3.13.4",
-            "version_normalized": "3.13.4.0",
+            "version": "3.13.5",
+            "version_normalized": "3.13.5.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-forms/zipball/e72a6f635ae6d19178edfc8198ef394c79aabf84",
-                "reference": "e72a6f635ae6d19178edfc8198ef394c79aabf84",
+                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-forms/zipball/593df6c8f19813d41c6a022a5d3038b40246876a",
+                "reference": "593df6c8f19813d41c6a022a5d3038b40246876a",
                 "shasum": ""
             },
             "require": {
@@ -292,7 +292,7 @@
                 "barrelstrength/sprout-base-reports": "^1.5.9",
                 "craftcms/cms": "^3.5.13"
             },
-            "time": "2021-03-29T23:32:26+00:00",
+            "time": "2021-04-01T13:26:49+00:00",
             "type": "craft-plugin",
             "extra": {
                 "name": "Sprout Forms",
@@ -548,12 +548,12 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.0.10",
-            "version_normalized": "2.0.10.0",
+            "version": "2.0.12",
+            "version_normalized": "2.0.12.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/890c79ff096818e762b42c9624ca1df800ab789b",
-                "reference": "890c79ff096818e762b42c9624ca1df800ab789b",
+                "url": "https://api.github.com/repos/composer/composer/zipball/6c12ce263da71641903e399c3ce8ecb08fd375fb",
+                "reference": "6c12ce263da71641903e399c3ce8ecb08fd375fb",
                 "shasum": ""
             },
             "require": {
@@ -577,7 +577,7 @@
                 "ext-zip": "Enabling the zip extension allows you to unzip archives",
                 "ext-zlib": "Allow gzip compression of HTTP requests"
             },
-            "time": "2021-02-23T15:11:37+00:00",
+            "time": "2021-04-01T08:14:59+00:00",
             "bin": [
                 "bin/composer"
             ],
@@ -820,16 +820,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.6.11.2",
-            "version_normalized": "3.6.11.2",
+            "version": "3.6.12",
+            "version_normalized": "3.6.12.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/3a2ab820b75ef50b78223f1222a5fe534cc60ba2",
-                "reference": "3a2ab820b75ef50b78223f1222a5fe534cc60ba2",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/06a2e1d78b8b097f824efede5a6b36807a5bed5a",
+                "reference": "06a2e1d78b8b097f824efede5a6b36807a5bed5a",
                 "shasum": ""
             },
             "require": {
-                "composer/composer": "2.0.10",
+                "composer/composer": "2.0.12",
                 "craftcms/oauth2-craftid": "~1.0.0",
                 "craftcms/plugin-installer": "~1.5.6",
                 "craftcms/server-check": "~1.2.0",
@@ -878,7 +878,7 @@
                 "ext-imagick": "Adds support for more image processing formats and options.",
                 "ext-intl": "Adds rich internationalization support."
             },
-            "time": "2021-03-29T18:52:48+00:00",
+            "time": "2021-04-13T17:05:18+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -997,18 +997,18 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.8.5",
-            "version_normalized": "2.8.5.0",
+            "version": "2.8.6",
+            "version_normalized": "2.8.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/baa05090b17b9b631ed3eb9f0687f48947d7dbc2",
-                "reference": "baa05090b17b9b631ed3eb9f0687f48947d7dbc2",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/db2e4eb27cb2165d3dbd87aa999886012b749117",
+                "reference": "db2e4eb27cb2165d3dbd87aa999886012b749117",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.5.0"
             },
-            "time": "2020-12-08T12:55:30+00:00",
+            "time": "2021-04-13T18:15:38+00:00",
             "type": "craft-plugin",
             "extra": {
                 "name": "Redactor",
@@ -1163,20 +1163,20 @@
         },
         {
             "name": "defuse/php-encryption",
-            "version": "v2.2.1",
-            "version_normalized": "2.2.1.0",
+            "version": "v2.3.1",
+            "version_normalized": "2.3.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/0f407c43b953d571421e0020ba92082ed5fb7620",
-                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620",
+                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/77880488b9954b7884c25555c2a0ea9e7053f9d2",
+                "reference": "77880488b9954b7884c25555c2a0ea9e7053f9d2",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
                 "paragonie/random_compat": ">= 2",
-                "php": ">=5.4.0"
+                "php": ">=5.6.0"
             },
-            "time": "2018-07-24T23:27:56+00:00",
+            "time": "2021-04-09T23:57:26+00:00",
             "bin": [
                 "bin/generate-defuse-key"
             ],
@@ -1329,19 +1329,19 @@
         },
         {
             "name": "dolphiq/sitemap",
-            "version": "1.3.1",
-            "version_normalized": "1.3.1.0",
+            "version": "1.3.2",
+            "version_normalized": "1.3.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dolphiq/craft3-plugin-sitemap/zipball/fd08955c00766cdb397c950f4b6b0c573c8548d5",
-                "reference": "fd08955c00766cdb397c950f4b6b0c573c8548d5",
+                "url": "https://api.github.com/repos/Dolphiq/craft3-plugin-sitemap/zipball/07666d008319a5b8cbe2bea652ee9b7098e909d1",
+                "reference": "07666d008319a5b8cbe2bea652ee9b7098e909d1",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.2.0",
                 "jaybizzle/crawler-detect": "1.*"
             },
-            "time": "2020-10-22T12:32:21+00:00",
+            "time": "2021-04-09T10:55:02+00:00",
             "type": "craft-plugin",
             "extra": {
                 "name": "XML Sitemap",
@@ -1389,12 +1389,12 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "3.1.0",
-            "version_normalized": "3.1.0.0",
+            "version": "3.1.1",
+            "version_normalized": "3.1.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/62c3b73c581c834885acf6e120b412b76acc495a",
-                "reference": "62c3b73c581c834885acf6e120b412b76acc495a",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/c81f18a3efb941d8c4d2e025f6183b5c6d697307",
+                "reference": "c81f18a3efb941d8c4d2e025f6183b5c6d697307",
                 "shasum": ""
             },
             "require": {
@@ -1405,7 +1405,7 @@
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
             },
-            "time": "2021-03-07T14:33:28+00:00",
+            "time": "2021-04-01T18:37:14+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1629,12 +1629,12 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.12.20",
-            "version_normalized": "8.12.20.0",
+            "version": "8.12.21",
+            "version_normalized": "8.12.21.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/743585979ef96f2be123518c0a58083cf678bd47",
-                "reference": "743585979ef96f2be123518c0a58083cf678bd47",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/272b8123ba7f1b7975620c6389e7206281b4a3ce",
+                "reference": "272b8123ba7f1b7975620c6389e7206281b4a3ce",
                 "shasum": ""
             },
             "require": {
@@ -1642,7 +1642,7 @@
                 "php": ">=5.3.2",
                 "symfony/polyfill-mbstring": "^1.17"
             },
-            "time": "2021-03-17T11:05:55+00:00",
+            "time": "2021-04-06T08:37:32+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1948,18 +1948,18 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.103",
-            "version_normalized": "1.2.103.0",
+            "version": "v1.2.105",
+            "version_normalized": "1.2.105.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/3efa2860959cc971f17624b40bf0699823f9d0f3",
-                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/719c1ed49224857800c3dc40838b6b761d046105",
+                "reference": "719c1ed49224857800c3dc40838b6b761d046105",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2020-11-23T19:49:25+00:00",
+            "time": "2021-03-03T20:55:48+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2778,18 +2778,18 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.6.1",
-            "version_normalized": "3.6.1.0",
+            "version": "3.6.2",
+            "version_normalized": "3.6.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
-                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
+                "url": "https://api.github.com/repos/opis/closure/zipball/06e2ebd25f2869e54a306dda991f7db58066f7f6",
+                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.4 || ^7.0 || ^8.0"
             },
-            "time": "2020-11-07T02:01:34+00:00",
+            "time": "2021-04-09T13:42:10+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3642,22 +3642,22 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.2.0",
-            "version_normalized": "2.2.0.0",
+            "version": "v2.4.0",
+            "version_normalized": "2.4.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
-                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5f38c8804a9e97d23e0c8d63341088cd8a22d627",
+                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
             },
-            "time": "2020-09-07T11:33:47+00:00",
+            "time": "2021-03-23T23:28:01+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-main": "2.4-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3689,19 +3689,19 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.2.4",
-            "version_normalized": "5.2.4.0",
+            "version": "v5.2.6",
+            "version_normalized": "5.2.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/710d364200997a5afde34d9fe57bd52f3cc1e108",
-                "reference": "710d364200997a5afde34d9fe57bd52f3cc1e108",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/8c86a82f51658188119e62cff0a050a12d09836f",
+                "reference": "8c86a82f51658188119e62cff0a050a12d09836f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-ctype": "~1.8"
             },
-            "time": "2021-02-12T10:38:38+00:00",
+            "time": "2021-03-28T14:30:26+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4363,26 +4363,26 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.2.0",
-            "version_normalized": "2.2.0.0",
+            "version": "v2.4.0",
+            "version_normalized": "2.4.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
-                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb",
+                "reference": "f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "psr/container": "^1.0"
+                "psr/container": "^1.1"
             },
             "suggest": {
                 "symfony/service-implementation": ""
             },
-            "time": "2020-09-07T11:33:47+00:00",
+            "time": "2021-04-01T10:43:52+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-main": "2.4-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -4940,12 +4940,12 @@
         },
         {
             "name": "voku/arrayy",
-            "version": "7.8.8",
-            "version_normalized": "7.8.8.0",
+            "version": "7.8.9",
+            "version_normalized": "7.8.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Arrayy/zipball/8b6ba81b9fbfdc3631af175d398a4dc58370c52f",
-                "reference": "8b6ba81b9fbfdc3631af175d398a4dc58370c52f",
+                "url": "https://api.github.com/repos/voku/Arrayy/zipball/d26e7d59ac2f6eb891b77c48bfdb9fe1e76afa60",
+                "reference": "d26e7d59ac2f6eb891b77c48bfdb9fe1e76afa60",
                 "shasum": ""
             },
             "require": {
@@ -4954,7 +4954,7 @@
                 "phpdocumentor/reflection-docblock": "~4.3 || ~5.0",
                 "symfony/polyfill-mbstring": "~1.0"
             },
-            "time": "2021-03-09T13:07:20+00:00",
+            "time": "2021-03-29T13:31:10+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4972,7 +4972,7 @@
                 {
                     "name": "Lars Moelleken",
                     "email": "lars@moelleken.org",
-                    "homepage": "http://www.moelleken.org/",
+                    "homepage": "https://www.moelleken.org/",
                     "role": "Maintainer"
                 }
             ],
@@ -5187,12 +5187,12 @@
         },
         {
             "name": "voku/stringy",
-            "version": "6.4.0",
-            "version_normalized": "6.4.0.0",
+            "version": "6.4.1",
+            "version_normalized": "6.4.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Stringy/zipball/b534a95b58b020faf3e3b779abc0bc277b5fb83c",
-                "reference": "b534a95b58b020faf3e3b779abc0bc277b5fb83c",
+                "url": "https://api.github.com/repos/voku/Stringy/zipball/5b74e0e428e466bda91489b4c6e9ab385aa7c73a",
+                "reference": "5b74e0e428e466bda91489b4c6e9ab385aa7c73a",
                 "shasum": ""
             },
             "require": {
@@ -5200,8 +5200,8 @@
                 "ext-json": "*",
                 "php": ">=7.0.0",
                 "voku/anti-xss": "~4.1",
-                "voku/arrayy": "~7.5",
-                "voku/email-check": "~3.0",
+                "voku/arrayy": "~7.8",
+                "voku/email-check": "~3.1",
                 "voku/portable-ascii": "~1.5",
                 "voku/portable-utf8": "~5.4",
                 "voku/urlify": "~5.0"
@@ -5209,7 +5209,7 @@
             "replace": {
                 "danielstjules/stringy": "~3.0"
             },
-            "time": "2020-09-27T21:32:36+00:00",
+            "time": "2021-04-07T09:23:38+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -5233,7 +5233,7 @@
                 {
                     "name": "Lars Moelleken",
                     "email": "lars@moelleken.org",
-                    "homepage": "http://www.moelleken.org/",
+                    "homepage": "https://www.moelleken.org/",
                     "role": "Fork-Maintainer"
                 }
             ],
