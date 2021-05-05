@@ -8,6 +8,21 @@ button:focus, button:active {
   outline: none;
 }
 
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
 p,
 ul {
   line-height: 32px;
