@@ -21,13 +21,13 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="icon" href="{% if bedrijfsgegevens.favicon|length %}{% set favicon = bedrijfsgegevens.favicon.one().getUrl%}{{favicon}}{%endif%}" type="image/x-icon"/>
 
-		<title>{% if entry is defined %} {%if entry.paginaTitel %} {{ entry.paginaTitel }} {%else%} {{ entry.title }} - {{ siteName }} {% endif %}{%else%} Error 404 - {{siteName}}{% endif %}</title>
-		<meta name="description" content="{% if entry is defined %}{%if entry.metaBeschrijving %}{{ entry.metaBeschrijving }}{%else %} {{ entry.title }} - {{ siteName }}{% endif %}{% endif %}"> 
+		<title>{% if entry is defined %} {%if entry.paginaTitel %} {{ entry.paginaTitel }} {%else%} {{ entry.title }} {% endif %}{%else%} Error 404{% endif %} - {{ siteName }}</title>
+		<meta name="description" content="{% if entry is defined %}{% if entry.metaBeschrijving %}{{ entry.metaBeschrijving }}{% else %} {{ entry.title }}{% endif %}{% endif %}  - {{ siteName }}"> 
        
 		<!--Social Share-->
 		<meta property="og:type" content="website"/>
-		<meta property="og:title" content="{{ entry.title }} - {{ siteName }}"/>
-		<meta property="og:description " content="{{entry.metaBeschrijving}}"/>
+		<meta property="og:title" content="{% if entry is defined %} {% if entry.paginaTitel %} {{ entry.paginaTitel }} {% else %} {{ entry.title }} {% endif %}{% else %} Error 404{% endif %} - {{ siteName }}"/>
+		<meta property="og:description " content="{% if entry is defined %} {{ entry.metaBeschrijving }} {% endif %}"/>
 		<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}"/>
 		<meta property="og:image" content=""/>
         
