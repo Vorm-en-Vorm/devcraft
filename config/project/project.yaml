@@ -1,4 +1,4 @@
-dateModified: 1619684036
+dateModified: 1620655788
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
@@ -8,6 +8,36 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '1.2'
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: JXQHQ7GKXW8L1NI9G11XMFC7
+    schemaVersion: 1.1.8
+    settings:
+      ajaxTimeout: 10
+      alertEmails: null
+      defaultDateDisplayType: ''
+      defaultDateTime: null
+      defaultDateValueOption: ''
+      defaultEmailTemplate: ''
+      defaultFileUploadVolume: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: verbb\formie\positions\AboveInput
+      defaultLabelPosition: verbb\formie\positions\AboveInput
+      defaultPage: forms
+      enableUnloadWarning: true
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      pluginName: Formulieren
+      saveSpam: true
+      sendEmailAlerts: false
+      sentNotifications: true
+      spamBehaviour: showSuccess
+      spamBehaviourMessage: ''
+      spamKeywords: ''
+      spamLimit: 500
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
   navigation:
     edition: standard
     enabled: true
@@ -15,7 +45,7 @@ plugins:
     schemaVersion: 1.0.21
     settings:
       bypassProjectConfig: false
-      pluginName: Navigatie
+      pluginName: 'Menu''s'
       propagateSiteElements: true
   redactor:
     edition: standard
@@ -25,60 +55,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.2
-  sprout-forms:
-    enabled: true
-    schemaVersion: 3.11.8
-    settings:
-      captchaSettings:
-        __assoc__:
-          -
-            - barrelstrength\sproutforms\captchas\DuplicateCaptcha
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - 1
-          -
-            - barrelstrength\sproutforms\captchas\JavascriptCaptcha
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - 1
-          -
-            - barrelstrength\sproutforms\captchas\HoneypotCaptcha
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - 1
-                -
-                  - honeypotFieldName
-                  - beesknees
-                -
-                  - honeypotScreenReaderMessage
-                  - 'Leave this field blank'
-      cleanupProbability: 1000
-      defaultSection: entries
-      enableEditFormEntryViaFrontEnd: ''
-      enableSaveData: '1'
-      enableSaveDataDefaultValue: '1'
-      formTemplateId: barrelstrength\sproutforms\formtemplates\AccessibleTemplates
-      pluginNameOverride: Formulieren
-      saveSpamToDatabase: ''
-      showNotificationsTab: true
-      showReportsTab: true
-      spamLimit: 500
-      spamRedirectBehavior: redirectAsNormal
-      trackRemoteIp: ''
-  sprout-forms-google-recaptcha:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.1.0
-  super-table:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.2.1
   typedlinkfield:
     edition: standard
     enabled: true

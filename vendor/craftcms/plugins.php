@@ -36,42 +36,6 @@ return array (
     'developer' => 'Sebastian Lenz',
     'developerUrl' => 'https://github.com/sebastian-lenz/',
   ),
-  'verbb/navigation' => 
-  array (
-    'class' => 'verbb\\navigation\\Navigation',
-    'basePath' => $vendorDir . '/verbb/navigation/src',
-    'handle' => 'navigation',
-    'aliases' => 
-    array (
-      '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
-    ),
-    'name' => 'Navigation',
-    'version' => '1.4.15',
-    'description' => 'A Craft CMS plugin to create navigation menus for your site.',
-    'developer' => 'Verbb',
-    'developerUrl' => 'https://verbb.io',
-    'developerEmail' => 'support@verbb.io',
-    'documentationUrl' => 'https://github.com/verbb/navigation',
-    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/navigation/craft-3/CHANGELOG.md',
-  ),
-  'verbb/super-table' => 
-  array (
-    'class' => 'verbb\\supertable\\SuperTable',
-    'basePath' => $vendorDir . '/verbb/super-table/src',
-    'handle' => 'super-table',
-    'aliases' => 
-    array (
-      '@verbb/supertable' => $vendorDir . '/verbb/super-table/src',
-    ),
-    'name' => 'Super Table',
-    'version' => '2.6.7',
-    'description' => 'Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.',
-    'developer' => 'Verbb',
-    'developerUrl' => 'https://verbb.io',
-    'developerEmail' => 'support@verbb.io',
-    'documentationUrl' => 'https://github.com/verbb/super-table',
-    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md',
-  ),
   'topshelfcraft/wordsmith' => 
   array (
     'class' => 'topshelfcraft\\wordsmith\\Wordsmith',
@@ -89,57 +53,6 @@ return array (
     'developerUrl' => 'https://topshelfcraft.com',
     'documentationUrl' => 'https://wordsmith.docs.topshelfcraft.com/',
     'changelogUrl' => 'https://raw.githubusercontent.com/topshelfcraft/wordsmith/master/CHANGELOG.md',
-  ),
-  'barrelstrength/sprout-forms-google-recaptcha' => 
-  array (
-    'class' => 'barrelstrength\\sproutformsgooglerecaptcha\\SproutFormsGoogleRecaptcha',
-    'basePath' => $vendorDir . '/barrelstrength/sprout-forms-google-recaptcha/src',
-    'handle' => 'sprout-forms-google-recaptcha',
-    'aliases' => 
-    array (
-      '@barrelstrength/sproutformsgooglerecaptcha' => $vendorDir . '/barrelstrength/sprout-forms-google-recaptcha/src',
-    ),
-    'name' => 'Google reCAPTCHA for Sprout Forms',
-    'version' => '1.4.0',
-    'description' => 'Google Recaptcha for Sprout Forms',
-    'developer' => 'Barrel Strength',
-    'developerUrl' => 'https://barrelstrengthdesign.com',
-    'developerEmail' => 'sprout@barrelstrengthdesign.com',
-    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
-  ),
-  'barrelstrength/sprout-forms' => 
-  array (
-    'class' => 'barrelstrength\\sproutforms\\SproutForms',
-    'basePath' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    'handle' => 'sprout-forms',
-    'aliases' => 
-    array (
-      '@barrelstrength/sproutforms' => $vendorDir . '/barrelstrength/sprout-forms/src',
-    ),
-    'name' => 'Sprout Forms',
-    'version' => '3.13.5',
-    'description' => 'Simple, beautiful forms. 100% control.',
-    'developer' => 'Barrel Strength',
-    'developerUrl' => 'https://www.barrelstrengthdesign.com/',
-    'developerEmail' => 'sprout@barrelstrengthdesign.com',
-    'documentationUrl' => 'https://sprout.barrelstrengthdesign.com/docs/forms',
-  ),
-  'craftcms/redactor' => 
-  array (
-    'class' => 'craft\\redactor\\Plugin',
-    'basePath' => $vendorDir . '/craftcms/redactor/src',
-    'handle' => 'redactor',
-    'aliases' => 
-    array (
-      '@craft/redactor' => $vendorDir . '/craftcms/redactor/src',
-    ),
-    'name' => 'Redactor',
-    'version' => '2.8.6',
-    'description' => 'Edit rich text content in Craft CMS using Redactor by Imperavi.',
-    'developer' => 'Pixel & Tonic',
-    'developerUrl' => 'https://pixelandtonic.com/',
-    'developerEmail' => 'support@craftcms.com',
-    'documentationUrl' => 'https://github.com/craftcms/redactor/blob/v2/README.md',
   ),
   'dolphiq/sitemap' => 
   array (
@@ -164,5 +77,58 @@ return array (
     array (
       'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
     ),
+  ),
+  'craftcms/redactor' => 
+  array (
+    'class' => 'craft\\redactor\\Plugin',
+    'basePath' => $vendorDir . '/craftcms/redactor/src',
+    'handle' => 'redactor',
+    'aliases' => 
+    array (
+      '@craft/redactor' => $vendorDir . '/craftcms/redactor/src',
+    ),
+    'name' => 'Redactor',
+    'version' => '2.8.7',
+    'description' => 'Edit rich text content in Craft CMS using Redactor by Imperavi.',
+    'developer' => 'Pixel & Tonic',
+    'developerUrl' => 'https://pixelandtonic.com/',
+    'developerEmail' => 'support@craftcms.com',
+    'documentationUrl' => 'https://github.com/craftcms/redactor/blob/v2/README.md',
+  ),
+  'verbb/navigation' => 
+  array (
+    'class' => 'verbb\\navigation\\Navigation',
+    'basePath' => $vendorDir . '/verbb/navigation/src',
+    'handle' => 'navigation',
+    'aliases' => 
+    array (
+      '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
+    ),
+    'name' => 'Navigation',
+    'version' => '1.4.16',
+    'description' => 'A Craft CMS plugin to create navigation menus for your site.',
+    'developer' => 'Verbb',
+    'developerUrl' => 'https://verbb.io',
+    'developerEmail' => 'support@verbb.io',
+    'documentationUrl' => 'https://github.com/verbb/navigation',
+    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/navigation/craft-3/CHANGELOG.md',
+  ),
+  'verbb/formie' => 
+  array (
+    'class' => 'verbb\\formie\\Formie',
+    'basePath' => $vendorDir . '/verbb/formie/src',
+    'handle' => 'formie',
+    'aliases' => 
+    array (
+      '@verbb/formie' => $vendorDir . '/verbb/formie/src',
+    ),
+    'name' => 'Formie',
+    'version' => '1.4.4',
+    'description' => 'The most user-friendly forms plugin for Craft.',
+    'developer' => 'Verbb',
+    'developerUrl' => 'https://verbb.io',
+    'developerEmail' => 'support@verbb.io',
+    'documentationUrl' => 'https://github.com/verbb/formie',
+    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/formie/craft-3/CHANGELOG.md',
   ),
 );

@@ -237,7 +237,7 @@ class Craft extends Yii
 
         foreach ($fieldHandles as $handle => $types) {
             $methods[] = <<<EOD
- * @method static {$handle}(mixed \$value) Sets the [[{$handle}]] property
+ * @method \$this {$handle}(mixed \$value) Sets the [[{$handle}]] property
 EOD;
 
             $handles[] = <<<EOD
@@ -285,7 +285,7 @@ EOD;
             $basename = basename($filePath);
             $time = time() - 10;
             FileHelper::clearDirectory($dir, [
-                'filter' => function (string $path) use ($basename, $time): bool {
+                'filter' => function(string $path) use ($basename, $time): bool {
                     $b = basename($path);
                     return (
                         $b !== $basename &&

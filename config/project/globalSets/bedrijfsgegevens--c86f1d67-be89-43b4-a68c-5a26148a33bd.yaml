@@ -2,71 +2,160 @@ fieldLayouts:
   8aaedfc8-efa5-462c-a1d7-7c4f2857ff99:
     tabs:
       -
-        fields:
-          0d619cac-99f9-4690-9c68-c830b0307130:
-            required: false
-            sortOrder: 7
-          23ffccda-b42d-4a69-9df2-3a0c38d90491:
-            required: false
-            sortOrder: 4
-          68d2a53f-38d0-45ad-841b-d8c571d26ac9:
-            required: false
-            sortOrder: 6
-          164b2e16-5027-48e5-ac43-2bbc69933af7:
-            required: false
-            sortOrder: 5
-          121768a5-acf8-4986-8618-1a6f62fa78d3:
-            required: false
-            sortOrder: 3
-          c3d59e0f-a710-4ad5-b208-4b4188bb4dd3:
-            required: false
-            sortOrder: 1
-          d31cdbb6-6539-412b-ae6b-87ff6b178039:
-            required: false
-            sortOrder: 2
+        elements:
+          -
+            fieldUid: c3d59e0f-a710-4ad5-b208-4b4188bb4dd3
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d31cdbb6-6539-412b-ae6b-87ff6b178039
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 121768a5-acf8-4986-8618-1a6f62fa78d3
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 23ffccda-b42d-4a69-9df2-3a0c38d90491
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 164b2e16-5027-48e5-ac43-2bbc69933af7
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 68d2a53f-38d0-45ad-841b-d8c571d26ac9
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0d619cac-99f9-4690-9c68-c830b0307130
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Bedrijfsgegevens
         sortOrder: 1
       -
-        fields:
-          149ac02d-b2eb-4ed9-8539-f1a96213e290:
-            required: false
-            sortOrder: 1
-          318589ce-6da6-4a6b-9b4b-1ac22ed96695:
-            required: false
-            sortOrder: 2
-          f03f5212-6110-4c7a-b5b6-6b7c25b5e0ce:
-            required: false
-            sortOrder: 3
+        elements:
+          -
+            fieldUid: 149ac02d-b2eb-4ed9-8539-f1a96213e290
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 318589ce-6da6-4a6b-9b4b-1ac22ed96695
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f03f5212-6110-4c7a-b5b6-6b7c25b5e0ce
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: 'Visuele identiteit'
         sortOrder: 2
       -
-        fields:
-          4e61cf08-b752-4452-b305-53bbd8db3866:
-            required: false
-            sortOrder: 1
-        name: Openingstijden
-        sortOrder: 3
-      -
-        fields:
-          5a68bd5d-ddcf-4f67-8235-c66d907c5152:
-            required: false
-            sortOrder: 5
-          6aa0500e-7445-4584-b540-938f78466e01:
-            required: false
-            sortOrder: 6
-          89db323a-4306-456c-b30a-9374317350e6:
-            required: false
-            sortOrder: 1
-          700fa535-b4e6-4e0d-8182-50c28dd900aa:
-            required: false
-            sortOrder: 3
-          eaf2fc24-89c2-4490-bd1a-7bd5cbd78620:
-            required: false
-            sortOrder: 4
-          f0cd13d7-0d09-47ab-bbf7-db74187a87dc:
-            required: false
-            sortOrder: 2
+        elements:
+          -
+            fieldUid: 89db323a-4306-456c-b30a-9374317350e6
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f0cd13d7-0d09-47ab-bbf7-db74187a87dc
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 700fa535-b4e6-4e0d-8182-50c28dd900aa
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eaf2fc24-89c2-4490-bd1a-7bd5cbd78620
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5a68bd5d-ddcf-4f67-8235-c66d907c5152
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6aa0500e-7445-4584-b540-938f78466e01
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Socials
-        sortOrder: 4
+        sortOrder: 3
 handle: bedrijfsgegevens
 name: Bedrijfsgegevens

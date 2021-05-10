@@ -33,7 +33,7 @@ return array (
   'yiisoft/yii2-queue' => 
   array (
     'name' => 'yiisoft/yii2-queue',
-    'version' => '2.3.1.0',
+    'version' => '2.3.2.0',
     'alias' => 
     array (
       '@yii/queue' => $vendorDir . '/yiisoft/yii2-queue/src',
@@ -52,7 +52,7 @@ return array (
   'yiisoft/yii2-debug' => 
   array (
     'name' => 'yiisoft/yii2-debug',
-    'version' => '2.1.16.0',
+    'version' => '2.1.17.0',
     'alias' => 
     array (
       '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug/src',

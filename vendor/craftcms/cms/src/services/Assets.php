@@ -608,7 +608,7 @@ class Assets extends Component
         if ($index->fileExists) {
             // For local volumes, really make sure
             $volume = $asset->getVolume();
-            $transformPath = $asset->getFolder()->path . $assetTransforms->getTransformSubpath($asset, $index);
+            $transformPath = $asset->folderPath . $assetTransforms->getTransformSubpath($asset, $index);
 
             if ($volume instanceof LocalVolumeInterface && !$volume->fileExists($transformPath)) {
                 $index->fileExists = false;
@@ -863,6 +863,9 @@ class Assets extends Component
             $timestamp = DateTimeHelper::currentUTCDateTime()->format('Y-m-d-His');
             $base = $baseFileName . '_' . $timestamp;
         }
+
+        // Append a random string at the end too, to avoid race-conditions
+        $base .= '_'.StringHelper::randomString(4);
 
         $increment = 0;
 

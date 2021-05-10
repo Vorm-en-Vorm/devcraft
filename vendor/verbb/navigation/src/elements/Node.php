@@ -144,7 +144,10 @@ class Node extends Element
             return $this->_element;
         }
 
-        if (!$this->elementId) {
+        // To prevent potentially nasty errors, check if this node is an appropriate element node type
+        // Otherwise, in some rare scenarios where there's elementId info for a node, but a non-element node type
+        // this can really go bananas.
+        if (!$this->elementId || !$this->isElement()) {
             return null;
         }
 
@@ -474,14 +477,16 @@ class Node extends Element
         // If this is propagating, we want to fetch the information for that site's linked element
         // At next breakpoint, remove `propagateSiteElements`
         if ($this->propagating && $this->isElement() && $settings->propagateSiteElements) {
-            $localeElement = Craft::$app->getElements()->getElementById($this->elementId, null, $this->siteId);
+            if ($this->elementId) {
+                $localeElement = Craft::$app->getElements()->getElementById($this->elementId, null, $this->siteId);
 
-            if ($localeElement) {
-                $this->elementSiteId = $localeElement->siteId;
+                if ($localeElement) {
+                    $this->elementSiteId = $localeElement->siteId;
 
-                // Only update the title if we haven't overridden it
-                if (!$this->hasOverriddenTitle()) {
-                    $this->title = $localeElement->title;
+                    // Only update the title if we haven't overridden it
+                    if (!$this->hasOverriddenTitle()) {
+                        $this->title = $localeElement->title;
+                    }
                 }
             }
         }
@@ -657,8 +662,11 @@ class Node extends Element
 
         // Get the full url to compare, this makes sure it works with any setup (either other domain per site or subdirs)
         // Using `getUrl()` would return the site-relative path, which isn't what we want to compare with.
-        // Also trim the '/' to normalise for comparison.
+        // Also trim the '/' and remove the query string to normalise for comparison.
         $currentUrl = trim(urldecode($request->absoluteUrl), '/');
+
+        // Remove the query string from the URL - not needed to compare
+        $currentUrl = preg_replace('/\?.*/', '', $currentUrl);
 
         // Convert a root-relative node's URL to its absolute equivalent. Note we're not using the site URL,
         // becuase the node's URL will likely already contain that.

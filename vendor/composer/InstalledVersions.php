@@ -18,6 +18,8 @@ use Composer\Semver\VersionParser;
 /**
  * This class is copied in every Composer installed project and available to all
  *
+ * See also https://getcomposer.org/doc/07-runtime.md#installed-versions
+ *
  * To require it's presence, you can require `composer-runtime-api ^2.0`
  */
 class InstalledVersions
@@ -30,7 +32,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '915879cce7cbfdd5517bc87c77163e0c1dcb041b',
+    'reference' => '8174460498de97576a932c109e6fadb6316ad4d4',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +44,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '915879cce7cbfdd5517bc87c77163e0c1dcb041b',
+      'reference' => '8174460498de97576a932c109e6fadb6316ad4d4',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -52,69 +54,6 @@ class InstalledVersions
       array (
       ),
       'reference' => '9252e55e995492a65ec9b705a5a7fdcfcaef46ef',
-    ),
-    'barrelstrength/sprout-base' => 
-    array (
-      'pretty_version' => '6.0.2',
-      'version' => '6.0.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '1aad19c3c4b63415f9c59c57fcbfca938069e315',
-    ),
-    'barrelstrength/sprout-base-email' => 
-    array (
-      'pretty_version' => '1.3.9',
-      'version' => '1.3.9.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '2e0b2224ad7088e7061ba49dc38619abaf5e19ce',
-    ),
-    'barrelstrength/sprout-base-fields' => 
-    array (
-      'pretty_version' => '1.4.5',
-      'version' => '1.4.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'b1d977bb4715dadb0806088d87380f6dd26bd44c',
-    ),
-    'barrelstrength/sprout-base-reports' => 
-    array (
-      'pretty_version' => '1.5.10',
-      'version' => '1.5.10.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '6d0f7a407a460b594ba0af56c86caff0930af763',
-    ),
-    'barrelstrength/sprout-base-sent-email' => 
-    array (
-      'pretty_version' => '1.1.4',
-      'version' => '1.1.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'd027f2c9d2df3726dd9a8f2307ec5268f595721b',
-    ),
-    'barrelstrength/sprout-forms' => 
-    array (
-      'pretty_version' => '3.13.5',
-      'version' => '3.13.5.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '593df6c8f19813d41c6a022a5d3038b40246876a',
-    ),
-    'barrelstrength/sprout-forms-google-recaptcha' => 
-    array (
-      'pretty_version' => '1.4.0',
-      'version' => '1.4.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e26b687208cdb0babd53b0c797c75cadca088567',
     ),
     'bower-asset/inputmask' => 
     array (
@@ -173,12 +112,21 @@ class InstalledVersions
     ),
     'composer/composer' => 
     array (
-      'pretty_version' => '2.0.12',
-      'version' => '2.0.12.0',
+      'pretty_version' => '2.0.13',
+      'version' => '2.0.13.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6c12ce263da71641903e399c3ce8ecb08fd375fb',
+      'reference' => '986e8b86b7b570632ad0a905c3726c33dd4c0efb',
+    ),
+    'composer/metadata-minifier' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c549d23829536f0d0e984aaabbf02af91f443207',
     ),
     'composer/semver' => 
     array (
@@ -218,12 +166,12 @@ class InstalledVersions
     ),
     'craftcms/cms' => 
     array (
-      'pretty_version' => '3.6.12',
-      'version' => '3.6.12.0',
+      'pretty_version' => '3.6.13',
+      'version' => '3.6.13.0',
       'aliases' => 
       array (
       ),
-      'reference' => '06a2e1d78b8b097f824efede5a6b36807a5bed5a',
+      'reference' => 'ba3b1e704194e7e6a056595d0d9cededc7e9b9c3',
     ),
     'craftcms/oauth2-craftid' => 
     array (
@@ -245,12 +193,12 @@ class InstalledVersions
     ),
     'craftcms/redactor' => 
     array (
-      'pretty_version' => '2.8.6',
-      'version' => '2.8.6.0',
+      'pretty_version' => '2.8.7',
+      'version' => '2.8.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'db2e4eb27cb2165d3dbd87aa999886012b749117',
+      'reference' => 'dd70560df56ec7aef87fe52115fa571d13468714',
     ),
     'craftcms/server-check' => 
     array (
@@ -376,14 +324,23 @@ class InstalledVersions
       ),
       'reference' => '08e27c97e4c6ed02f37c5b2b20488046c8d90d75',
     ),
-    'giggsey/libphonenumber-for-php' => 
+    'fakerphp/faker' => 
     array (
-      'pretty_version' => '8.12.21',
-      'version' => '8.12.21.0',
+      'pretty_version' => 'v1.14.1',
+      'version' => '1.14.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '272b8123ba7f1b7975620c6389e7206281b4a3ce',
+      'reference' => 'ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1',
+    ),
+    'giggsey/libphonenumber-for-php' => 
+    array (
+      'pretty_version' => '8.12.22',
+      'version' => '8.12.22.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'dc9992c35e52235c36241ebb5ddc280ceebe3c09',
     ),
     'giggsey/locale' => 
     array (
@@ -403,6 +360,15 @@ class InstalledVersions
       ),
       'reference' => '7008573787b430c1c1f650e3722d9bba59967628',
     ),
+    'guzzlehttp/oauth-subscriber' => 
+    array (
+      'pretty_version' => '0.4.0',
+      'version' => '0.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '47b4b9cd0b31a6733a3cc500d4285a8363502485',
+    ),
     'guzzlehttp/promises' => 
     array (
       'pretty_version' => '1.4.1',
@@ -414,12 +380,147 @@ class InstalledVersions
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '1.8.1',
-      'version' => '1.8.1.0',
+      'pretty_version' => '1.8.2',
+      'version' => '1.8.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '35ea11d335fd638b5882ff1725228b3d35496ab1',
+      'reference' => 'dc960a912984efb74d0a90222870c72c87f10c91',
+    ),
+    'hoa/compiler' => 
+    array (
+      'pretty_version' => '3.17.08.08',
+      'version' => '3.17.08.08',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'aa09caf0bf28adae6654ca6ee415ee2f522672de',
+    ),
+    'hoa/consistency' => 
+    array (
+      'pretty_version' => '1.17.05.02',
+      'version' => '1.17.05.02',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fd7d0adc82410507f332516faf655b6ed22e4c2f',
+    ),
+    'hoa/event' => 
+    array (
+      'pretty_version' => '1.17.01.13',
+      'version' => '1.17.01.13',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6c0060dced212ffa3af0e34bb46624f990b29c54',
+    ),
+    'hoa/exception' => 
+    array (
+      'pretty_version' => '1.17.01.16',
+      'version' => '1.17.01.16',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '091727d46420a3d7468ef0595651488bfc3a458f',
+    ),
+    'hoa/file' => 
+    array (
+      'pretty_version' => '1.17.07.11',
+      'version' => '1.17.07.11',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '35cb979b779bc54918d2f9a4e02ed6c7a1fa67ca',
+    ),
+    'hoa/iterator' => 
+    array (
+      'pretty_version' => '2.17.01.10',
+      'version' => '2.17.01.10',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd1120ba09cb4ccd049c86d10058ab94af245f0cc',
+    ),
+    'hoa/math' => 
+    array (
+      'pretty_version' => '1.17.05.16',
+      'version' => '1.17.05.16',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7150785d30f5d565704912116a462e9f5bc83a0c',
+    ),
+    'hoa/protocol' => 
+    array (
+      'pretty_version' => '1.17.01.14',
+      'version' => '1.17.01.14',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5c2cf972151c45f373230da170ea015deecf19e2',
+    ),
+    'hoa/regex' => 
+    array (
+      'pretty_version' => '1.17.01.13',
+      'version' => '1.17.01.13',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7e263a61b6fb45c1d03d8e5ef77668518abd5bec',
+    ),
+    'hoa/ruler' => 
+    array (
+      'pretty_version' => '2.17.05.16',
+      'version' => '2.17.05.16',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '696835daf8336dfd490f032da7af444050e52dfc',
+    ),
+    'hoa/stream' => 
+    array (
+      'pretty_version' => '1.17.02.21',
+      'version' => '1.17.02.21',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3293cfffca2de10525df51436adf88a559151d82',
+    ),
+    'hoa/ustring' => 
+    array (
+      'pretty_version' => '4.17.01.16',
+      'version' => '4.17.01.16',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e6326e2739178799b1fe3fdd92029f9517fa17a0',
+    ),
+    'hoa/visitor' => 
+    array (
+      'pretty_version' => '2.17.01.16',
+      'version' => '2.17.01.16',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c18fe1cbac98ae449e0d56e87469103ba08f224a',
+    ),
+    'hoa/zformat' => 
+    array (
+      'pretty_version' => '1.17.01.10',
+      'version' => '1.17.01.10',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '522c381a2a075d4b9dbb42eb4592dd09520e4ac2',
+    ),
+    'html2text/html2text' => 
+    array (
+      'pretty_version' => '4.3.1',
+      'version' => '4.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '61ad68e934066a6f8df29a3d23a6460536d0855c',
     ),
     'icanboogie/inflector' => 
     array (
@@ -484,15 +585,6 @@ class InstalledVersions
       ),
       'reference' => '6ede70583e101030bcace4dcddd648f760ddf642',
     ),
-    'league/csv' => 
-    array (
-      'pretty_version' => '9.6.2',
-      'version' => '9.6.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f28da6e483bf979bac10e2add384c90ae9983e4e',
-    ),
     'league/flysystem' => 
     array (
       'pretty_version' => '1.1.3',
@@ -529,6 +621,15 @@ class InstalledVersions
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
     ),
+    'league/oauth1-client' => 
+    array (
+      'pretty_version' => 'v1.9.0',
+      'version' => '1.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1e7e6be2dc543bf466236fb171e5b20e1b06aee6',
+    ),
     'league/oauth2-client' => 
     array (
       'pretty_version' => '2.6.0',
@@ -537,6 +638,15 @@ class InstalledVersions
       array (
       ),
       'reference' => 'badb01e62383430706433191b82506b6df24ad98',
+    ),
+    'league/oauth2-google' => 
+    array (
+      'pretty_version' => '3.0.4',
+      'version' => '3.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6b79441f244040760bed5fdcd092a2bda7cf34c6',
     ),
     'masterminds/html5' => 
     array (
@@ -689,12 +799,12 @@ class InstalledVersions
     ),
     'psr/log' => 
     array (
-      'pretty_version' => '1.1.3',
-      'version' => '1.1.3.0',
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
     ),
     'psr/log-implementation' => 
     array (
@@ -768,12 +878,12 @@ class InstalledVersions
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v5.2.6',
-      'version' => '5.2.6.0',
+      'pretty_version' => 'v5.2.7',
+      'version' => '5.2.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => '35f039df40a3b335ebf310f244cb242b3a83ac8d',
+      'reference' => '90374b8ed059325b49a29b55b3f8bb4062c87629',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -786,12 +896,12 @@ class InstalledVersions
     ),
     'symfony/filesystem' => 
     array (
-      'pretty_version' => 'v5.2.6',
-      'version' => '5.2.6.0',
+      'pretty_version' => 'v5.2.7',
+      'version' => '5.2.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8c86a82f51658188119e62cff0a050a12d09836f',
+      'reference' => '056e92acc21d977c37e6ea8e97374b2a6c8551b0',
     ),
     'symfony/finder' => 
     array (
@@ -885,12 +995,12 @@ class InstalledVersions
     ),
     'symfony/process' => 
     array (
-      'pretty_version' => 'v5.2.4',
-      'version' => '5.2.4.0',
+      'pretty_version' => 'v5.2.7',
+      'version' => '5.2.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => '313a38f09c77fbcdc1d223e57d368cea76a2fd2f',
+      'reference' => '98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e',
     ),
     'symfony/service-contracts' => 
     array (
@@ -912,12 +1022,12 @@ class InstalledVersions
     ),
     'symfony/yaml' => 
     array (
-      'pretty_version' => 'v5.2.5',
-      'version' => '5.2.5.0',
+      'pretty_version' => 'v5.2.7',
+      'version' => '5.2.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => '298a08ddda623485208506fcee08817807a251dd',
+      'reference' => '76546cbeddd0a9540b4e4e57eddeec3e9bb444a5',
     ),
     'topshelfcraft/wordsmith' => 
     array (
@@ -955,23 +1065,23 @@ class InstalledVersions
       ),
       'reference' => '006cc4979e2b7669234a90bb7347129fe0185eb8',
     ),
+    'verbb/formie' => 
+    array (
+      'pretty_version' => '1.4.4',
+      'version' => '1.4.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e5d97e2e2bf20f467ae3411feb67b0e3aca4936d',
+    ),
     'verbb/navigation' => 
     array (
-      'pretty_version' => '1.4.15',
-      'version' => '1.4.15.0',
+      'pretty_version' => '1.4.16',
+      'version' => '1.4.16.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5e759bef5587509b4135a550afd636dc0c197e88',
-    ),
-    'verbb/super-table' => 
-    array (
-      'pretty_version' => '2.6.7',
-      'version' => '2.6.7.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'bc35da9a3a2eef20338c1e60998c4afd57f84851',
+      'reference' => '9869ff5314b3cce95f6cd5e57978b2d6cf5625f4',
     ),
     'vlucas/phpdotenv' => 
     array (
@@ -1101,21 +1211,21 @@ class InstalledVersions
     ),
     'yiisoft/yii2-debug' => 
     array (
-      'pretty_version' => '2.1.16',
-      'version' => '2.1.16.0',
+      'pretty_version' => '2.1.17',
+      'version' => '2.1.17.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0d8ce76b2dd036a5fc38b26434e1c672ad8975a9',
+      'reference' => '21a259c27dacedf19ac1e00d4a7180e3043d7859',
     ),
     'yiisoft/yii2-queue' => 
     array (
-      'pretty_version' => '2.3.1',
-      'version' => '2.3.1.0',
+      'pretty_version' => '2.3.2',
+      'version' => '2.3.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a6758a2b9c2d8aca9b949f4faa9e3cca0dfbc8be',
+      'reference' => '7446216c87eff371245113b41f5a227d4d9182f7',
     ),
     'yiisoft/yii2-swiftmailer' => 
     array (
@@ -1164,7 +1274,6 @@ class InstalledVersions
         foreach (self::getInstalled() as $installed) {
             $packages[] = array_keys($installed['versions']);
         }
-
 
         if (1 === \count($packages)) {
             return $packages[0];
@@ -1327,7 +1436,7 @@ class InstalledVersions
      * Returns the raw installed.php data for custom implementations
      *
      * @return array[]
-     * @psalm-return array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[]}, versions: list<string, array{pretty_version: ?string, version: ?string, aliases: ?string[], reference: ?string, replaced: ?string[], provided: ?string[]}>}
+     * @psalm-return array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[]}, versions: array<string, array{pretty_version?: string, version?: string, aliases?: string[], reference?: string, replaced?: string[], provided?: string[]}>}
      */
     public static function getRawData()
     {
@@ -1350,7 +1459,7 @@ class InstalledVersions
      * @param  array[] $data A vendor/composer/installed.php data set
      * @return void
      *
-     * @psalm-param array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[]}, versions: list<string, array{pretty_version: ?string, version: ?string, aliases: ?string[], reference: ?string, replaced: ?string[], provided: ?string[]}>} $data
+     * @psalm-param array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[]}, versions: array<string, array{pretty_version?: string, version?: string, aliases?: string[], reference?: string, replaced?: string[], provided?: string[]}>} $data
      */
     public static function reload($data)
     {
@@ -1360,6 +1469,7 @@ class InstalledVersions
 
     /**
      * @return array[]
+     * @psalm-return list<array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[]}, versions: array<string, array{pretty_version?: string, version?: string, aliases?: string[], reference?: string, replaced?: string[], provided?: string[]}>}>
      */
     private static function getInstalled()
     {

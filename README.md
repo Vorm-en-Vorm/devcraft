@@ -9,14 +9,13 @@
         <ul><li>Lib folder with JS and (S)CSS</li>
         <li>Starting files ( main.scss / scripts.js / sliders.js )</li></ul>
     <p><strong>Craft Plugins</strong><br />
-        <ul><li>Navigation($19) (Menu)</li>
-        <li>Sproutforms (Forms)</li>
-        <li>Amazon S3 (How to AMAZONS3: https://www.youtube.com/watch?v=d9mpa6apHNM)</li>
+        <ul><li>Amazon S3 (How to AMAZONS3: https://www.youtube.com/watch?v=d9mpa6apHNM)</li>
+        <li>Formie (Forms)</li>
+        <li>Navigation($19) (Menu)</li>
         <li>Redactor</li>
-        <li>Super Table</li>
         <li>Typed link Field</li>
         <li>Wordsmith</li>
-          <li>Sitemap XML / Sproutforms XML</li></ul>
+        <li>Sitemap XML</li></ul>
 
 
 

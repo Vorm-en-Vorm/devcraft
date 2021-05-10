@@ -67,330 +67,6 @@
             "install-path": "../aws/aws-sdk-php"
         },
         {
-            "name": "barrelstrength/sprout-base",
-            "version": "6.0.2",
-            "version_normalized": "6.0.2.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-base/zipball/1aad19c3c4b63415f9c59c57fcbfca938069e315",
-                "reference": "1aad19c3c4b63415f9c59c57fcbfca938069e315",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.1.0"
-            },
-            "time": "2020-10-14T01:24:37+00:00",
-            "type": "yii-module",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutbase\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Common libraries for Sprout Plugins for Craft CMS",
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/sprout-base/issues?state=open",
-                "source": "https://github.com/barrelstrength/sprout-base",
-                "docs": "https://github.com/barrelstrength/sprout-base",
-                "rss": "https://github.com/barrelstrength/sprout-base/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-base"
-        },
-        {
-            "name": "barrelstrength/sprout-base-email",
-            "version": "1.3.9",
-            "version_normalized": "1.3.9.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-base-email/zipball/2e0b2224ad7088e7061ba49dc38619abaf5e19ce",
-                "reference": "2e0b2224ad7088e7061ba49dc38619abaf5e19ce",
-                "shasum": ""
-            },
-            "require": {
-                "barrelstrength/sprout-base": "^6.0.1",
-                "barrelstrength/sprout-base-sent-email": "^1.0.0",
-                "craftcms/cms": "^3.4.0",
-                "league/html-to-markdown": "^4.6.2"
-            },
-            "time": "2021-02-11T17:02:06+00:00",
-            "type": "yii-module",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutbaseemail\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Common email libraries for Sprout Plugins for Craft CMS",
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/sprout-base/issues?state=open",
-                "source": "https://github.com/barrelstrength/sprout-base",
-                "docs": "https://github.com/barrelstrength/sprout-base",
-                "rss": "https://github.com/barrelstrength/sprout-base/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-base-email"
-        },
-        {
-            "name": "barrelstrength/sprout-base-fields",
-            "version": "1.4.5",
-            "version_normalized": "1.4.5.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-base-fields/zipball/b1d977bb4715dadb0806088d87380f6dd26bd44c",
-                "reference": "b1d977bb4715dadb0806088d87380f6dd26bd44c",
-                "shasum": ""
-            },
-            "require": {
-                "commerceguys/addressing": "^1.0.6",
-                "craftcms/cms": "^3.1.0",
-                "giggsey/libphonenumber-for-php": "^8.12.4"
-            },
-            "time": "2020-10-22T13:56:18+00:00",
-            "type": "yii-module",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutbasefields\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Common fields libraries for Sprout Plugins for Craft CMS",
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/sprout-base/issues?state=open",
-                "source": "https://github.com/barrelstrength/sprout-base",
-                "docs": "https://github.com/barrelstrength/sprout-base",
-                "rss": "https://github.com/barrelstrength/sprout-base/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-base-fields"
-        },
-        {
-            "name": "barrelstrength/sprout-base-reports",
-            "version": "1.5.10",
-            "version_normalized": "1.5.10.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-base-reports/zipball/6d0f7a407a460b594ba0af56c86caff0930af763",
-                "reference": "6d0f7a407a460b594ba0af56c86caff0930af763",
-                "shasum": ""
-            },
-            "require": {
-                "barrelstrength/sprout-base-fields": "^1.4.0",
-                "craftcms/cms": "^3.1.0",
-                "league/csv": "^8.2.0|^9.6.1"
-            },
-            "time": "2021-03-27T15:05:29+00:00",
-            "type": "yii-module",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutbasereports\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Common reports libraries for Sprout Plugins for Craft CMS",
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/craft-sprout-base-reports/issues?state=open",
-                "source": "https://github.com/barrelstrength/craft-sprout-base-reports",
-                "docs": "https://github.com/barrelstrength/craft-sprout-base-reports",
-                "rss": "https://github.com/barrelstrength/craft-sprout-base-reports/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-base-reports"
-        },
-        {
-            "name": "barrelstrength/sprout-base-sent-email",
-            "version": "1.1.4",
-            "version_normalized": "1.1.4.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-base-sent-email/zipball/d027f2c9d2df3726dd9a8f2307ec5268f595721b",
-                "reference": "d027f2c9d2df3726dd9a8f2307ec5268f595721b",
-                "shasum": ""
-            },
-            "require": {
-                "barrelstrength/sprout-base": "^6.0.0",
-                "barrelstrength/sprout-base-email": "^1.3.0",
-                "craftcms/cms": "^3.4.0"
-            },
-            "time": "2021-02-11T16:58:28+00:00",
-            "type": "yii-module",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutbasesentemail\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Common sent email libraries for Sprout Plugins for Craft CMS",
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/sprout-base-sent-email/issues?state=open",
-                "source": "https://github.com/barrelstrength/sprout-base-sent-email",
-                "docs": "https://sprout.barrelstrengthdesign.com/craft-plugins/sent-email/docs",
-                "rss": "https://github.com/barrelstrength/sprout-base-sent-email/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-base-sent-email"
-        },
-        {
-            "name": "barrelstrength/sprout-forms",
-            "version": "3.13.5",
-            "version_normalized": "3.13.5.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-forms/zipball/593df6c8f19813d41c6a022a5d3038b40246876a",
-                "reference": "593df6c8f19813d41c6a022a5d3038b40246876a",
-                "shasum": ""
-            },
-            "require": {
-                "barrelstrength/sprout-base": "^6.0.2",
-                "barrelstrength/sprout-base-email": "^1.3.9",
-                "barrelstrength/sprout-base-fields": "^1.4.5",
-                "barrelstrength/sprout-base-reports": "^1.5.9",
-                "craftcms/cms": "^3.5.13"
-            },
-            "time": "2021-04-01T13:26:49+00:00",
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Sprout Forms",
-                "handle": "sprout-forms",
-                "developer": "Barrel Strength",
-                "documentationUrl": "https://sprout.barrelstrengthdesign.com/docs/forms",
-                "class": "barrelstrength\\sproutforms\\SproutForms"
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutforms\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Simple, beautiful forms. 100% control.",
-            "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms",
-                "sprout forms"
-            ],
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/sprout-forms/issues?state=open",
-                "source": "https://github.com/barrelstrength/sprout-forms",
-                "docs": "https://sprout.barrelstrengthdesign.com/docs/forms",
-                "rss": "https://github.com/barrelstrength/sprout-forms/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-forms"
-        },
-        {
-            "name": "barrelstrength/sprout-forms-google-recaptcha",
-            "version": "1.4.0",
-            "version_normalized": "1.4.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-forms-google-recaptcha/zipball/e26b687208cdb0babd53b0c797c75cadca088567",
-                "reference": "e26b687208cdb0babd53b0c797c75cadca088567",
-                "shasum": ""
-            },
-            "require": {
-                "barrelstrength/sprout-forms": "^3.10.0",
-                "craftcms/cms": "^3.0.0"
-            },
-            "time": "2020-05-24T16:29:48+00:00",
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Google reCAPTCHA for Sprout Forms",
-                "handle": "sprout-forms-google-recaptcha",
-                "developer": "Barrel Strength",
-                "developerUrl": "https://barrelstrengthdesign.com",
-                "documentationUrl": "https://sprout.barrelstrengthdesign.com/docs/forms",
-                "class": "barrelstrength\\sproutformsgooglerecaptcha\\SproutFormsGoogleRecaptcha"
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "barrelstrength\\sproutformsgooglerecaptcha\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Barrel Strength",
-                    "homepage": "https://www.barrelstrengthdesign.com/"
-                }
-            ],
-            "description": "Google Recaptcha for Sprout Forms",
-            "keywords": [
-                "cms",
-                "craft",
-                "craftcms",
-                "forms",
-                "sprout forms",
-                "sprout google recaptcha"
-            ],
-            "support": {
-                "email": "sprout@barrelstrengthdesign.com",
-                "issues": "https://github.com/barrelstrength/craft-sprout-forms-google-recaptcha/issues?state=open",
-                "source": "https://github.com/barrelstrength/craft-sprout-forms-google-recaptcha",
-                "docs": "https://sprout.barrelstrengthdesign.com/docs/forms",
-                "rss": "https://github.com/barrelstrength/craft-sprout-forms-google-recaptcha/commits/v2.atom"
-            },
-            "install-path": "../barrelstrength/sprout-forms-google-recaptcha"
-        },
-        {
             "name": "cebe/markdown",
             "version": "1.2.1",
             "version_normalized": "1.2.1.0",
@@ -548,16 +224,17 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.0.12",
-            "version_normalized": "2.0.12.0",
+            "version": "2.0.13",
+            "version_normalized": "2.0.13.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/6c12ce263da71641903e399c3ce8ecb08fd375fb",
-                "reference": "6c12ce263da71641903e399c3ce8ecb08fd375fb",
+                "url": "https://api.github.com/repos/composer/composer/zipball/986e8b86b7b570632ad0a905c3726c33dd4c0efb",
+                "reference": "986e8b86b7b570632ad0a905c3726c33dd4c0efb",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "^1.0",
+                "composer/metadata-minifier": "^1.0",
                 "composer/semver": "^3.0",
                 "composer/spdx-licenses": "^1.2",
                 "composer/xdebug-handler": "^1.1",
@@ -577,7 +254,7 @@
                 "ext-zip": "Enabling the zip extension allows you to unzip archives",
                 "ext-zlib": "Allow gzip compression of HTTP requests"
             },
-            "time": "2021-04-01T08:14:59+00:00",
+            "time": "2021-04-27T11:11:08+00:00",
             "bin": [
                 "bin/composer"
             ],
@@ -616,6 +293,49 @@
                 "package"
             ],
             "install-path": "./composer"
+        },
+        {
+            "name": "composer/metadata-minifier",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/metadata-minifier/zipball/c549d23829536f0d0e984aaabbf02af91f443207",
+                "reference": "c549d23829536f0d0e984aaabbf02af91f443207",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0 || ^8.0"
+            },
+            "time": "2021-04-07T13:37:33+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Composer\\MetadataMinifier\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Small utility library that handles metadata minification and expansion.",
+            "keywords": [
+                "composer",
+                "compression"
+            ],
+            "install-path": "./metadata-minifier"
         },
         {
             "name": "composer/semver",
@@ -820,16 +540,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.6.12",
-            "version_normalized": "3.6.12.0",
+            "version": "3.6.13",
+            "version_normalized": "3.6.13.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/06a2e1d78b8b097f824efede5a6b36807a5bed5a",
-                "reference": "06a2e1d78b8b097f824efede5a6b36807a5bed5a",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/ba3b1e704194e7e6a056595d0d9cededc7e9b9c3",
+                "reference": "ba3b1e704194e7e6a056595d0d9cededc7e9b9c3",
                 "shasum": ""
             },
             "require": {
-                "composer/composer": "2.0.12",
+                "composer/composer": "2.0.13",
                 "craftcms/oauth2-craftid": "~1.0.0",
                 "craftcms/plugin-installer": "~1.5.6",
                 "craftcms/server-check": "~1.2.0",
@@ -878,7 +598,7 @@
                 "ext-imagick": "Adds support for more image processing formats and options.",
                 "ext-intl": "Adds rich internationalization support."
             },
-            "time": "2021-04-13T17:05:18+00:00",
+            "time": "2021-05-04T16:40:11+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -997,18 +717,18 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.8.6",
-            "version_normalized": "2.8.6.0",
+            "version": "2.8.7",
+            "version_normalized": "2.8.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/db2e4eb27cb2165d3dbd87aa999886012b749117",
-                "reference": "db2e4eb27cb2165d3dbd87aa999886012b749117",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/dd70560df56ec7aef87fe52115fa571d13468714",
+                "reference": "dd70560df56ec7aef87fe52115fa571d13468714",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.5.0"
             },
-            "time": "2021-04-13T18:15:38+00:00",
+            "time": "2021-05-01T18:13:34+00:00",
             "type": "craft-plugin",
             "extra": {
                 "name": "Redactor",
@@ -1628,13 +1348,66 @@
             "install-path": "../ezyang/htmlpurifier"
         },
         {
-            "name": "giggsey/libphonenumber-for-php",
-            "version": "8.12.21",
-            "version_normalized": "8.12.21.0",
+            "name": "fakerphp/faker",
+            "version": "v1.14.1",
+            "version_normalized": "1.14.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/272b8123ba7f1b7975620c6389e7206281b4a3ce",
-                "reference": "272b8123ba7f1b7975620c6389e7206281b4a3ce",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1",
+                "reference": "ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "psr/container": "^1.0",
+                "symfony/deprecation-contracts": "^2.2"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "suggest": {
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "time": "2021-03-30T06:27:33+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "v1.15-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "install-path": "../fakerphp/faker"
+        },
+        {
+            "name": "giggsey/libphonenumber-for-php",
+            "version": "8.12.22",
+            "version_normalized": "8.12.22.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/dc9992c35e52235c36241ebb5ddc280ceebe3c09",
+                "reference": "dc9992c35e52235c36241ebb5ddc280ceebe3c09",
                 "shasum": ""
             },
             "require": {
@@ -1642,7 +1415,7 @@
                 "php": ">=5.3.2",
                 "symfony/polyfill-mbstring": "^1.17"
             },
-            "time": "2021-04-06T08:37:32+00:00",
+            "time": "2021-04-29T07:34:59+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1789,6 +1562,51 @@
             "install-path": "../guzzlehttp/guzzle"
         },
         {
+            "name": "guzzlehttp/oauth-subscriber",
+            "version": "0.4.0",
+            "version_normalized": "0.4.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/oauth-subscriber/zipball/47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "reference": "47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "php": ">=5.5.0"
+            },
+            "time": "2020-07-01T06:28:13+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Subscriber\\Oauth\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle OAuth 1.0 subscriber",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "oauth"
+            ],
+            "install-path": "../guzzlehttp/oauth-subscriber"
+        },
+        {
             "name": "guzzlehttp/promises",
             "version": "1.4.1",
             "version_normalized": "1.4.1.0",
@@ -1835,12 +1653,12 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.8.1",
-            "version_normalized": "1.8.1.0",
+            "version": "1.8.2",
+            "version_normalized": "1.8.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/35ea11d335fd638b5882ff1725228b3d35496ab1",
-                "reference": "35ea11d335fd638b5882ff1725228b3d35496ab1",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/dc960a912984efb74d0a90222870c72c87f10c91",
+                "reference": "dc960a912984efb74d0a90222870c72c87f10c91",
                 "shasum": ""
             },
             "require": {
@@ -1854,7 +1672,7 @@
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
-            "time": "2021-03-21T16:25:00+00:00",
+            "time": "2021-04-26T09:17:50+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1896,6 +1714,798 @@
                 "url"
             ],
             "install-path": "../guzzlehttp/psr7"
+        },
+        {
+            "name": "hoa/compiler",
+            "version": "3.17.08.08",
+            "version_normalized": "3.17.08.08",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Compiler/zipball/aa09caf0bf28adae6654ca6ee415ee2f522672de",
+                "reference": "aa09caf0bf28adae6654ca6ee415ee2f522672de",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0",
+                "hoa/file": "~1.0",
+                "hoa/iterator": "~2.0",
+                "hoa/math": "~1.0",
+                "hoa/protocol": "~1.0",
+                "hoa/regex": "~1.0",
+                "hoa/visitor": "~2.0"
+            },
+            "time": "2017-08-08T07:44:07+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Compiler\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Compiler library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "algebraic",
+                "ast",
+                "compiler",
+                "context-free",
+                "coverage",
+                "exhaustive",
+                "grammar",
+                "isotropic",
+                "language",
+                "lexer",
+                "library",
+                "ll1",
+                "llk",
+                "parser",
+                "pp",
+                "random",
+                "regular",
+                "rule",
+                "sampler",
+                "syntax",
+                "token",
+                "trace",
+                "uniform"
+            ],
+            "install-path": "../hoa/compiler"
+        },
+        {
+            "name": "hoa/consistency",
+            "version": "1.17.05.02",
+            "version_normalized": "1.17.05.02",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Consistency/zipball/fd7d0adc82410507f332516faf655b6ed22e4c2f",
+                "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/exception": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "time": "2017-05-02T12:18:12+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Consistency\\": "."
+                },
+                "files": [
+                    "Prelude.php"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Consistency library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "autoloader",
+                "callable",
+                "consistency",
+                "entity",
+                "flex",
+                "keyword",
+                "library"
+            ],
+            "install-path": "../hoa/consistency"
+        },
+        {
+            "name": "hoa/event",
+            "version": "1.17.01.13",
+            "version_normalized": "1.17.01.13",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Event/zipball/6c0060dced212ffa3af0e34bb46624f990b29c54",
+                "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "time": "2017-01-13T15:30:50+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Event\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Event library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "event",
+                "library",
+                "listener",
+                "observer"
+            ],
+            "install-path": "../hoa/event"
+        },
+        {
+            "name": "hoa/exception",
+            "version": "1.17.01.16",
+            "version_normalized": "1.17.01.16",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Exception/zipball/091727d46420a3d7468ef0595651488bfc3a458f",
+                "reference": "091727d46420a3d7468ef0595651488bfc3a458f",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/event": "~1.0"
+            },
+            "time": "2017-01-16T07:53:27+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Exception\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Exception library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "exception",
+                "library"
+            ],
+            "install-path": "../hoa/exception"
+        },
+        {
+            "name": "hoa/file",
+            "version": "1.17.07.11",
+            "version_normalized": "1.17.07.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/File/zipball/35cb979b779bc54918d2f9a4e02ed6c7a1fa67ca",
+                "reference": "35cb979b779bc54918d2f9a4e02ed6c7a1fa67ca",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/event": "~1.0",
+                "hoa/exception": "~1.0",
+                "hoa/iterator": "~2.0",
+                "hoa/stream": "~1.0"
+            },
+            "time": "2017-07-11T07:42:15+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\File\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\File library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "Socket",
+                "directory",
+                "file",
+                "finder",
+                "library",
+                "link",
+                "temporary"
+            ],
+            "install-path": "../hoa/file"
+        },
+        {
+            "name": "hoa/iterator",
+            "version": "2.17.01.10",
+            "version_normalized": "2.17.01.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Iterator/zipball/d1120ba09cb4ccd049c86d10058ab94af245f0cc",
+                "reference": "d1120ba09cb4ccd049c86d10058ab94af245f0cc",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "time": "2017-01-10T10:34:47+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Iterator\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Iterator library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "iterator",
+                "library"
+            ],
+            "install-path": "../hoa/iterator"
+        },
+        {
+            "name": "hoa/math",
+            "version": "1.17.05.16",
+            "version_normalized": "1.17.05.16",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Math/zipball/7150785d30f5d565704912116a462e9f5bc83a0c",
+                "reference": "7150785d30f5d565704912116a462e9f5bc83a0c",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/compiler": "~3.0",
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0",
+                "hoa/iterator": "~2.0",
+                "hoa/protocol": "~1.0",
+                "hoa/zformat": "~1.0"
+            },
+            "time": "2017-05-16T08:02:17+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Math\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Math library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "arrangement",
+                "combination",
+                "combinatorics",
+                "counting",
+                "library",
+                "math",
+                "permutation",
+                "sampler",
+                "set"
+            ],
+            "install-path": "../hoa/math"
+        },
+        {
+            "name": "hoa/protocol",
+            "version": "1.17.01.14",
+            "version_normalized": "1.17.01.14",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Protocol/zipball/5c2cf972151c45f373230da170ea015deecf19e2",
+                "reference": "5c2cf972151c45f373230da170ea015deecf19e2",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "time": "2017-01-14T12:26:10+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Protocol\\": "."
+                },
+                "files": [
+                    "Wrapper.php"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Protocol library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "library",
+                "protocol",
+                "resource",
+                "stream",
+                "wrapper"
+            ],
+            "install-path": "../hoa/protocol"
+        },
+        {
+            "name": "hoa/regex",
+            "version": "1.17.01.13",
+            "version_normalized": "1.17.01.13",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Regex/zipball/7e263a61b6fb45c1d03d8e5ef77668518abd5bec",
+                "reference": "7e263a61b6fb45c1d03d8e5ef77668518abd5bec",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0",
+                "hoa/math": "~1.0",
+                "hoa/protocol": "~1.0",
+                "hoa/ustring": "~4.0",
+                "hoa/visitor": "~2.0"
+            },
+            "time": "2017-01-13T16:10:24+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Regex\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Regex library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "compiler",
+                "library",
+                "regex"
+            ],
+            "install-path": "../hoa/regex"
+        },
+        {
+            "name": "hoa/ruler",
+            "version": "2.17.05.16",
+            "version_normalized": "2.17.05.16",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Ruler/zipball/696835daf8336dfd490f032da7af444050e52dfc",
+                "reference": "696835daf8336dfd490f032da7af444050e52dfc",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/compiler": "~3.0",
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0",
+                "hoa/file": "~1.0",
+                "hoa/protocol": "~1.0",
+                "hoa/visitor": "~2.0"
+            },
+            "time": "2017-05-16T07:52:21+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Ruler\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Ruler library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "library",
+                "ruler"
+            ],
+            "install-path": "../hoa/ruler"
+        },
+        {
+            "name": "hoa/stream",
+            "version": "1.17.02.21",
+            "version_normalized": "1.17.02.21",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/3293cfffca2de10525df51436adf88a559151d82",
+                "reference": "3293cfffca2de10525df51436adf88a559151d82",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/event": "~1.0",
+                "hoa/exception": "~1.0",
+                "hoa/protocol": "~1.0"
+            },
+            "time": "2017-02-21T16:01:06+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Stream\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Stream library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "Context",
+                "bucket",
+                "composite",
+                "filter",
+                "in",
+                "library",
+                "out",
+                "protocol",
+                "stream",
+                "wrapper"
+            ],
+            "install-path": "../hoa/stream"
+        },
+        {
+            "name": "hoa/ustring",
+            "version": "4.17.01.16",
+            "version_normalized": "4.17.01.16",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Ustring/zipball/e6326e2739178799b1fe3fdd92029f9517fa17a0",
+                "reference": "e6326e2739178799b1fe3fdd92029f9517fa17a0",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "suggest": {
+                "ext-iconv": "ext/iconv must be present (or a third implementation) to use Hoa\\Ustring::transcode().",
+                "ext-intl": "To get a better Hoa\\Ustring::toAscii() and Hoa\\Ustring::compareTo()."
+            },
+            "time": "2017-01-16T07:08:25+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Ustring\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Ustring library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "library",
+                "search",
+                "string",
+                "unicode"
+            ],
+            "install-path": "../hoa/ustring"
+        },
+        {
+            "name": "hoa/visitor",
+            "version": "2.17.01.16",
+            "version_normalized": "2.17.01.16",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Visitor/zipball/c18fe1cbac98ae449e0d56e87469103ba08f224a",
+                "reference": "c18fe1cbac98ae449e0d56e87469103ba08f224a",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0"
+            },
+            "time": "2017-01-16T07:02:03+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Visitor\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Visitor library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "library",
+                "structure",
+                "visit",
+                "visitor"
+            ],
+            "install-path": "../hoa/visitor"
+        },
+        {
+            "name": "hoa/zformat",
+            "version": "1.17.01.10",
+            "version_normalized": "1.17.01.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Zformat/zipball/522c381a2a075d4b9dbb42eb4592dd09520e4ac2",
+                "reference": "522c381a2a075d4b9dbb42eb4592dd09520e4ac2",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "time": "2017-01-10T10:39:54+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Zformat\\": "."
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Zformat library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "library",
+                "parameter",
+                "zformat"
+            ],
+            "install-path": "../hoa/zformat"
+        },
+        {
+            "name": "html2text/html2text",
+            "version": "4.3.1",
+            "version_normalized": "4.3.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtibben/html2text/zipball/61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "reference": "61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "shasum": ""
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance",
+                "symfony/polyfill-mbstring": "If you can't install ext-mbstring"
+            },
+            "time": "2020-04-16T23:44:31+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Html2Text\\": [
+                        "src/",
+                        "test/"
+                    ]
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Converts HTML to formatted plain text",
+            "install-path": "../html2text/html2text"
         },
         {
             "name": "icanboogie/inflector",
@@ -2226,66 +2836,6 @@
             "install-path": "../laminas/laminas-zendframework-bridge"
         },
         {
-            "name": "league/csv",
-            "version": "9.6.2",
-            "version_normalized": "9.6.2.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/f28da6e483bf979bac10e2add384c90ae9983e4e",
-                "reference": "f28da6e483bf979bac10e2add384c90ae9983e4e",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "php": ">=7.2.5"
-            },
-            "suggest": {
-                "ext-dom": "Required to use the XMLConverter and or the HTMLConverter classes",
-                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
-            },
-            "time": "2020-12-10T19:40:30+00:00",
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "9.x-dev"
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "League\\Csv\\": "src"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ignace Nyamagana Butera",
-                    "email": "nyamsprod@gmail.com",
-                    "homepage": "https://github.com/nyamsprod/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "CSV data manipulation made easy in PHP",
-            "homepage": "http://csv.thephpleague.com",
-            "keywords": [
-                "convert",
-                "csv",
-                "export",
-                "filter",
-                "import",
-                "read",
-                "transform",
-                "write"
-            ],
-            "install-path": "../league/csv"
-        },
-        {
             "name": "league/flysystem",
             "version": "1.1.3",
             "version_normalized": "1.1.3.0",
@@ -2494,6 +3044,67 @@
             "install-path": "../league/mime-type-detection"
         },
         {
+            "name": "league/oauth1-client",
+            "version": "v1.9.0",
+            "version_normalized": "1.9.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/1e7e6be2dc543bf466236fb171e5b20e1b06aee6",
+                "reference": "1e7e6be2dc543bf466236fb171e5b20e1b06aee6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "php": ">=7.1||>=8.0"
+            },
+            "suggest": {
+                "ext-simplexml": "For decoding XML-based responses."
+            },
+            "time": "2021-01-20T01:40:53+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev",
+                    "dev-develop": "2.0-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "bitbucket",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on",
+                "trello",
+                "tumblr",
+                "twitter"
+            ],
+            "install-path": "../league/oauth1-client"
+        },
+        {
             "name": "league/oauth2-client",
             "version": "2.6.0",
             "version_normalized": "2.6.0.0",
@@ -2549,6 +3160,48 @@
                 "single sign on"
             ],
             "install-path": "../league/oauth2-client"
+        },
+        {
+            "name": "league/oauth2-google",
+            "version": "3.0.4",
+            "version_normalized": "3.0.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-google/zipball/6b79441f244040760bed5fdcd092a2bda7cf34c6",
+                "reference": "6b79441f244040760bed5fdcd092a2bda7cf34c6",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "time": "2021-01-27T16:09:03+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "install-path": "../league/oauth2-google"
         },
         {
             "name": "masterminds/html5",
@@ -3235,18 +3888,18 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.3",
-            "version_normalized": "1.1.3.0",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
-                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2020-03-23T09:12:05+00:00",
+            "time": "2021-05-03T11:20:27+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3265,7 +3918,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for logging libraries",
@@ -3574,12 +4227,12 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.2.6",
-            "version_normalized": "5.2.6.0",
+            "version": "v5.2.7",
+            "version_normalized": "5.2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/35f039df40a3b335ebf310f244cb242b3a83ac8d",
-                "reference": "35f039df40a3b335ebf310f244cb242b3a83ac8d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/90374b8ed059325b49a29b55b3f8bb4062c87629",
+                "reference": "90374b8ed059325b49a29b55b3f8bb4062c87629",
                 "shasum": ""
             },
             "require": {
@@ -3606,7 +4259,7 @@
                 "symfony/lock": "",
                 "symfony/process": ""
             },
-            "time": "2021-03-28T09:42:18+00:00",
+            "time": "2021-04-19T14:07:32+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3689,19 +4342,19 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.2.6",
-            "version_normalized": "5.2.6.0",
+            "version": "v5.2.7",
+            "version_normalized": "5.2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/8c86a82f51658188119e62cff0a050a12d09836f",
-                "reference": "8c86a82f51658188119e62cff0a050a12d09836f",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/056e92acc21d977c37e6ea8e97374b2a6c8551b0",
+                "reference": "056e92acc21d977c37e6ea8e97374b2a6c8551b0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-ctype": "~1.8"
             },
-            "time": "2021-03-28T14:30:26+00:00",
+            "time": "2021-04-01T10:42:13+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4321,19 +4974,19 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.2.4",
-            "version_normalized": "5.2.4.0",
+            "version": "v5.2.7",
+            "version_normalized": "5.2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/313a38f09c77fbcdc1d223e57d368cea76a2fd2f",
-                "reference": "313a38f09c77fbcdc1d223e57d368cea76a2fd2f",
+                "url": "https://api.github.com/repos/symfony/process/zipball/98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e",
+                "reference": "98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-php80": "^1.15"
             },
-            "time": "2021-01-27T10:15:41+00:00",
+            "time": "2021-04-08T10:27:02+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4479,12 +5132,12 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.2.5",
-            "version_normalized": "5.2.5.0",
+            "version": "v5.2.7",
+            "version_normalized": "5.2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/298a08ddda623485208506fcee08817807a251dd",
-                "reference": "298a08ddda623485208506fcee08817807a251dd",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/76546cbeddd0a9540b4e4e57eddeec3e9bb444a5",
+                "reference": "76546cbeddd0a9540b4e4e57eddeec3e9bb444a5",
                 "shasum": ""
             },
             "require": {
@@ -4498,7 +5151,7 @@
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
             },
-            "time": "2021-03-06T07:59:01+00:00",
+            "time": "2021-04-29T20:47:09+00:00",
             "bin": [
                 "Resources/bin/yaml-lint"
             ],
@@ -4722,20 +5375,86 @@
             "install-path": "../verbb/base"
         },
         {
-            "name": "verbb/navigation",
-            "version": "1.4.15",
-            "version_normalized": "1.4.15.0",
+            "name": "verbb/formie",
+            "version": "1.4.4",
+            "version_normalized": "1.4.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/5e759bef5587509b4135a550afd636dc0c197e88",
-                "reference": "5e759bef5587509b4135a550afd636dc0c197e88",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/e5d97e2e2bf20f467ae3411feb67b0e3aca4936d",
+                "reference": "e5d97e2e2bf20f467ae3411feb67b0e3aca4936d",
+                "shasum": ""
+            },
+            "require": {
+                "commerceguys/addressing": "^1.0",
+                "craftcms/cms": "^3.6.0",
+                "ext-json": "*",
+                "ezyang/htmlpurifier": "^4.13",
+                "fakerphp/faker": "^1.9.1",
+                "giggsey/libphonenumber-for-php": "^8.12",
+                "guzzlehttp/oauth-subscriber": "^0.3.0 || ^0.4.0",
+                "hoa/ruler": "~2.0",
+                "html2text/html2text": "^4.3",
+                "league/html-to-markdown": "^4.10",
+                "league/oauth1-client": "^1.7",
+                "league/oauth2-client": "^2.4.0",
+                "league/oauth2-google": "^3.0",
+                "verbb/base": "^1.0.0"
+            },
+            "time": "2021-05-10T03:05:35+00:00",
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Formie",
+                "handle": "formie",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/formie/craft-3/CHANGELOG.md",
+                "class": "verbb\\formie\\Formie"
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "verbb\\formie\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "The most user-friendly forms plugin for Craft.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "formie"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/formie/issues?state=open",
+                "source": "https://github.com/verbb/formie",
+                "docs": "https://github.com/verbb/formie",
+                "rss": "https://github.com/verbb/formie/commits/v2.atom"
+            },
+            "install-path": "../verbb/formie"
+        },
+        {
+            "name": "verbb/navigation",
+            "version": "1.4.16",
+            "version_normalized": "1.4.16.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/9869ff5314b3cce95f6cd5e57978b2d6cf5625f4",
+                "reference": "9869ff5314b3cce95f6cd5e57978b2d6cf5625f4",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.4.0",
                 "verbb/base": "^1.0.2"
             },
-            "time": "2021-03-12T23:14:56+00:00",
+            "time": "2021-05-08T04:08:55+00:00",
             "type": "craft-plugin",
             "extra": {
                 "name": "Navigation",
@@ -4775,62 +5494,6 @@
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
             "install-path": "../verbb/navigation"
-        },
-        {
-            "name": "verbb/super-table",
-            "version": "2.6.7",
-            "version_normalized": "2.6.7.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/bc35da9a3a2eef20338c1e60998c4afd57f84851",
-                "reference": "bc35da9a3a2eef20338c1e60998c4afd57f84851",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.5.0",
-                "verbb/base": "^1.0.2"
-            },
-            "time": "2021-02-06T01:25:30+00:00",
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Super Table",
-                "handle": "super-table",
-                "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
-                "documentationUrl": "https://github.com/verbb/super-table",
-                "changelogUrl": "https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md",
-                "class": "verbb\\supertable\\SuperTable"
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "verbb\\supertable\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Verbb",
-                    "homepage": "https://verbb.io"
-                }
-            ],
-            "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
-            "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms",
-                "super table"
-            ],
-            "support": {
-                "email": "support@verbb.io",
-                "issues": "https://github.com/verbb/super-table/issues?state=open",
-                "source": "https://github.com/verbb/super-table",
-                "docs": "https://github.com/verbb/super-table",
-                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
-            },
-            "install-path": "../verbb/super-table"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5590,12 +6253,12 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.16",
-            "version_normalized": "2.1.16.0",
+            "version": "2.1.17",
+            "version_normalized": "2.1.17.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/0d8ce76b2dd036a5fc38b26434e1c672ad8975a9",
-                "reference": "0d8ce76b2dd036a5fc38b26434e1c672ad8975a9",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/21a259c27dacedf19ac1e00d4a7180e3043d7859",
+                "reference": "21a259c27dacedf19ac1e00d4a7180e3043d7859",
                 "shasum": ""
             },
             "require": {
@@ -5604,7 +6267,7 @@
                 "php": ">=5.4",
                 "yiisoft/yii2": "~2.0.13"
             },
-            "time": "2020-12-23T16:36:12+00:00",
+            "time": "2021-05-05T22:02:36+00:00",
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
@@ -5650,12 +6313,12 @@
         },
         {
             "name": "yiisoft/yii2-queue",
-            "version": "2.3.1",
-            "version_normalized": "2.3.1.0",
+            "version": "2.3.2",
+            "version_normalized": "2.3.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/a6758a2b9c2d8aca9b949f4faa9e3cca0dfbc8be",
-                "reference": "a6758a2b9c2d8aca9b949f4faa9e3cca0dfbc8be",
+                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/7446216c87eff371245113b41f5a227d4d9182f7",
+                "reference": "7446216c87eff371245113b41f5a227d4d9182f7",
                 "shasum": ""
             },
             "require": {
@@ -5673,7 +6336,7 @@
                 "php-amqplib/php-amqplib": "Need for AMQP queue.",
                 "yiisoft/yii2-redis": "Need for Redis queue."
             },
-            "time": "2020-12-23T17:04:23+00:00",
+            "time": "2021-05-05T22:59:45+00:00",
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {

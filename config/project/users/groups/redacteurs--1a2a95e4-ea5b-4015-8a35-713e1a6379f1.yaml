@@ -24,7 +24,7 @@ permissions:
   - 'deletepeerentrydrafts:5a740624-0788-4b14-b14f-72fc4a6389ed' # Home
   - 'editpeerentrydrafts:5a740624-0788-4b14-b14f-72fc4a6389ed' # Home
   - 'editentries:5a740624-0788-4b14-b14f-72fc4a6389ed' # Home
-  - 'editglobalset:c86f1d67-be89-43b4-a68c-5a26148a33bd'
+  - 'editglobalset:c86f1d67-be89-43b4-a68c-5a26148a33bd' # Bedrijfsgegevens
   - 'saveassetinvolume:fec35df0-28e8-4c43-a351-739f588f7de7'
   - 'createfoldersinvolume:fec35df0-28e8-4c43-a351-739f588f7de7'
   - 'deletefilesandfoldersinvolume:fec35df0-28e8-4c43-a351-739f588f7de7'

@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInita505485b8042e81a98eea8ed6884600b
 {
     public static $files = array (
+        'e88992873b7765f9b5710cab95ba5dd7' => __DIR__ . '/..' . '/hoa/consistency/Prelude.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
@@ -19,18 +20,18 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '7e9bd612cc444b3eed788ebbe46263a0' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/autoload.php',
+        '3e76f7f02b41af8cea96018933f6b7e3' => __DIR__ . '/..' . '/hoa/protocol/Wrapper.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '65380ab4d81167209b0a4fac46641984' => __DIR__ . '/..' . '/voku/arrayy/src/Create.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'c88a6f0dbb89a32bf4e283d3a7d626ab' => __DIR__ . '/..' . '/voku/stringy/src/Create.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
         '603ce470d3b0980801c7a6185a3d6d53' => __DIR__ . '/..' . '/icanboogie/inflector/lib/helpers.php',
@@ -60,8 +61,8 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             'voku\\helper\\' => 12,
             'voku\\' => 5,
-            'verbb\\supertable\\' => 17,
             'verbb\\navigation\\' => 17,
+            'verbb\\formie\\' => 13,
             'verbb\\base\\' => 11,
         ),
         't' => 
@@ -100,16 +101,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             'craft\\awss3\\' => 12,
             'craft\\' => 6,
             'cebe\\markdown\\' => 14,
-        ),
-        'b' => 
-        array (
-            'barrelstrength\\sproutformsgooglerecaptcha\\' => 42,
-            'barrelstrength\\sproutforms\\' => 27,
-            'barrelstrength\\sproutbasesentemail\\' => 35,
-            'barrelstrength\\sproutbasereports\\' => 33,
-            'barrelstrength\\sproutbasefields\\' => 32,
-            'barrelstrength\\sproutbaseemail\\' => 31,
-            'barrelstrength\\sproutbase\\' => 26,
         ),
         'W' => 
         array (
@@ -166,11 +157,11 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             'LitEmoji\\' => 9,
             'League\\OAuth2\\Client\\' => 21,
+            'League\\OAuth1\\Client\\' => 21,
             'League\\MimeTypeDetection\\' => 25,
             'League\\HTMLToMarkdown\\' => 22,
             'League\\Flysystem\\AwsS3v3\\' => 25,
             'League\\Flysystem\\' => 17,
-            'League\\Csv\\' => 11,
             'Laminas\\ZendFrameworkBridge\\' => 28,
             'Laminas\\Stdlib\\' => 15,
             'Laminas\\Feed\\' => 13,
@@ -186,13 +177,36 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             'Imagine\\' => 8,
         ),
+        'H' => 
+        array (
+            'Html2Text\\' => 10,
+            'Hoa\\Zformat\\' => 12,
+            'Hoa\\Visitor\\' => 12,
+            'Hoa\\Ustring\\' => 12,
+            'Hoa\\Stream\\' => 11,
+            'Hoa\\Ruler\\' => 10,
+            'Hoa\\Regex\\' => 10,
+            'Hoa\\Protocol\\' => 13,
+            'Hoa\\Math\\' => 9,
+            'Hoa\\Iterator\\' => 13,
+            'Hoa\\File\\' => 9,
+            'Hoa\\Exception\\' => 14,
+            'Hoa\\Event\\' => 10,
+            'Hoa\\Consistency\\' => 16,
+            'Hoa\\Compiler\\' => 13,
+        ),
         'G' => 
         array (
+            'GuzzleHttp\\Subscriber\\Oauth\\' => 28,
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
             'GraphQL\\' => 8,
             'Giggsey\\Locale\\' => 15,
+        ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
         ),
         'E' => 
         array (
@@ -210,6 +224,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             'Composer\\XdebugHandler\\' => 23,
             'Composer\\Spdx\\' => 14,
             'Composer\\Semver\\' => 16,
+            'Composer\\MetadataMinifier\\' => 26,
             'Composer\\CaBundle\\' => 18,
             'Composer\\' => 9,
             'CommerceGuys\\Addressing\\' => 24,
@@ -298,13 +313,13 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             1 => __DIR__ . '/..' . '/voku/portable-utf8/src/voku',
             2 => __DIR__ . '/..' . '/voku/stop-words/src/voku',
         ),
-        'verbb\\supertable\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/verbb/super-table/src',
-        ),
         'verbb\\navigation\\' => 
         array (
             0 => __DIR__ . '/..' . '/verbb/navigation/src',
+        ),
+        'verbb\\formie\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/verbb/formie/src',
         ),
         'verbb\\base\\' => 
         array (
@@ -375,34 +390,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
-        ),
-        'barrelstrength\\sproutformsgooglerecaptcha\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-forms-google-recaptcha/src',
-        ),
-        'barrelstrength\\sproutforms\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-forms/src',
-        ),
-        'barrelstrength\\sproutbasesentemail\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-base-sent-email/src',
-        ),
-        'barrelstrength\\sproutbasereports\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-base-reports/src',
-        ),
-        'barrelstrength\\sproutbasefields\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-base-fields/src',
-        ),
-        'barrelstrength\\sproutbaseemail\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-base-email/src',
-        ),
-        'barrelstrength\\sproutbase\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/barrelstrength/sprout-base/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -531,6 +518,11 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'League\\OAuth2\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+            1 => __DIR__ . '/..' . '/league/oauth2-google/src',
+        ),
+        'League\\OAuth1\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth1-client/src',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -547,10 +539,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
-        ),
-        'League\\Csv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/csv/src',
         ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (
@@ -584,6 +572,71 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             0 => __DIR__ . '/..' . '/pixelandtonic/imagine/src',
         ),
+        'Html2Text\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/html2text/html2text/src',
+            1 => __DIR__ . '/..' . '/html2text/html2text/test',
+        ),
+        'Hoa\\Zformat\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/zformat',
+        ),
+        'Hoa\\Visitor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/visitor',
+        ),
+        'Hoa\\Ustring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/ustring',
+        ),
+        'Hoa\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/stream',
+        ),
+        'Hoa\\Ruler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/ruler',
+        ),
+        'Hoa\\Regex\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/regex',
+        ),
+        'Hoa\\Protocol\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/protocol',
+        ),
+        'Hoa\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/math',
+        ),
+        'Hoa\\Iterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/iterator',
+        ),
+        'Hoa\\File\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/file',
+        ),
+        'Hoa\\Exception\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/exception',
+        ),
+        'Hoa\\Event\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/event',
+        ),
+        'Hoa\\Consistency\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/consistency',
+        ),
+        'Hoa\\Compiler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hoa/compiler',
+        ),
+        'GuzzleHttp\\Subscriber\\Oauth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/oauth-subscriber/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -603,6 +656,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'Giggsey\\Locale\\' => 
         array (
             0 => __DIR__ . '/..' . '/giggsey/locale/src',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -635,6 +692,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'Composer\\Semver\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
+        ),
+        'Composer\\MetadataMinifier\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/metadata-minifier/src',
         ),
         'Composer\\CaBundle\\' => 
         array (

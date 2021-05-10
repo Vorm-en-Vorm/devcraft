@@ -8,6 +8,8 @@ use verbb\navigation\Navigation;
 use verbb\navigation\elements\Node as NodeElement;
 use verbb\navigation\models\Node as NodeModel;
 
+use Exception;
+
 class NodesController extends Controller
 {
     // Public Methods
@@ -202,6 +204,7 @@ class NodesController extends Controller
         $navId = $request->getRequiredParam('navId');
 
         $nav = $navsService->getNavById($navId, $siteId);
+        Craft::$app->getSession()->authorize('editStructure:' . $nav->structureId);
 
         $nodes = $nodesService->getNodesForNav($navId, $siteId);
 
