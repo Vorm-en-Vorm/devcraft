@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '8174460498de97576a932c109e6fadb6316ad4d4',
+    'reference' => 'bfd4c8184c75e4174f1600b3d0f5c1e694088239',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '8174460498de97576a932c109e6fadb6316ad4d4',
+      'reference' => 'bfd4c8184c75e4174f1600b3d0f5c1e694088239',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -140,12 +140,12 @@
     ),
     'craftcms/cms' => 
     array (
-      'pretty_version' => '3.6.13',
-      'version' => '3.6.13.0',
+      'pretty_version' => '3.6.14',
+      'version' => '3.6.14.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ba3b1e704194e7e6a056595d0d9cededc7e9b9c3',
+      'reference' => 'bfe9a55f217fac0a9f208c2196e1ffba4cacd98c',
     ),
     'craftcms/oauth2-craftid' => 
     array (
@@ -852,12 +852,12 @@
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v5.2.7',
-      'version' => '5.2.7.0',
+      'pretty_version' => 'v5.2.8',
+      'version' => '5.2.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '90374b8ed059325b49a29b55b3f8bb4062c87629',
+      'reference' => '864568fdc0208b3eba3638b6000b69d2386e6768',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -879,12 +879,12 @@
     ),
     'symfony/finder' => 
     array (
-      'pretty_version' => 'v5.2.4',
-      'version' => '5.2.4.0',
+      'pretty_version' => 'v5.2.8',
+      'version' => '5.2.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0d639a0943822626290d169965804f79400e6a04',
+      'reference' => 'eccb8be70d7a6a2230d05f6ecede40f3fdd9e252',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -987,12 +987,12 @@
     ),
     'symfony/string' => 
     array (
-      'pretty_version' => 'v5.2.6',
-      'version' => '5.2.6.0',
+      'pretty_version' => 'v5.2.8',
+      'version' => '5.2.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ad0bd91bce2054103f5eaa18ebeba8d3bc2a0572',
+      'reference' => '01b35eb64cac8467c3f94cd0ce2d0d376bb7d1db',
     ),
     'symfony/yaml' => 
     array (
@@ -1023,12 +1023,12 @@
     ),
     'twig/twig' => 
     array (
-      'pretty_version' => 'v2.14.4',
-      'version' => '2.14.4.0',
+      'pretty_version' => 'v2.14.6',
+      'version' => '2.14.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0b4ba691fb99ec7952d25deb36c0a83061b93bbf',
+      'reference' => '27e5cf2b05e3744accf39d4c68a3235d9966d260',
     ),
     'verbb/base' => 
     array (
@@ -1167,12 +1167,12 @@
     ),
     'yiisoft/yii2' => 
     array (
-      'pretty_version' => '2.0.41.1',
-      'version' => '2.0.41.1',
+      'pretty_version' => '2.0.42.1',
+      'version' => '2.0.42.1',
       'aliases' => 
       array (
       ),
-      'reference' => '2ad0894a2ccbd3912b33de4419ad1ae3df0595c4',
+      'reference' => '976e2e892af4df933831b5e0a05d0acf4b173d98',
     ),
     'yiisoft/yii2-composer' => 
     array (
