@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'bfd4c8184c75e4174f1600b3d0f5c1e694088239',
+    'reference' => '2bf9fa0cc3740aa1ea4ddb98cfaf6d1a3388f3ac',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'bfd4c8184c75e4174f1600b3d0f5c1e694088239',
+      'reference' => '2bf9fa0cc3740aa1ea4ddb98cfaf6d1a3388f3ac',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -140,12 +140,12 @@
     ),
     'craftcms/cms' => 
     array (
-      'pretty_version' => '3.6.14',
-      'version' => '3.6.14.0',
+      'pretty_version' => '3.6.15',
+      'version' => '3.6.15.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'bfe9a55f217fac0a9f208c2196e1ffba4cacd98c',
+      'reference' => '7a0c70fd7c7d46cbeb993d345a4b47c968bdd82a',
     ),
     'craftcms/oauth2-craftid' => 
     array (
@@ -879,12 +879,12 @@
     ),
     'symfony/finder' => 
     array (
-      'pretty_version' => 'v5.2.8',
-      'version' => '5.2.8.0',
+      'pretty_version' => 'v5.2.9',
+      'version' => '5.2.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'eccb8be70d7a6a2230d05f6ecede40f3fdd9e252',
+      'reference' => 'ccccb9d48ca42757dd12f2ca4bf857a4e217d90d',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -996,12 +996,12 @@
     ),
     'symfony/yaml' => 
     array (
-      'pretty_version' => 'v5.2.7',
-      'version' => '5.2.7.0',
+      'pretty_version' => 'v5.2.9',
+      'version' => '5.2.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => '76546cbeddd0a9540b4e4e57eddeec3e9bb444a5',
+      'reference' => 'd23115e4a3d50520abddccdbec9514baab1084c8',
     ),
     'topshelfcraft/wordsmith' => 
     array (
