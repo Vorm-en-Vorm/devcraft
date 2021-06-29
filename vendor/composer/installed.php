@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '4160d35ad9d8945e3963e84949f2cdde30b23fa5',
+    'reference' => 'f9ddf67e7e4ee78739fe7910863fc63119c6b9b2',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '4160d35ad9d8945e3963e84949f2cdde30b23fa5',
+      'reference' => 'f9ddf67e7e4ee78739fe7910863fc63119c6b9b2',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -234,15 +234,6 @@
       array (
       ),
       'reference' => 'e864bbf5904cb8f5bb334f99209b48018522f042',
-    ),
-    'dolphiq/sitemap' => 
-    array (
-      'pretty_version' => '1.3.2',
-      'version' => '1.3.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '07666d008319a5b8cbe2bea652ee9b7098e909d1',
     ),
     'egulias/email-validator' => 
     array (
@@ -513,15 +504,6 @@
       array (
       ),
       'reference' => 'fb6ca7977f8a7ebb46aff0183ee868d798f77ab8',
-    ),
-    'jaybizzle/crawler-detect' => 
-    array (
-      'pretty_version' => 'v1.2.106',
-      'version' => '1.2.106.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '78bf6792cbf9c569dc0bf2465481978fd2ed0de9',
     ),
     'justinrainbow/json-schema' => 
     array (

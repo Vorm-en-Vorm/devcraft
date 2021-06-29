@@ -89,10 +89,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             'ether\\seo\\' => 10,
             'enshrined\\svgSanitize\\' => 22,
         ),
-        'd' => 
-        array (
-            'dolphiq\\sitemap\\' => 16,
-        ),
         'c' => 
         array (
             'creocoder\\nestedsets\\' => 21,
@@ -174,7 +170,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             'JsonSchema\\' => 11,
             'JmesPath\\' => 9,
-            'Jaybizzle\\CrawlerDetect\\' => 24,
         ),
         'I' => 
         array (
@@ -365,10 +360,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'enshrined\\svgSanitize\\' => 
         array (
             0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
-        ),
-        'dolphiq\\sitemap\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dolphiq/sitemap/src',
         ),
         'creocoder\\nestedsets\\' => 
         array (
@@ -578,10 +569,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'JmesPath\\' => 
         array (
             0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
-        ),
-        'Jaybizzle\\CrawlerDetect\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src',
         ),
         'Imagine\\' => 
         array (

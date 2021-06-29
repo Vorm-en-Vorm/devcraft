@@ -1,4 +1,4 @@
-dateModified: 1624966440
+dateModified: 1624966876
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
@@ -55,10 +55,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.2.0
-  sitemap:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.2
   super-table:
     edition: standard
     enabled: true

@@ -1,9 +1,11 @@
-<div class="fullwidth-text">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 txt-col">
-                {{ block.tekst }}
+{% if block.tekst | length %}
+    <div class="fullwidth-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 txt-col">
+                    {{ block.tekst }}
+                </div>
             </div>
         </div>
     </div>
-</div>
+{% endif %}
