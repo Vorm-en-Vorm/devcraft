@@ -1,4 +1,4 @@
-dateModified: 1620655788
+dateModified: 1624966170
 email:
   fromEmail: beheer@vormenvorm.nl
   fromName: 'Basis Raaktinvorm'
@@ -12,7 +12,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: JXQHQ7GKXW8L1NI9G11XMFC7
-    schemaVersion: 1.1.8
+    schemaVersion: 1.1.11
     settings:
       ajaxTimeout: 10
       alertEmails: null
@@ -51,10 +51,18 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
   sitemap:
     edition: standard
     enabled: true
     schemaVersion: 1.0.2
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
   typedlinkfield:
     edition: standard
     enabled: true

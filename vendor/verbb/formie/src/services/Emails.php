@@ -280,39 +280,42 @@ class Emails extends Component
             $this->trigger(self::EVENT_BEFORE_SEND_MAIL, $event);
 
             if (!$event->isValid) {
-                $error = Craft::t('formie', 'Notification email for submission "{submission}" was cancelled by Formie.', [
+                $error = Craft::t('formie', 'Notification email “{notification}” for submission “{submission}” was cancelled by Formie.', [
+                    'notification' => $notification->name,
                     'submission' => $submission->id ?? 'new',
                 ]);
 
                 Formie::error($error);
-                Formie::error(Json::encode($this->_serializeEmail($newEmail)));
+                Formie::error('Email payload: ' . Json::encode($this->_serializeEmail($newEmail)));
 
                 return ['error' => $error];
             }
 
             if (!Craft::$app->getMailer()->send($newEmail)) {
-                $error = Craft::t('formie', 'Notification email could not be sent for submission “{submission}”.', [
+                $error = Craft::t('formie', 'Notification email “{notification}” could not be sent for submission “{submission}”. The mailer service failed to send the notification.', [
+                    'notification' => $notification->name,
                     'submission' => $submission->id ?? 'new',
                 ]);
 
                 Formie::error($error);
-                Formie::error(Json::encode($this->_serializeEmail($newEmail)));
+                Formie::error('Email payload: ' . Json::encode($this->_serializeEmail($newEmail)));
 
                 return ['error' => $error];
             }
 
             // Log the sent notification - if enabled
-            Formie::$plugin->getSentNotifications()->saveSentNotification($submission, $newEmail);
+            Formie::$plugin->getSentNotifications()->saveSentNotification($submission, $notification, $newEmail);
         } catch (Throwable $e) {
-            $error = Craft::t('formie', 'Notification email could not be sent for submission “{submission}”. Error: {error} {file}:{line}', [
+            $error = Craft::t('formie', 'Notification email “{notification}” could not be sent for submission “{submission}”. Error: {error} {file}:{line}', [
                 'error' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
+                'notification' => $notification->name,
                 'submission' => $submission->id ?? 'new',
             ]);
 
             Formie::error($error);
-            Formie::error(Json::encode($this->_serializeEmail($newEmail)));
+            Formie::error('Email payload: ' . Json::encode($this->_serializeEmail($newEmail)));
 
             return ['error' => $error];
         }

@@ -50,6 +50,7 @@ mix.js(assetsPath + '/frontend/src/js/fields/text-limit.js', assetsPath + '/fron
 mix.js(assetsPath + '/frontend/src/js/fields/rich-text.js', assetsPath + '/frontend/dist/js/fields');
 mix.js(assetsPath + '/frontend/src/js/fields/conditions.js', assetsPath + '/frontend/dist/js/fields');
 mix.js(assetsPath + '/frontend/src/js/fields/date-picker.js', assetsPath + '/frontend/dist/js/fields');
+mix.js(assetsPath + '/frontend/src/js/fields/hidden.js', assetsPath + '/frontend/dist/js/fields');
 
 
 //
@@ -148,6 +149,9 @@ mix.webpackConfig({
             '@vuedraggable': path.resolve(__dirname, assetsPath + '/forms/src/js/vendor/vuedraggable'),
             '@accessible-tabs': path.resolve(__dirname, assetsPath + '/forms/src/js/vendor/vue-accessible-tabs'),
         }
+    },
+    externals: {
+        vue: 'Vue',
     }
 });
 

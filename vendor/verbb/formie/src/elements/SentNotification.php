@@ -28,6 +28,7 @@ class SentNotification extends Element
     public $title;
     public $formId;
     public $submissionId;
+    public $notificationId;
     public $subject;
     public $to;
     public $cc;
@@ -46,6 +47,7 @@ class SentNotification extends Element
 
     private $_form;
     private $_submission;
+    private $_notification;
 
 
     // Static
@@ -82,7 +84,7 @@ class SentNotification extends Element
     {
         $forms = Form::find()->all();
 
-        $ids = self::_getEditableFormIds();
+        $ids = self::_getAvailableFormIds();
 
         $sources = [
             [
@@ -206,6 +208,18 @@ class SentNotification extends Element
         return $this->_submission;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getNotification()
+    {
+        if (!$this->_notification) {
+            $this->_notification = Formie::$plugin->getNotifications()->getNotificationById($this->notificationId);
+        }
+
+        return $this->_notification;
+    }
+
 
     // Events
     // =========================================================================
@@ -229,6 +243,7 @@ class SentNotification extends Element
         $record->title = $this->title;
         $record->formId = $this->formId;
         $record->submissionId = $this->submissionId;
+        $record->notificationId = $this->notificationId;
         $record->subject = $this->subject;
         $record->to = $this->to;
         $record->cc = $this->cc;
@@ -260,6 +275,8 @@ class SentNotification extends Element
         return [
             'dateCreated' => ['label' => Craft::t('formie', 'Date Sent')],
             'form' => ['label' => Craft::t('formie', 'Form')],
+            'submission' => ['label' => Craft::t('formie', 'Submission')],
+            'notification' => ['label' => Craft::t('formie', 'Email Notification')],
             'to' => ['label' => Craft::t('formie', 'Recipient')],
             'subject' => ['label' => Craft::t('formie', 'Subject')],
             'resend' => ['label' => Craft::t('formie', 'Resend')],
@@ -293,7 +310,11 @@ class SentNotification extends Element
     {
         switch ($attribute) {
             case 'form':
-                return $this->getForm()->title;
+                return $this->getForm()->title ?? '';
+            case 'submission':
+                return $this->getSubmission()->title ?? '';
+            case 'notification':
+                return $this->getNotification()->title ?? '';
             case 'resend':
                 return Html::a(Craft::t('formie', 'Resend'), '#', [
                     'class' => 'btn small formsubmit js-fui-notification-modal-resend-btn',
@@ -301,7 +322,7 @@ class SentNotification extends Element
                     'title' => Craft::t('formie', 'Resend'),
                 ]);
             case 'preview':
-                return StringHelper::safeTruncate($this->body, 50);
+                return $this->body ? StringHelper::safeTruncate($this->body, 50) : '';
             default:
                 return parent::tableAttributeHtml($attribute);
         }
@@ -336,7 +357,7 @@ class SentNotification extends Element
     /**
      * @inheritDoc
      */
-    private static function _getEditableFormIds()
+    private static function _getAvailableFormIds()
     {
         $userSession = Craft::$app->getUser();
 
@@ -349,7 +370,7 @@ class SentNotification extends Element
             ->all();
 
         // Can the user edit _every_ form?
-        if ($userSession->checkPermission('formie-editSubmissions')) {
+        if ($userSession->checkPermission('formie-viewSubmissions')) {
             $editableIds = ArrayHelper::getColumn($formInfo, 'id');
         } else {
             // Find all UIDs the user has permission to

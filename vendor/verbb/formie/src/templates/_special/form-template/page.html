@@ -1,8 +1,10 @@
+{% set currentPage = form.getCurrentPage() %}
+
 {% set attributes = {
     id: "#{form.formId}-p-#{page.id}",
     class: [
         'fui-page',
-        form.hasMultiplePages and form.settings.submitMethod == 'ajax' and page != form.getCurrentPage() ? 'fui-hidden',
+        form.hasMultiplePages and form.settings.submitMethod == 'ajax' and page.id != currentPage.id ? 'fui-hidden',
     ],
     data: {
         index: page.sortOrder,
@@ -21,7 +23,7 @@
         {% endif %}
 
         {% for row in page.getRows(false) %}
-            <div class="fui-row fui-page-row">
+            <div class="fui-row fui-page-row {{ not craft.formie.getVisibleFields(row) ? 'fui-row-empty' }}">
                 {% for field in row.fields %}
                     {{ craft.formie.renderField(form, field, options) }}
                 {% endfor %}

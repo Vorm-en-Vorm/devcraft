@@ -23,8 +23,8 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '7e9bd612cc444b3eed788ebbe46263a0' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/autoload.php',
-        '3e76f7f02b41af8cea96018933f6b7e3' => __DIR__ . '/..' . '/hoa/protocol/Wrapper.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '3e76f7f02b41af8cea96018933f6b7e3' => __DIR__ . '/..' . '/hoa/protocol/Wrapper.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '65380ab4d81167209b0a4fac46641984' => __DIR__ . '/..' . '/voku/arrayy/src/Create.php',
@@ -61,6 +61,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         array (
             'voku\\helper\\' => 12,
             'voku\\' => 5,
+            'verbb\\supertable\\' => 17,
             'verbb\\navigation\\' => 17,
             'verbb\\formie\\' => 13,
             'verbb\\base\\' => 11,
@@ -85,6 +86,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         ),
         'e' => 
         array (
+            'ether\\seo\\' => 10,
             'enshrined\\svgSanitize\\' => 22,
         ),
         'd' => 
@@ -144,6 +146,7 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
             'Psr\\Container\\' => 14,
+            'PhpOption\\' => 10,
         ),
         'O' => 
         array (
@@ -313,6 +316,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
             1 => __DIR__ . '/..' . '/voku/portable-utf8/src/voku',
             2 => __DIR__ . '/..' . '/voku/stop-words/src/voku',
         ),
+        'verbb\\supertable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/verbb/super-table/src',
+        ),
         'verbb\\navigation\\' => 
         array (
             0 => __DIR__ . '/..' . '/verbb/navigation/src',
@@ -350,6 +357,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'libphonenumber\\' => 
         array (
             0 => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src',
+        ),
+        'ether\\seo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ether/seo/src',
         ),
         'enshrined\\svgSanitize\\' => 
         array (
@@ -502,6 +513,10 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PhpOption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
         'Opis\\Closure\\' => 
         array (
@@ -729,10 +744,6 @@ class ComposerStaticInita505485b8042e81a98eea8ed6884600b
         ),
         'P' => 
         array (
-            'PhpOption\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
-            ),
             'ParsedownExtra' => 
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown-extra',

@@ -1,5 +1,81 @@
 # Changelog
 
+## 1.4.7 - 2021-06-19
+
+### Added
+- Added more logging for mailer-based errors for failed email notifications.
+
+### Fixed
+- Potential fix for Google Sheets not inserting into correct columns in some instances.
+- Fixed minor alignment for field mapping table text.
+- Fixed Google Sheets integration not working correctly when switching between multiple sheets. Please ensure you refresh your form integration settings.
+- Fixed a JS error for client-side validation when using custom form rendering.
+
+## 1.4.6 - 2021-06-13
+
+### Added
+- Added extra logging output for failed field email rendering.
+- Added “Submission” column to sent notifications index.
+- Added “Email Notification Name” column to sent notifications index.
+- Added `notificationId` to a sent notification, ensuring we keep track of when notification was sent.
+- Added name of email notification to logging when sending fails.
+- Editing a field in the form builder now shows its field type.
+
+### Changed
+- Update some UI elements to better fit CP UI colours.
+- Changed User element integrations to import new users as pending.
+- Changed `formie-manageForms` permission to `formie-viewForms`.
+- Allow `fieldNamespace` form render setting to be `false` to exclude the default `fields` namespace for input name attributes.
+
+### Fixed
+- Fixed being able to remove static table field rows in front-end forms.
+- Fixed table field dropdown columns not having their options saved for brand-new table fields.
+- Fixed table fields not getting the correct defaults when adding new columns.
+- Fixed an error when viewing a preview of a sent notification, in some cases.
+- Fixed Google Sheets integration not working correctly.
+- Fixed an error when trying to disconnect from a OAuth-based integration.
+- Fixed field conditions not working correctly, when an entire page is conditionally hidden.
+- Fixed conditionally hidden fields having custom validation rules triggered, when they shouldn’t be validated at all.
+- Fixed an error when Phone fields are conditionally hidden, and required.
+- Fixed namespace issue (due to new `{% script %}` tag) for Repeater and Table fields.
+- Fixed an error for table field rows.
+- Fixed Table and Repeater fields by switching back row templates to `script` but still works properly with Vue3 (the original issue).
+- Fixed requiring edit permissions to select forms/submissions from fields in entries.
+- Fixed an error of Dropdown fields where toggling “Allow Multiple” would produce an error.
+- Fixed some fields with hidden labels rendering a hidden `<legend>` element twice.
+- Fixed exporting Repeater/Table fields not working correctly when submissions had variations in the rows.
+
+## 1.4.5 - 2021-05-30
+
+### Added
+- Added `fui-row-empty` class to rows that only have hidden fields.
+- Added `craft.formie.getVisibleFields()` to return the number of non-hidden fields for a given row.
+- Added “All” checkbox option when migrating Sprout Forms of Freeform forms.
+- Added `formiePluginInclude()` twig function to allow including stock Formie form templates.
+- Added ability to set a cookie value to the default value of a hidden field.
+- Added GDPR marketing permissions to Mailchimp email marketing integration.
+
+### Changed
+- Moved `data-conditionally-hidden` styles to core CSS (rather than theme CSS).
+- Moved layout styles for form buttons to core CSS, rather than theme CSS. Opinionated styles still kept in theme.
+- HTML fields now have their label set as hidden by default.
+- Updated file upload file location instruction text.
+
+### Fixed
+- Fixed an error when trying to save sent notifications, where `body` and `htmlBody` were more than 64kb.
+- Fixed Recipients field values not populating `Single/MultiOptionFieldData`, providing access to option labels and values.
+- Fixed File Upload exports not exporting the filename of an asset, when `Assets in this volume have public URLs` setting was turned off for a volume.
+- Fixed template layout error when changing the form template for a form.
+- Fixed sprout forms migration for HTML and Section fields, where their label was hidden.
+- Fixed sprout forms migration showing the incorrect number of notifications to migrate.
+- Fixed some breadcrumb links in settings pages.
+- Fixed HubSpot multiple checkbox fields not having their values prepared correctly.
+- Fixed HubSpot single checkbox fields not having their value prepared correctly.
+- Fixed HubSpot integration not assigning correct field mapping types for single checkbox and date fields (from HubSpot).
+- Fixed reCAPTCHA errors when Theme JS is disabled.
+- Fixed potential error in page-compare templates for ajax-based forms, for PHP 7.4+.
+- Removed duplicate Vue dependancy, causing some conflicts with other plugins using Vue.
+
 ## 1.4.4 - 2021-05-10
 
 ### Added

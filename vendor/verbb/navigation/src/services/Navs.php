@@ -19,6 +19,7 @@ use craft\helpers\Db;
 use craft\helpers\Json;
 use craft\helpers\StringHelper;
 use craft\models\Structure;
+use craft\queue\jobs\ResaveElements;
 
 use yii\web\UserEvent;
 
@@ -270,31 +271,66 @@ class Navs extends Component
 
         // Have we changed the propagation method?
         if ($oldRecord->propagateNodes !== $navRecord->propagateNodes) {
+            $elementsService = Craft::$app->getElements();
+            $nodesToDelete = [];
+
             // If we've turned off propagating, we need to propagate nodes
-            // For turning on, that's a little more complicated...
-            $turnOffPropagation = $navRecord->propagateNodes === 0;
-            
-            if ($turnOffPropagation) {
-                $oldPrimarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
+            if (!$navRecord->propagateNodes && $oldRecord->propagateNodes) {
+                $primarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
                 $nav = $this->getNavById($navRecord->id);
 
-                $nodes = Node::find()->navId($navRecord->id)->siteId('*')->all();
+                $nodes = Node::find()
+                    ->navId($navRecord->id)
+                    ->siteId($primarySiteId)
+                    ->level(1)
+                    ->orderBy(['structureelements.lft' => SORT_ASC])
+                    ->all();
 
-                foreach ($nodes as $key => $node) {
-                    // We're creating brand-new, un-linked elements here
-                    $node->id = null;
+                foreach ($nav->getEditableSites() as $site) {
+                    // If we try and propagate nodes to another site's nav, which already
+                    // has nodes, we'll get duplicates. As there's no real way to compare
+                    // propagated and non-propagated nodes (effectively), we need to wipe all
+                    // other enabled nav nodes first, before duplicating.
+                    $existingNodes = Node::find()->siteId($site->id)->all();
 
-                    Craft::$app->getElements()->saveElement($node, false, false);
-
-                    // Ensure we retain structure element info
-                    if (!$node->getParent()) {
-                        Craft::$app->getStructures()->appendToRoot($nav->structureId, $node);
-                    } else {
-                        Craft::$app->getStructures()->append($nav->structureId, $node, $node->getParent());
+                    // But, we need to wait for all navigations to finish, before deleting.
+                    // Otherwise, we'll delete a node in one site navigation, and because we've
+                    // set to propagate, it'll delete it from all other navs instantly.
+                    foreach ($existingNodes as $existingNode) {
+                        $nodesToDelete[] = $existingNode;
                     }
+
+                    $this->_duplicateElements($nodes, ['siteId' => $site->id]);
                 }
             } else {
                 // Do nothing for now, until we figure out the best way to handle it...
+            }
+
+            foreach ($nodesToDelete as $nodeToDelete) {
+                $elementsService->deleteElement($nodeToDelete);
+            }
+        }
+
+        // When enabling/disabling sites
+        if (Craft::$app->getIsMultiSite()) {
+            // Has the sites been changed?
+            $oldSiteSettings = Json::decode($oldRecord->siteSettings);
+            $newSiteSettings = Json::decode($navRecord->siteSettings);
+
+            // Removed sites
+            foreach ($oldSiteSettings as $key => $value) {
+                if (!isset($newSiteSettings[$key])) {
+                    // Nothing for now
+                }
+            }
+
+            // Added sites
+            foreach ($newSiteSettings as $key => $value) {
+                if (!isset($oldSiteSettings[$key])) {
+                    $siteId = Db::idByUid(Table::SITES, $key);
+
+                    $this->resaveNodesForSite($navRecord, $siteId);
+                }
             }
         }
 
@@ -474,6 +510,37 @@ class Navs extends Component
         return $tabs;
     }
 
+    public function resaveNodesForSite($nav, $siteId)
+    {
+        $primarySiteId = Craft::$app->getSites()->getPrimarySite()->id;
+
+        // Only propagate nodes if we want to for the nav
+        if ($nav->propagateNodes) {
+            $nodes = [];
+
+            foreach (Node::find()->navId($nav->id)->siteId($primarySiteId)->all() as $node) {
+                $nodes[] = $node->id;
+            }
+
+            Craft::$app->getQueue()->push(new ResaveElements([
+                'elementType' => Node::class,
+                'criteria' => [
+                    'id' => $nodes,
+                ]
+            ]));
+        } else {
+            // Duplicate existing elements
+            $nodes = Node::find()
+                ->navId($nav->id)
+                ->siteId($primarySiteId)
+                ->level(1)
+                ->orderBy(['structureelements.lft' => SORT_ASC])
+                ->all();
+
+            $this->_duplicateElements($nodes, ['siteId' => $siteId]);
+        }
+    }
+
 
     // Private Methods
     // =========================================================================
@@ -516,4 +583,29 @@ class Navs extends Component
         return $query->one() ?? new NavRecord();
     }
 
+    private function _duplicateElements($elements, $newAttributes = [], &$duplicatedElementIds = [], $newParent = null)
+    {
+        $elementsService = Craft::$app->getElements();
+        $structuresService = Craft::$app->getStructures();
+
+        foreach ($elements as $element) {
+            // Make sure this element wasn't already duplicated, which could
+            // happen if it's the descendant of a previously duplicated element
+            // and $this->deep == true.
+            if (isset($duplicatedElementIds[$element->id])) {
+                continue;
+            }
+
+            $duplicate = $elementsService->duplicateElement($element, $newAttributes);
+            $duplicatedElementIds[$element->id] = true;
+
+            if ($newParent) {
+                // Append it to the duplicate of $element's parent
+                $structuresService->append($element->structureId, $duplicate, $newParent);
+            }
+            
+            $children = $element->getChildren()->anyStatus()->all();
+            $this->_duplicateElements($children, $newAttributes, $duplicatedElementIds, $duplicate);
+        }
+    }
 }

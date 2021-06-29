@@ -170,7 +170,8 @@ class GoogleSheets extends Miscellaneous
         try {
             $spreadsheet = $this->request('GET', '');
             $allSheets = $spreadsheet['sheets'] ?? [];
-            $sheets = [];
+            $columns = [];
+            $savedColumns = [];
 
             foreach ($allSheets as $key => $sheet) {
                 $response = $this->request('GET', "values/'{$sheet['properties']['title']}'!A1:ZZZ1", [
@@ -180,7 +181,7 @@ class GoogleSheets extends Miscellaneous
                 $allColumns = $response['values'][0] ?? [];
 
                 // Save this for later, we need to when sending
-                $savedColumns = $allColumns;
+                $savedColumns[$sheet['properties']['title']] = $allColumns;
 
                 // But we want to only show columns with a header to map
                 $allColumns = array_filter($allColumns);
@@ -221,8 +222,11 @@ class GoogleSheets extends Miscellaneous
             $fieldValues = $this->getFieldMappingValues($submission, $this->fieldMapping);
 
             // Fetch the columns from our private stash
-            $columns = $this->getFormSettings()['columns'] ?? [];
+            $columns = $this->getFormSettings()->collections['columns'][$this->sheetId] ?? [];
             $rowValues = [];
+
+            // Just in case...
+            $columns = array_values(array_filter($columns));
 
             foreach ($columns as $key => $column) {
                 $rowValues[$key] = $fieldValues[$column] ?? '';
@@ -232,9 +236,11 @@ class GoogleSheets extends Miscellaneous
                 'values' => [$rowValues],
             ];
 
-            $range = "'{$this->sheetId}'";
+            // Statically set the first column to determine where to start our range. Google will sometimes set the
+            // 'table' of content to be incorrect, if there are gaps in columns. Here, we account for that.
+            $range = "'{$this->sheetId}'!A1";
 
-            $response = $this->deliverPayload($submission, "values/{$range}:append?valueInputOption=RAW", $payload);
+            $response = $this->deliverPayload($submission, "values/{$range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS", $payload);
 
             if ($response === false) {
                 return true;

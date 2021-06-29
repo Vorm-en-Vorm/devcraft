@@ -21,6 +21,63 @@ return array (
     'developerEmail' => 'support@craftcms.com',
     'documentationUrl' => 'https://github.com/craftcms/aws-s3/blob/master/README.md',
   ),
+  'craftcms/redactor' => 
+  array (
+    'class' => 'craft\\redactor\\Plugin',
+    'basePath' => $vendorDir . '/craftcms/redactor/src',
+    'handle' => 'redactor',
+    'aliases' => 
+    array (
+      '@craft/redactor' => $vendorDir . '/craftcms/redactor/src',
+    ),
+    'name' => 'Redactor',
+    'version' => '2.8.7',
+    'description' => 'Edit rich text content in Craft CMS using Redactor by Imperavi.',
+    'developer' => 'Pixel & Tonic',
+    'developerUrl' => 'https://pixelandtonic.com/',
+    'developerEmail' => 'support@craftcms.com',
+    'documentationUrl' => 'https://github.com/craftcms/redactor/blob/v2/README.md',
+  ),
+  'dolphiq/sitemap' => 
+  array (
+    'class' => 'dolphiq\\sitemap\\Sitemap',
+    'basePath' => $vendorDir . '/dolphiq/sitemap/src',
+    'handle' => 'sitemap',
+    'aliases' => 
+    array (
+      '@dolphiq/sitemap' => $vendorDir . '/dolphiq/sitemap/src',
+    ),
+    'name' => 'XML Sitemap',
+    'version' => '1.3.2',
+    'schemaVersion' => '1.0.2',
+    'description' => 'Craft 3 plugin that provides an easy way to provide and manage a XML sitemap for search engines like Google and Bing',
+    'developer' => 'Dolphiq',
+    'developerUrl' => 'https://dolphiq.nl/',
+    'documentationUrl' => 'https://github.com/Dolphiq/craft3-plugin-sitemap/blob/master/README.md',
+    'changelogUrl' => 'https://github.com/Dolphiq/craft3-plugin-sitemap/blob/master/CHANGELOG.md',
+    'hasCpSettings' => true,
+    'hasCpSection' => false,
+    'components' => 
+    array (
+      'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
+    ),
+  ),
+  'ether/seo' => 
+  array (
+    'class' => 'ether\\seo\\Seo',
+    'basePath' => $vendorDir . '/ether/seo/src',
+    'handle' => 'seo',
+    'aliases' => 
+    array (
+      '@ether/seo' => $vendorDir . '/ether/seo/src',
+    ),
+    'name' => 'SEO',
+    'version' => '3.7.4',
+    'description' => 'SEO utilities including a unique field type, sitemap, & redirect manager',
+    'developer' => 'Ether Creative',
+    'developerUrl' => 'https://ethercreative.co.uk',
+    'documentationUrl' => 'https://github.com/ethercreative/seo/blob/v3/README.md',
+  ),
   'sebastianlenz/linkfield' => 
   array (
     'class' => 'typedlinkfield\\Plugin',
@@ -54,46 +111,23 @@ return array (
     'documentationUrl' => 'https://wordsmith.docs.topshelfcraft.com/',
     'changelogUrl' => 'https://raw.githubusercontent.com/topshelfcraft/wordsmith/master/CHANGELOG.md',
   ),
-  'dolphiq/sitemap' => 
+  'verbb/super-table' => 
   array (
-    'class' => 'dolphiq\\sitemap\\Sitemap',
-    'basePath' => $vendorDir . '/dolphiq/sitemap/src',
-    'handle' => 'sitemap',
+    'class' => 'verbb\\supertable\\SuperTable',
+    'basePath' => $vendorDir . '/verbb/super-table/src',
+    'handle' => 'super-table',
     'aliases' => 
     array (
-      '@dolphiq/sitemap' => $vendorDir . '/dolphiq/sitemap/src',
+      '@verbb/supertable' => $vendorDir . '/verbb/super-table/src',
     ),
-    'name' => 'XML Sitemap',
-    'version' => '1.3.2',
-    'schemaVersion' => '1.0.2',
-    'description' => 'Craft 3 plugin that provides an easy way to provide and manage a XML sitemap for search engines like Google and Bing',
-    'developer' => 'Dolphiq',
-    'developerUrl' => 'https://dolphiq.nl/',
-    'documentationUrl' => 'https://github.com/Dolphiq/craft3-plugin-sitemap/blob/master/README.md',
-    'changelogUrl' => 'https://github.com/Dolphiq/craft3-plugin-sitemap/blob/master/CHANGELOG.md',
-    'hasCpSettings' => true,
-    'hasCpSection' => false,
-    'components' => 
-    array (
-      'sitemapService' => 'dolphiq\\sitemap\\services\\SitemapService',
-    ),
-  ),
-  'craftcms/redactor' => 
-  array (
-    'class' => 'craft\\redactor\\Plugin',
-    'basePath' => $vendorDir . '/craftcms/redactor/src',
-    'handle' => 'redactor',
-    'aliases' => 
-    array (
-      '@craft/redactor' => $vendorDir . '/craftcms/redactor/src',
-    ),
-    'name' => 'Redactor',
-    'version' => '2.8.7',
-    'description' => 'Edit rich text content in Craft CMS using Redactor by Imperavi.',
-    'developer' => 'Pixel & Tonic',
-    'developerUrl' => 'https://pixelandtonic.com/',
-    'developerEmail' => 'support@craftcms.com',
-    'documentationUrl' => 'https://github.com/craftcms/redactor/blob/v2/README.md',
+    'name' => 'Super Table',
+    'version' => '2.6.8',
+    'description' => 'Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.',
+    'developer' => 'Verbb',
+    'developerUrl' => 'https://verbb.io',
+    'developerEmail' => 'support@verbb.io',
+    'documentationUrl' => 'https://github.com/verbb/super-table',
+    'changelogUrl' => 'https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md',
   ),
   'verbb/navigation' => 
   array (
@@ -105,7 +139,7 @@ return array (
       '@verbb/navigation' => $vendorDir . '/verbb/navigation/src',
     ),
     'name' => 'Navigation',
-    'version' => '1.4.16',
+    'version' => '1.4.18',
     'description' => 'A Craft CMS plugin to create navigation menus for your site.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',
@@ -123,7 +157,7 @@ return array (
       '@verbb/formie' => $vendorDir . '/verbb/formie/src',
     ),
     'name' => 'Formie',
-    'version' => '1.4.4',
+    'version' => '1.4.7',
     'description' => 'The most user-friendly forms plugin for Craft.',
     'developer' => 'Verbb',
     'developerUrl' => 'https://verbb.io',

@@ -17,6 +17,15 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 50c31861-9069-49af-9d95-fc8a1086be88 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true
@@ -37,24 +46,6 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\EntryTitleField
-            warning: null
-            width: 100
-          -
-            fieldUid: 66f2a356-452a-4990-9704-8c0c3b914b31
-            instructions: 'Hier plaats je een handleiding voor dit veld'
-            label: ''
-            required: ''
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 95a5a802-87c8-46a8-b7dd-5784f30fa86e
-            instructions: ''
-            label: ''
-            required: ''
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
         name: SEO

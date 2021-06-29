@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.4.18 - 2021-06-20
+
+### Fixed
+- Fix when turning off node propagation, duplicate nodes would occur.
+- Fix when turning off node propagation, the node hierarchy and order would be incorrect.
+- Fix nodes not propagating correctly when a navigation was turned on. Nodes should only be duplicated when turned **off**.
+
+## 1.4.17 - 2021-06-05
+
+### Changed
+- Improve query performance for large sites (with a large project config). Typically a 50-70% improvement in rendering speed.
+
+### Fixed
+- Fix `navHandle` and `navName` for GraphQL producing errors.
+
 ## 1.4.16 - 2021-05-08
 
 ### Added

@@ -34,7 +34,7 @@ class FormsController extends Controller
      */
     public function init()
     {
-        $this->requirePermission('formie-manageForms');
+        $this->requirePermission('formie-viewForms');
 
         parent::init();
     }
@@ -352,6 +352,9 @@ class FormsController extends Controller
                 ];
             }
         }
+
+        // Ensure the appearance tab is selected
+        $variables['selectedTab'] = '1';
 
         $tabsHtml = $view->renderTemplate('_includes/tabs', $variables);
         $positionsHtml = $view->renderTemplate('formie/forms/_panes/_positions', $variables);

@@ -52,7 +52,7 @@ fields:
       previewMode: full
       restrictFiles: ''
       selectionLabel: 'Voeg een afbeelding toe'
-      showSiteMenu: false
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:fec35df0-28e8-4c43-a351-739f588f7de7'
@@ -76,7 +76,16 @@ fields:
     name: 'Vimeo video'
     searchable: false
     settings:
-      contentTable: '{{%stc_vimeovideo}}'
+      columns:
+        __assoc__:
+          -
+            - cdeeaf65-65f5-43a3-8bf9-a54b7f0fa69b # Vimeo video ID
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_2_vimeovideo}}'
       fieldLayout: matrix
       maxRows: '1'
       minRows: ''
@@ -95,7 +104,16 @@ fields:
     name: 'Youtube Video'
     searchable: false
     settings:
-      contentTable: '{{%stc_youtubevideo}}'
+      columns:
+        __assoc__:
+          -
+            - a471f727-b009-4fe4-95b0-3ed456565f38 # Youtube video ID
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_2_youtubevideo}}'
       fieldLayout: matrix
       maxRows: '1'
       minRows: ''

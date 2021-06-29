@@ -78,6 +78,7 @@ class Submission extends Element
     private $_fieldLayout;
     private $_fieldContext;
     private $_contentTable;
+    private $_pagesForField;
 
 
     // Static
@@ -212,7 +213,7 @@ class Submission extends Element
                     list($attribute, $validator) = $rule;
                     $attribute = is_array($attribute) ? $attribute[0] : $attribute;
 
-                    if ($attribute === "field:{$field->handle}" && $validator === 'required') {
+                    if ($attribute === "field:{$field->handle}") {
                         // If this field is conditionally hidden, remove it from validation
                         if ($field->isConditionallyHidden($this)) {
                             unset($rules[$key]);
@@ -232,7 +233,7 @@ class Submission extends Element
                     list($attribute, $validator) = $rule;
                     $attribute = is_array($attribute) ? $attribute[0] : $attribute;
 
-                    if ($attribute === "field:{$field->handle}" && $validator === 'required') {
+                    if ($attribute === "field:{$field->handle}") {
                         $rule['message'] = $field->errorMessage;
                         break;
                     }
@@ -261,7 +262,7 @@ class Submission extends Element
     {
         $forms = Form::find()->all();
 
-        $ids = self::_getEditableFormIds();
+        $ids = self::_getAvailableFormIds();
 
         $sources = [
             [
@@ -689,6 +690,28 @@ class Submission extends Element
     /**
      * @inheritdoc
      */
+    public function getFieldPages()
+    {
+        if ($this->_pagesForField) {
+            return $this->_pagesForField;
+        }
+
+        $this->_pagesForField = [];
+
+        if ($fieldLayout = $this->getForm()->getFormFieldLayout()) {
+            foreach ($fieldLayout->getPages() as $page) {
+                foreach ($page->getFields() as $field) {
+                    $this->_pagesForField[$field->handle] = $page;
+                }
+            }
+        }
+
+        return $this->_pagesForField;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getRelations()
     {
         return Formie::$plugin->getRelations()->getRelations($this);
@@ -934,7 +957,7 @@ class Submission extends Element
     /**
      * @inheritDoc
      */
-    private static function _getEditableFormIds()
+    private static function _getAvailableFormIds()
     {
         $userSession = Craft::$app->getUser();
 
@@ -947,7 +970,7 @@ class Submission extends Element
             ->all();
 
         // Can the user edit _every_ form?
-        if ($userSession->checkPermission('formie-editSubmissions')) {
+        if ($userSession->checkPermission('formie-viewSubmissions')) {
             $editableIds = ArrayHelper::getColumn($formInfo, 'id');
         } else {
             // Find all UIDs the user has permission to

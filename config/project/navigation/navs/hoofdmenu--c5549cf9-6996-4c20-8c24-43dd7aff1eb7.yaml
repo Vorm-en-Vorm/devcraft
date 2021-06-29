@@ -18,7 +18,7 @@ permissions:
   custom:
     enabled: '1'
   verbb\navigation\nodetypes\PassiveType:
-    enabled: '1'
+    enabled: ''
 propagateNodes: false
 siteSettings:
   e09dcfda-5dae-4bd5-92ee-a0461898e1ef: null

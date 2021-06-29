@@ -7,6 +7,7 @@ use verbb\formie\elements\Form;
 use verbb\formie\elements\Submission;
 use verbb\formie\errors\IntegrationException;
 use verbb\formie\events\SendIntegrationPayloadEvent;
+use verbb\formie\events\ParseMappedFieldValueEvent;
 use verbb\formie\models\IntegrationCollection;
 use verbb\formie\models\IntegrationField;
 use verbb\formie\models\IntegrationFormSettings;
@@ -15,6 +16,8 @@ use Craft;
 use craft\helpers\ArrayHelper;
 use craft\helpers\Json;
 use craft\web\View;
+
+use yii\base\Event;
 
 class HubSpot extends Crm
 {
@@ -35,6 +38,37 @@ class HubSpot extends Crm
 
     // Public Methods
     // =========================================================================
+    
+    /**
+     * @inheritDoc
+     */
+    public function init()
+    {
+        parent::init();
+
+        Event::on(self::class, self::EVENT_PARSE_MAPPED_FIELD_VALUE, function(ParseMappedFieldValueEvent $event) {
+            // Special handling for single checkbox boolean fields for HubSpot
+            if ($event->integrationField->getType() === IntegrationField::TYPE_BOOLEAN) {
+                // If a non-plain value, and the field doesn't implement a __toString, can't reliably serialize it...
+                if (is_array($event->value) || (is_object($event->value) && !method_exists($event->value, '__toString'))) {
+                    $event->value = false;
+                } else {
+                    $event->value = (bool)$event->value;
+                }
+
+                // HubSpot needs this as a string value.
+                $event->value = ($event->value === true) ? 'true' : 'false';
+                $event->handled = true;
+            }
+
+            // Special handling for arrays for checkboxes
+            if ($event->integrationField->getType() === IntegrationField::TYPE_ARRAY) {
+                $event->value = (is_array($event->value)) ? $event->value : [$event->value];
+                $event->value = implode(';', $event->value);
+                $event->handled = true;
+            }
+        });
+    }
 
     /**
      * @inheritDoc
@@ -400,7 +434,9 @@ class HubSpot extends Crm
     private function _convertFieldType($fieldType)
     {
         $fieldTypes = [
-            'bool' => IntegrationField::TYPE_BOOLEAN,
+            'checkbox' => IntegrationField::TYPE_ARRAY,
+            'booleancheckbox' => IntegrationField::TYPE_BOOLEAN,
+            'date' => IntegrationField::TYPE_DATE,
             'number' => IntegrationField::TYPE_NUMBER,
         ];
 
@@ -464,7 +500,7 @@ class HubSpot extends Crm
             $customFields[] = new IntegrationField([
                 'handle' => $field['name'],
                 'name' => $field['label'],
-                'type' => $this->_convertFieldType($field['type']),
+                'type' => $this->_convertFieldType($field['fieldType']),
                 'options' => $options,
             ]);
         }
