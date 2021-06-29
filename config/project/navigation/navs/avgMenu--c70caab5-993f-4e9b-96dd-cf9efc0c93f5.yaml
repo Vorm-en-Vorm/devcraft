@@ -1,0 +1,28 @@
+handle: avgMenu
+instructions: ''
+maxNodes: ''
+name: 'AVG Menu'
+permissions:
+  craft\elements\Asset:
+    enabled: ''
+    permissions: '*'
+  craft\elements\Category:
+    enabled: ''
+    permissions: '*'
+  craft\elements\Entry:
+    enabled: '1'
+    permissions: '*'
+  craft\elements\Tag:
+    enabled: ''
+    permissions: '*'
+  custom:
+    enabled: '1'
+  verbb\navigation\nodetypes\PassiveType:
+    enabled: ''
+propagateNodes: false
+siteSettings:
+  e09dcfda-5dae-4bd5-92ee-a0461898e1ef: null
+sortOrder: 2
+structure:
+  maxLevels: '1'
+  uid: 973f7876-a1fa-4851-bb18-cb88280b6771

@@ -34,6 +34,12 @@
         <link rel="stylesheet" href="{{ siteUrl }}lib/css/main.min.css" />
         <link rel="stylesheet" href="{{ siteUrl }}lib/css/style.min.css" />
         <!-- Google Analytics -->
+        {% set env = getenv('ENVIRONMENT') %}
+		{% if env == 'production' %}
+
+        <!-- Hier analytics code plaatsen -->
+
+        {% endif %}
 
     </head>
     <body class="{% if entry is defined %}page-{{entry.id}} type-{{entry.type}} {{entry.slug}} {% else %}error404{% endif %} {{ currentSite.name }}">
