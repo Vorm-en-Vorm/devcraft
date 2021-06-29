@@ -1,0 +1,26 @@
+enableVersioning: true
+handle: paginas
+name: 'Pagina''s'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primaire invoer-pagina'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  e09dcfda-5dae-4bd5-92ee-a0461898e1ef:
+    enabledByDefault: true
+    hasUrls: true
+    template: pages\content
+    uriFormat: '{slug}'
+structure:
+  maxLevels: null
+  uid: 5d0723df-89cd-4c4c-9b6e-ff01335fb7e2
+type: structure
